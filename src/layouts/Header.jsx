@@ -26,7 +26,7 @@ export default function Header() {
 
   return (
     <header
-      className="site-header sticky top-0 z-50 transition-all duration-300 px-4"
+      className="site-header  sticky top-2 z-50 transition-all duration-300 px-4"
       role="banner"
     >
       <div className="mx-auto max-w-[72rem]">

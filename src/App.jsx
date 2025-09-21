@@ -11,7 +11,6 @@ const App = () => {
   return (
     <ThemeProvider>
       <RootLayout>
-        <Header />
         <Home />
         <Footer />
       </RootLayout>
