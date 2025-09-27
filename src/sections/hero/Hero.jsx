@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import CopilotModel from "../../components/3dModels/Model"; // Adjust path if needed
+import CopilotLikeModel from "../../components/3dModels/CopilotLikeModel";
 
 export default function Hero() {
   const [typedText, setTypedText] = useState("");
@@ -57,16 +57,48 @@ export default function Hero() {
             </pre>
           </div>
 
-          {/* 3D Model positioned above terminal's top right corner */}
-          <div className="absolute -top-30 -right-30 w-60 h-100 z-10">
+          {/* 3D Model positioned responsively */}
+          <div
+            className="absolute -top-40 -right-32 w-96 h-96 z-10 
+                          lg:-top-36 lg:-right-28 lg:w-80 lg:h-80
+                          md:-top-28 md:-right-24 md:w-72 md:h-72
+                          sm:-top-20 sm:-right-16 sm:w-56 sm:h-56
+                          hidden sm:block"
+          >
             <Canvas
-              camera={{ position: [1, 0, 5], fov: 45 }}
-              style={{ pointerEvents: "none" }}
+              camera={{ position: [0, 0, 5], fov: 45 }} // Increased position Z and reduced FOV for better framing
+              style={{ pointerEvents: "auto" }}
+              shadows
             >
-              <ambientLight intensity={1.8} />
-              <directionalLight position={[10, 10, 5]} intensity={1.2} />
-              <pointLight position={[-5, 5, 5]} intensity={0.5} />
-              <CopilotModel />
+              {/* Improved lighting setup */}
+              <ambientLight intensity={0.6} />
+              <directionalLight
+                position={[10, 10, 5]}
+                intensity={1}
+                castShadow
+                shadow-mapSize-width={1024}
+                shadow-mapSize-height={1024}
+              />
+              <pointLight
+                position={[-5, 5, 5]}
+                intensity={0.8}
+                color="#ffffff"
+              />
+              <pointLight
+                position={[5, -5, -5]}
+                intensity={0.4}
+                color="#64748b"
+              />
+              {/* Rim lighting for better definition */}
+              <directionalLight
+                position={[-5, 5, -5]}
+                intensity={0.3}
+                color="#3b82f6"
+              />
+              <CopilotLikeModel
+                position={[0, 0, 0]}
+                scale={0.7} // Slightly reduced scale to fit better in larger canvas
+              />
             </Canvas>
           </div>
         </div>
