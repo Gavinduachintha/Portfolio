@@ -3,6 +3,8 @@ import { Github, Menu, X } from "lucide-react";
 import Logo from "../components/common/Logo.jsx";
 import ThemeToggle from "../components/common/ThemeToggle.jsx";
 import { siteConfig } from "../config/site.config.js";
+import toast from 'react-hot-toast';
+
 
 export default function Header() {
   const [open, setOpen] = useState(false);

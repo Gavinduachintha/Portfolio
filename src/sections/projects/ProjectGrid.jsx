@@ -3,17 +3,20 @@ import Card from "../../components/ui/Card.jsx";
 
 export default function ProjectGrid() {
   return (
-    <section className="py-12">
-      <div className="mx-auto max-w-[72rem] px-4 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((p) => (
-          <Card
-            key={p.slug}
-            title={p.title}
-            description={p.summary}
-            as="a"
-            href={p.url}
-          />
-        ))}
+    <section className="py-12 px-4">
+      <div className="mx-auto max-w-[72rem]">
+        <div className="flex flex-col gap-6">
+          {projects.map((p) => (
+            <Card
+              key={p.slug}
+              title={p.title}
+              description={p.summary}
+              image={p.image}
+              as="a"
+              href={p.url}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

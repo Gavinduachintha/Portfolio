@@ -7,6 +7,8 @@ const projects = [
     url: "#",
     tags: ["React", "UI/UX"],
     year: 2025,
+    image: "src\assets\images\looma.png", // Add image URL here
   },
 ];
 export default projects;
+
