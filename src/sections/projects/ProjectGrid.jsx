@@ -36,10 +36,10 @@ export default function ProjectGrid() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#3ECF8E] dark:text-[#3ECF8E]">
             Featured Projects
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-neutral-600 dark:text-neutral-400 text-lg max-w-2xl mx-auto">
             Explore my latest work and side projects. Each project represents a
             unique challenge and learning experience.
           </p>
@@ -79,10 +79,10 @@ export default function ProjectGrid() {
             className="text-center py-20"
           >
             <div className="text-6xl mb-4">🚧</div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            <h3 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
               Projects Coming Soon
             </h3>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-neutral-600 dark:text-neutral-400">
               I'm working on some exciting projects. Check back soon!
             </p>
           </motion.div>

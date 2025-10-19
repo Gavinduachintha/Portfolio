@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { Github, Menu, X } from "lucide-react";
 import Logo from "../components/common/Logo.jsx";
 import ThemeToggle from "../components/common/ThemeToggle.jsx";
 import { siteConfig } from "../config/site.config.js";
-import toast from "react-hot-toast";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 2);
@@ -27,13 +25,48 @@ export default function Header() {
     }
   }, [open]);
 
-  // Close mobile menu on route change
+  // Track active section on scroll
   useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "projects", "about", "contact"];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 80; // Account for fixed header
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
     setOpen(false);
-  }, [location]);
+  };
 
   const isActive = (path) => {
-    return location.pathname === path;
+    return activeSection === path;
   };
 
   return (
@@ -45,14 +78,17 @@ export default function Header() {
         <div
           className={`h-16 flex items-center justify-between px-4 rounded-full transition-all duration-300 ${
             scrolled
-              ? "backdrop-blur-xl bg-white/60 dark:bg-black/30 shadow-lg"
-              : "backdrop-blur-lg bg-white/20 dark:bg-black/10 shadow-sm"
+              ? "backdrop-blur-xl bg-white/70 dark:bg-neutral-900/60 shadow-lg border border-neutral-200/50 dark:border-neutral-800/50"
+              : "backdrop-blur-lg bg-white/30 dark:bg-neutral-900/20 shadow-sm border border-transparent"
           }`}
         >
           {/* Logo */}
-          <Link to="/">
+          <button
+            onClick={() => scrollToSection("home")}
+            className="cursor-pointer"
+          >
             <Logo text={siteConfig.name} />
-          </Link>
+          </button>
 
           {/* Desktop Nav */}
           <nav
@@ -63,16 +99,16 @@ export default function Header() {
             <ul className="flex items-center gap-6">
               {siteConfig.navigation.map((item) => (
                 <li key={item.path}>
-                  <Link
-                    to={item.path}
+                  <button
+                    onClick={() => scrollToSection(item.path)}
                     className={`relative text-sm font-medium transition-all duration-300 ${
                       isActive(item.path)
-                        ? "text-blue-600 dark:text-blue-400 after:w-full"
-                        : "text-neutral-800 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-white after:w-0 hover:after:w-full"
-                    } after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-blue-600 dark:after:bg-blue-400 after:transition-all after:duration-300`}
+                        ? "text-[#3ECF8E] dark:text-[#3ECF8E] after:w-full"
+                        : "text-neutral-800 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100 after:w-0 hover:after:w-full"
+                    } after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-[#3ECF8E] dark:after:bg-[#3ECF8E] after:transition-all after:duration-300`}
                   >
                     {item.label}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -82,7 +118,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             {siteConfig?.social?.github && (
               <a
-                className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-neutral-300/60 dark:border-neutral-700/60 bg-white/30 dark:bg-black/30 backdrop-blur-md text-neutral-800 dark:text-neutral-200 hover:scale-105 hover:shadow-md transition-all duration-300"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-neutral-300/60 dark:border-neutral-700/60 bg-white/40 dark:bg-neutral-800/40 backdrop-blur-md text-neutral-800 dark:text-neutral-300 hover:scale-105 hover:shadow-md hover:border-neutral-400 dark:hover:border-neutral-600 transition-all duration-300"
                 href={siteConfig.social.github}
                 target="_blank"
                 rel="noreferrer noopener"
@@ -94,7 +130,7 @@ export default function Header() {
             )}
             <ThemeToggle />
             <button
-              className="inline-flex md:hidden items-center justify-center w-9 h-9 rounded-full border border-neutral-300/60 dark:border-neutral-700/60 bg-white/30 dark:bg-black/30 backdrop-blur-md hover:scale-105 transition-all duration-300"
+              className="inline-flex md:hidden items-center justify-center w-9 h-9 rounded-full border border-neutral-300/60 dark:border-neutral-700/60 bg-white/40 dark:bg-neutral-800/40 backdrop-blur-md hover:scale-105 hover:border-neutral-400 dark:hover:border-neutral-600 transition-all duration-300"
               aria-expanded={open}
               aria-controls="mobile-nav"
               onClick={() => setOpen((v) => !v)}
@@ -118,16 +154,16 @@ export default function Header() {
         <ul className="flex flex-col gap-2 rounded-2xl border border-neutral-300/60 dark:border-neutral-700/60 p-4 bg-white/50 dark:bg-black/40 backdrop-blur-xl shadow-lg">
           {siteConfig.navigation.map((item) => (
             <li key={item.path}>
-              <Link
-                to={item.path}
-                className={`block py-2 px-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+              <button
+                onClick={() => scrollToSection(item.path)}
+                className={`block w-full text-left py-2 px-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                   isActive(item.path)
-                    ? "bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300"
+                    ? "bg-[#3ECF8E]/10 text-[#3ECF8E]"
                     : "text-neutral-800 dark:text-neutral-200 hover:bg-white/60 dark:hover:bg-black/50 hover:text-neutral-900 dark:hover:text-white"
                 }`}
               >
                 {item.label}
-              </Link>
+              </button>
             </li>
           ))}
         </ul>
