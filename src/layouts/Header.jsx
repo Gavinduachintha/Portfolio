@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Github, Menu, X } from "lucide-react";
 import Logo from "../components/common/Logo.jsx";
 import ThemeToggle from "../components/common/ThemeToggle.jsx";
 import { siteConfig } from "../config/site.config.js";
-import toast from 'react-hot-toast';
-
+import toast from "react-hot-toast";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 2);
@@ -26,6 +27,15 @@ export default function Header() {
     }
   }, [open]);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setOpen(false);
+  }, [location]);
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
   return (
     <header
       className="site-header  sticky top-2 z-50 transition-all duration-300 px-4"
@@ -40,7 +50,9 @@ export default function Header() {
           }`}
         >
           {/* Logo */}
-          <Logo text={siteConfig.name} />
+          <Link to="/">
+            <Logo text={siteConfig.name} />
+          </Link>
 
           {/* Desktop Nav */}
           <nav
@@ -51,13 +63,16 @@ export default function Header() {
             <ul className="flex items-center gap-6">
               {siteConfig.navigation.map((item) => (
                 <li key={item.path}>
-                  <a
-                    href={item.path}
-                    className="relative text-sm font-medium text-neutral-800 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-white after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-neutral-800/70 dark:after:bg-white/70 after:transition-all after:duration-300 hover:after:w-full"
-                    onClick={() => setOpen(false)}
+                  <Link
+                    to={item.path}
+                    className={`relative text-sm font-medium transition-all duration-300 ${
+                      isActive(item.path)
+                        ? "text-blue-600 dark:text-blue-400 after:w-full"
+                        : "text-neutral-800 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-white after:w-0 hover:after:w-full"
+                    } after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-blue-600 dark:after:bg-blue-400 after:transition-all after:duration-300`}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -103,13 +118,16 @@ export default function Header() {
         <ul className="flex flex-col gap-2 rounded-2xl border border-neutral-300/60 dark:border-neutral-700/60 p-4 bg-white/50 dark:bg-black/40 backdrop-blur-xl shadow-lg">
           {siteConfig.navigation.map((item) => (
             <li key={item.path}>
-              <a
-                href={item.path}
-                className="block py-2 px-3 rounded-lg text-sm font-medium text-neutral-800 dark:text-neutral-200 hover:bg-white/60 dark:hover:bg-black/50 hover:text-neutral-900 dark:hover:text-white transition-all duration-200"
-                onClick={() => setOpen(false)}
+              <Link
+                to={item.path}
+                className={`block py-2 px-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  isActive(item.path)
+                    ? "bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300"
+                    : "text-neutral-800 dark:text-neutral-200 hover:bg-white/60 dark:hover:bg-black/50 hover:text-neutral-900 dark:hover:text-white"
+                }`}
               >
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
