@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.css";
+import { Toaster } from "react-hot-toast";
 
 import { ThemeProvider } from "./context/ThemeContext.jsx";
 import RootLayout from "./layouts/RootLayout.jsx";
@@ -10,6 +11,7 @@ import ProjectGrid from "./sections/projects/ProjectGrid.jsx";
 import AboutMe from "./sections/about/AboutMe.jsx";
 import ContactForm from "./sections/contact/ContactForm.jsx";
 import Aurora from "./components/common/Aurora.jsx";
+import ScrollToTop from "./components/common/ScrollToTop.jsx";
 import { useState, useEffect } from "react";
 import { useTheme } from "./context/ThemeContext.jsx";
 
@@ -54,6 +56,36 @@ function AppContent() {
 
   return (
     <RootLayout>
+      {/* Toast Notifications */}
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            borderRadius: "12px",
+            background: theme === "dark" ? "#262626" : "#fff",
+            color: theme === "dark" ? "#fff" : "#333",
+            padding: "16px",
+            fontSize: "14px",
+            fontWeight: "500",
+            boxShadow:
+              "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+          },
+          success: {
+            iconTheme: {
+              primary: "#3ECF8E",
+              secondary: "#fff",
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: "#ef4444",
+              secondary: "#fff",
+            },
+          },
+        }}
+      />
+
       {/* Aurora Background - Fixed behind everything */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         <Aurora {...auroraProps} />
@@ -83,6 +115,9 @@ function AppContent() {
 
         <Footer />
       </div>
+
+      {/* Scroll to Top Button */}
+      <ScrollToTop />
     </RootLayout>
   );
 }

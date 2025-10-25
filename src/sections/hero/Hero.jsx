@@ -56,7 +56,7 @@ export default function Hero() {
           {/* Main Title */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Code2 className="w-6 h-6 text-[#3ECF8E]" />
+              <Code2 className="w-6 h-6 text-[#ffffff]" />
               <span className="text-sm font-mono text-neutral-600 dark:text-neutral-400">
                 Backend and Robotics Enthusiast
               </span>
@@ -69,8 +69,8 @@ export default function Hero() {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-lg">
-              Building robust, scalable backend systems. Specialized in APIs,
-              databases, and cloud infrastructure.
+              Backend enthusiast learning to craft APIs, manage databases, and
+              deploy cloud solutions
             </p>
           </div>
 
@@ -79,9 +79,9 @@ export default function Hero() {
             {techBadges.map((tech, index) => (
               <div
                 key={index}
-                className="flex items-center gap-2 px-4 py-3 rounded-lg bg-neutral-100 dark:bg-neutral-800/40 border border-neutral-200 dark:border-neutral-700/40 hover:border-[#3ECF8E]/50 dark:hover:border-[#3ECF8E]/50 transition-all duration-300 group"
+                className="flex items-center gap-2 px-4 py-3 rounded-lg bg-neutral-100 dark:bg-neutral-800/40 border border-neutral-200 dark:border-neutral-950/40 hover:border-[#3ECF8E]/50 dark:hover:border-[#3ECF8E]/50 transition-all duration-300 group"
               >
-                <tech.icon className="w-4 h-4 text-[#3ECF8E] group-hover:scale-110 transition-transform" />
+                <tech.icon className="w-4 h-4 text-[#ffffff] group-hover:scale-110 transition-transform" />
                 <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
                   {tech.label}
                 </span>
@@ -101,7 +101,7 @@ export default function Hero() {
                 window.scrollTo({ top: offsetPosition, behavior: "smooth" });
               }
             }}
-            className="px-8 py-3 bg-[#3ECF8E] hover:bg-[#2fb573] text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2 w-fit"
+            className="px-8 py-3 bg-[#ffffff] hover:bg-[#bdbcbc] text-black rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2 w-fit"
           >
             <Terminal className="w-5 h-5" />
             View My Projects
@@ -127,9 +127,9 @@ export default function Hero() {
 
             {/* Terminal Content */}
             <div className="p-6 font-mono text-sm min-h-[320px]">
-              <pre className="text-green-400 whitespace-pre-wrap leading-relaxed">
+              <pre className="text-white whitespace-pre-wrap leading-relaxed">
                 {typedText}
-                <span className="animate-pulse text-green-400">▊</span>
+                <span className="animate-pulse text-white">▊</span>
               </pre>
             </div>
           </div>

@@ -103,9 +103,9 @@ export default function Header() {
                     onClick={() => scrollToSection(item.path)}
                     className={`relative text-sm font-medium transition-all duration-300 ${
                       isActive(item.path)
-                        ? "text-[#3ECF8E] dark:text-[#3ECF8E] after:w-full"
-                        : "text-neutral-800 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100 after:w-0 hover:after:w-full"
-                    } after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-[#3ECF8E] dark:after:bg-[#3ECF8E] after:transition-all after:duration-300`}
+                        ? "text-[#ffffff] dark:text-[#ffffff] after:w-full"
+                        : "text-white dark:text-white hover:text-neutral-900 dark:hover:text-neutral-100 after:w-0 hover:after:w-full"
+                    } after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-[#6C757D] dark:after:bg-[#6C757D] after:transition-all after:duration-300`}
                   >
                     {item.label}
                   </button>
@@ -158,7 +158,7 @@ export default function Header() {
                 onClick={() => scrollToSection(item.path)}
                 className={`block w-full text-left py-2 px-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                   isActive(item.path)
-                    ? "bg-[#3ECF8E]/10 text-[#3ECF8E]"
+                    ? "bg-[#6C757D]/10 text-[#6C757D]"
                     : "text-neutral-800 dark:text-neutral-200 hover:bg-white/60 dark:hover:bg-black/50 hover:text-neutral-900 dark:hover:text-white"
                 }`}
               >

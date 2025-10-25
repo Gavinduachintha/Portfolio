@@ -98,7 +98,7 @@ export default function AboutMe() {
       name: "Arduino",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg",
     },
-    
+
     {
       name: "Raspberry PI",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg",
@@ -116,7 +116,7 @@ export default function AboutMe() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#3ECF8E] dark:text-[#3ECF8E]">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#ffffff] dark:text-[#3ECF8E]">
             About Me
           </h1>
           <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto leading-relaxed">
@@ -136,7 +136,7 @@ export default function AboutMe() {
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 rounded-lg bg-blue-100 dark:bg-[#3ECF8E]/20">
-                <BookOpen className="w-6 h-6 text-blue-600 dark:text-[#3ECF8E]" />
+                <BookOpen className="w-6 h-6 text-black dark:text-[#ffffff]" />
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-neutral-100">
                 Who I Am
@@ -206,18 +206,28 @@ export default function AboutMe() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.03 }}
-                  whileHover={{ scale: 1.15, y: -5 }}
-                  className="relative group"
+                  whileHover={{
+                    scale: 1.15,
+                    y: -8,
+                    rotate: [0, -5, 5, 0],
+                    transition: { duration: 0.3 },
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="relative group cursor-pointer"
                 >
-                  <div className="flex flex-col items-center justify-center p-4 rounded-xl bg-neutral-50 dark:bg-neutral-800/40 hover:bg-white dark:hover:bg-neutral-800/70 transition-all duration-300 shadow-sm hover:shadow-md border border-transparent hover:border-[#3ECF8E]/20 dark:hover:border-[#3ECF8E]/30">
+                  <div className="flex flex-col items-center justify-center p-4 rounded-xl bg-neutral-50 dark:bg-neutral-800/40 hover:bg-white dark:hover:bg-neutral-800/70 transition-all duration-300 shadow-sm hover:shadow-lg border border-transparent hover:border-[#3ECF8E]/30 dark:hover:border-[#3ECF8E]/40 hover:shadow-[#3ECF8E]/10">
                     {/* Icon */}
-                    <div className="w-12 h-12 flex items-center justify-center">
+                    <motion.div
+                      className="w-12 h-12 flex items-center justify-center"
+                      whileHover={{ rotate: 0 }}
+                      transition={{ duration: 0.6 }}
+                    >
                       <img
                         src={skill.icon}
                         alt={skill.name}
                         className="w-full h-full object-contain filter group-hover:drop-shadow-lg transition-all duration-300"
                       />
-                    </div>
+                    </motion.div>
 
                     {/* Tooltip on hover */}
                     <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
