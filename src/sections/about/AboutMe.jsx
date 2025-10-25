@@ -92,6 +92,17 @@ export default function AboutMe() {
       name: "Bash",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg",
     },
+
+    // Embedded Systems
+    {
+      name: "Arduino",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg",
+    },
+    
+    {
+      name: "Raspberry PI",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg",
+    },
   ];
 
   return (

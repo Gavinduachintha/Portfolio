@@ -12,8 +12,8 @@ export default function ContactForm() {
     {
       icon: Phone,
       label: "Phone",
-      value: "+94 XX XXX XXXX",
-      href: "tel:+94XXXXXXXXX",
+      value: "+94 71 634 4556",
+      href: "tel:+94716344556",
     },
     {
       icon: MapPin,
