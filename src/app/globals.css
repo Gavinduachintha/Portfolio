@@ -72,18 +72,33 @@ body {
 
 /* Animations */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 @keyframes glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(0, 245, 212, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(0, 245, 212, 0.6); }
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(0, 245, 212, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 245, 212, 0.6);
+  }
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 @keyframes slideUp {
@@ -109,19 +124,34 @@ body {
 }
 
 @keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes blink {
-  0%, 100% { border-color: var(--primary); }
-  50% { border-color: transparent; }
+  0%,
+  100% {
+    border-color: var(--primary);
+  }
+  50% {
+    border-color: transparent;
+  }
 }
 
 /* Utility Classes */
@@ -146,7 +176,7 @@ body {
 }
 
 .glow-border::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: -2px;
   background: var(--gradient-1);
@@ -178,7 +208,7 @@ body {
 
 /* Noise texture overlay */
 .noise-bg::before {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
@@ -192,8 +222,10 @@ body {
 
 /* Grid background */
 .grid-bg {
-  background-image: 
-    linear-gradient(rgba(0, 245, 212, 0.03) 1px, transparent 1px),
+  background-image: linear-gradient(
+      rgba(0, 245, 212, 0.03) 1px,
+      transparent 1px
+    ),
     linear-gradient(90deg, rgba(0, 245, 212, 0.03) 1px, transparent 1px);
   background-size: 50px 50px;
 }
@@ -213,7 +245,7 @@ body {
 }
 
 .section-title::after {
-  content: '_';
+  content: "_";
   color: var(--primary);
   animation: blink 1s infinite;
 }
@@ -274,7 +306,7 @@ body {
 }
 
 .link-underline::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
