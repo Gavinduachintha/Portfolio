@@ -31,8 +31,8 @@ export default function ImageLoader({
         <Skeleton className={cx("absolute inset-0", skeletonClassName)} />
       )}
       {error ? (
-        <div className="absolute inset-0 flex items-center justify-center bg-neutral-100 dark:bg-neutral-800 rounded">
-          <div className="text-center text-neutral-400 dark:text-neutral-600">
+        <div className="absolute inset-0 flex items-center justify-center bg-neutral-100 rounded">
+          <div className="text-center text-neutral-400">
             <svg
               className="w-12 h-12 mx-auto mb-2"
               fill="none"

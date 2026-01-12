@@ -26,12 +26,10 @@ export default function LoadingSpinner({ size = "md", className }) {
 // Full page loading overlay
 export function LoadingOverlay({ message = "Loading..." }) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/80 dark:bg-neutral-900/80 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/80 backdrop-blur-sm">
       <div className="text-center">
         <LoadingSpinner size="xl" />
-        <p className="mt-4 text-neutral-600 dark:text-neutral-400 font-medium">
-          {message}
-        </p>
+        <p className="mt-4 text-neutral-600 font-medium">{message}</p>
       </div>
     </div>
   );

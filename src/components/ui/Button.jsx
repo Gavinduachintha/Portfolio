@@ -6,7 +6,7 @@ export default function Button({
 }) {
   const cn = [
     "inline-flex items-center justify-center h-10 rounded-md border px-4 text-sm font-medium",
-    "border-neutral-900 dark:border-white bg-neutral-900 text-white dark:bg-white dark:text-black",
+    "border-neutral-900 bg-neutral-900 text-white",
     "hover:opacity-90 transition",
     className,
   ]

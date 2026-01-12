@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///D:/Codings/WEB%20Devs/React/portfolio/src/app/pages/MainPage.jsx"],"sourcesContent":["\r\nconst MainPage = () => {\r\n  return (\r\n    <div className=\"w-full min-h-screen bg-[#0a0a0a]\">\r\n      <Header />\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default MainPage;\r\n"],"names":[],"mappings":";;;;;;AACA,MAAM,WAAW;IACf,qBACE,8OAAC;QAAI,WAAU;kBACb,cAAA,8OAAC;;;;;;;;;;AAGP;uCAEe"}},
+    {"offset": {"line": 43, "column": 0}, "map": {"version":3,"sources":["file:///D:/Codings/WEB%20Devs/React/portfolio/src/app/page.js"],"sourcesContent":["import React from 'react';\nimport MainPage from './pages/MainPage';\nexport default function Home() {\n  return (\n    <>\n      <MainPage />\n    </>\n  );\n}\n"],"names":[],"mappings":";;;;;AAAA;AACA;;;;AACe,SAAS;IACtB,qBACE;kBACE,cAAA,8OAAC,2IAAQ;;;;;;AAGf"}}]
+}

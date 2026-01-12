@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///D:/Codings/WEB%20Devs/React/portfolio/src/app/page.js"],"sourcesContent":["import React from 'react';\nexport default function Home() {\n  return (\n    <>\n      <Header />\n    <div className=\"bg-red-900\"></div>\n    </>\n  );\n}\n"],"names":[],"mappings":";;;;;AAAA;;;AACe,SAAS;IACtB,qBACE;;0BACE,8OAAC;;;;;0BACH,8OAAC;gBAAI,WAAU;;;;;;;;AAGnB"}}]
+}

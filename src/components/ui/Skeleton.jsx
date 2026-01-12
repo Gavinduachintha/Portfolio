@@ -11,7 +11,7 @@ export default function Skeleton({ className, variant = "default", ...props }) {
   return (
     <div
       className={cx(
-        "animate-pulse bg-neutral-200 dark:bg-neutral-800",
+        "animate-pulse bg-neutral-200",
         variants[variant],
         className
       )}
@@ -23,7 +23,7 @@ export default function Skeleton({ className, variant = "default", ...props }) {
 // Preset skeleton components for common use cases
 export function SkeletonCard() {
   return (
-    <div className="bg-white dark:bg-neutral-900/60 rounded-xl p-6 shadow-lg border border-neutral-200 dark:border-neutral-800/50">
+    <div className="bg-white rounded-xl p-6 shadow-lg border border-neutral-200">
       <Skeleton variant="default" className="h-48 w-full mb-4" />
       <Skeleton variant="title" className="mb-3" />
       <Skeleton variant="text" className="mb-2" />

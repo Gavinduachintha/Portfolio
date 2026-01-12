@@ -57,18 +57,16 @@ export default function Hero() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Code2 className="w-6 h-6 text-[#ffffff]" />
-              <span className="text-sm font-mono text-neutral-600 dark:text-neutral-400">
+              <span className="text-sm font-mono text-neutral-600">
                 Backend and Robotics Enthusiast
               </span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 text-black dark:text-neutral-100 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold mb-4 text-black leading-tight">
               I'm Gavindu
               <br />
-              <span className="text-neutral-600 dark:text-neutral-400">
-                Achintha
-              </span>
+              <span className="text-neutral-600">Achintha</span>
             </h1>
-            <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-lg">
+            <p className="text-lg md:text-xl text-neutral-600 max-w-lg">
               Backend enthusiast learning to craft APIs, manage databases, and
               deploy cloud solutions
             </p>
@@ -79,10 +77,10 @@ export default function Hero() {
             {techBadges.map((tech, index) => (
               <div
                 key={index}
-                className="flex items-center gap-2 px-4 py-3 rounded-lg bg-neutral-100 dark:bg-neutral-800/40 border border-neutral-200 dark:border-neutral-950/40 hover:border-[#3ECF8E]/50 dark:hover:border-[#3ECF8E]/50 transition-all duration-300 group"
+                className="flex items-center gap-2 px-4 py-3 rounded-lg bg-neutral-100 border border-neutral-200 hover:border-[#3ECF8E]/50 transition-all duration-300 group"
               >
                 <tech.icon className="w-4 h-4 text-[#ffffff] group-hover:scale-110 transition-transform" />
-                <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
+                <span className="text-sm font-medium text-neutral-700">
                   {tech.label}
                 </span>
               </div>
@@ -111,7 +109,7 @@ export default function Hero() {
         {/* Right Side - Interactive Terminal */}
         <div className="relative">
           {/* Terminal Window */}
-          <div className="backdrop-blur-xl bg-neutral-900/95 dark:bg-neutral-900/80 border border-neutral-700/50 rounded-xl overflow-hidden shadow-2xl">
+          <div className="backdrop-blur-xl bg-neutral-900/95 border border-neutral-700/50 rounded-xl overflow-hidden shadow-2xl">
             {/* Terminal Header */}
             <div className="flex items-center justify-between px-4 py-3 bg-neutral-800/50 border-b border-neutral-700/50">
               <div className="flex items-center gap-2">

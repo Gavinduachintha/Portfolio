@@ -13,10 +13,8 @@ import ContactForm from "./sections/contact/ContactForm.jsx";
 import Aurora from "./components/common/Aurora.jsx";
 import ScrollToTop from "./components/common/ScrollToTop.jsx";
 import { useState, useEffect } from "react";
-import { useTheme } from "./context/ThemeContext.jsx";
 
 function AppContent() {
-  const { theme } = useTheme();
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -27,25 +25,11 @@ function AppContent() {
   }, []);
 
   const auroraProps = isMobile
-    ? theme === "dark"
-      ? {
-          colorStops: ["#1e1b4b", "#064e3b"],
-          blend: 0.4,
-          amplitude: 0.5,
-          speed: 0.5,
-        }
-      : {
-          colorStops: ["#3A29FF", "#10B981"],
-          blend: 0.4,
-          amplitude: 0.5,
-          speed: 0.5,
-        }
-    : theme === "dark"
     ? {
-        colorStops: ["#1e1b4b", "#064e3b", "#4c1d95", "#9a3412"],
-        blend: 0.6,
-        amplitude: 0.9,
-        speed: 0.8,
+        colorStops: ["#3A29FF", "#10B981"],
+        blend: 0.4,
+        amplitude: 0.5,
+        speed: 0.5,
       }
     : {
         colorStops: ["#3A29FF", "#10B981", "#8B5CF6", "#F97316"],
@@ -63,8 +47,8 @@ function AppContent() {
           duration: 4000,
           style: {
             borderRadius: "12px",
-            background: theme === "dark" ? "#262626" : "#fff",
-            color: theme === "dark" ? "#fff" : "#333",
+            background: "#fff",
+            color: "#333",
             padding: "16px",
             fontSize: "14px",
             fontWeight: "500",

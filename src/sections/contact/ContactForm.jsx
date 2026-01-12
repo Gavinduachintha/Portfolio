@@ -159,10 +159,10 @@ export default function ContactForm() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-[#3ECF8E] dark:text-[#3ECF8E]">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-[#3ECF8E]">
             Get In Touch
           </h1>
-          <p className="text-base text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+          <p className="text-base text-neutral-600 max-w-2xl mx-auto">
             Let's connect and discuss opportunities, projects, or just tech in
             general.
           </p>
@@ -176,9 +176,9 @@ export default function ContactForm() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-white dark:bg-neutral-900/60 rounded-xl p-6 shadow-lg border border-neutral-200 dark:border-neutral-800/50"
+            className="bg-white rounded-xl p-6 shadow-lg border border-neutral-200"
           >
-            <h3 className="text-lg font-bold mb-4 text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+            <h3 className="text-lg font-bold mb-4 text-neutral-900 flex items-center gap-2">
               <MessageSquare size={20} className="text-[#3ECF8E]" />
               Send me a message
             </h3>
@@ -187,7 +187,7 @@ export default function ContactForm() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2"
+                  className="block text-sm font-medium text-neutral-700 mb-2"
                 >
                   Name *
                 </label>
@@ -203,10 +203,8 @@ export default function ContactForm() {
                     value={formData.name}
                     onChange={handleChange}
                     className={`w-full pl-10 pr-4 py-2.5 rounded-lg border ${
-                      errors.name
-                        ? "border-red-500 dark:border-red-500"
-                        : "border-neutral-300 dark:border-neutral-700"
-                    } bg-white dark:bg-neutral-800/40 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-[#3ECF8E] focus:border-transparent transition-all`}
+                      errors.name ? "border-red-500" : "border-neutral-300"
+                    } bg-white text-neutral-900 focus:outline-none focus:ring-2 focus:ring-[#3ECF8E] focus:border-transparent transition-all`}
                     placeholder="Your name"
                   />
                 </div>
@@ -219,7 +217,7 @@ export default function ContactForm() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2"
+                  className="block text-sm font-medium text-neutral-700 mb-2"
                 >
                   Email *
                 </label>
@@ -235,10 +233,8 @@ export default function ContactForm() {
                     value={formData.email}
                     onChange={handleChange}
                     className={`w-full pl-10 pr-4 py-2.5 rounded-lg border ${
-                      errors.email
-                        ? "border-red-500 dark:border-red-500"
-                        : "border-neutral-300 dark:border-neutral-700"
-                    } bg-white dark:bg-neutral-800/40 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-[#3ECF8E] focus:border-transparent transition-all`}
+                      errors.email ? "border-red-500" : "border-neutral-300"
+                    } bg-white text-neutral-900 focus:outline-none focus:ring-2 focus:ring-[#3ECF8E] focus:border-transparent transition-all`}
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -251,7 +247,7 @@ export default function ContactForm() {
               <div>
                 <label
                   htmlFor="subject"
-                  className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2"
+                  className="block text-sm font-medium text-neutral-700 mb-2"
                 >
                   Subject *
                 </label>
@@ -262,10 +258,8 @@ export default function ContactForm() {
                   value={formData.subject}
                   onChange={handleChange}
                   className={`w-full px-4 py-2.5 rounded-lg border ${
-                    errors.subject
-                      ? "border-red-500 dark:border-red-500"
-                      : "border-neutral-300 dark:border-neutral-700"
-                  } bg-white dark:bg-neutral-800/40 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-[#3ECF8E] focus:border-transparent transition-all`}
+                    errors.subject ? "border-red-500" : "border-neutral-300"
+                  } bg-white text-neutral-900 focus:outline-none focus:ring-2 focus:ring-[#3ECF8E] focus:border-transparent transition-all`}
                   placeholder="What's this about?"
                 />
                 {errors.subject && (
@@ -277,7 +271,7 @@ export default function ContactForm() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2"
+                  className="block text-sm font-medium text-neutral-700 mb-2"
                 >
                   Message *
                 </label>
@@ -288,10 +282,8 @@ export default function ContactForm() {
                   onChange={handleChange}
                   rows={5}
                   className={`w-full px-4 py-2.5 rounded-lg border ${
-                    errors.message
-                      ? "border-red-500 dark:border-red-500"
-                      : "border-neutral-300 dark:border-neutral-700"
-                  } bg-white dark:bg-neutral-800/40 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-[#3ECF8E] focus:border-transparent transition-all resize-none`}
+                    errors.message ? "border-red-500" : "border-neutral-300"
+                  } bg-white text-neutral-900 focus:outline-none focus:ring-2 focus:ring-[#3ECF8E] focus:border-transparent transition-all resize-none`}
                   placeholder="Tell me about your project or idea..."
                 />
                 {errors.message && (
@@ -326,30 +318,30 @@ export default function ContactForm() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white dark:bg-neutral-900/60 rounded-xl p-6 shadow-lg border border-neutral-200 dark:border-neutral-800/50"
+            className="bg-white rounded-xl p-6 shadow-lg border border-neutral-200"
           >
-            <h3 className="text-lg font-bold mb-4 text-neutral-900 dark:text-neutral-100">
+            <h3 className="text-lg font-bold mb-4 text-neutral-900">
               Contact Information
             </h3>
             <div className="space-y-4">
               {contactInfo.map((item, index) => (
                 <div key={index} className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-blue-100 dark:bg-[#3ECF8E]/20 text-blue-600 dark:text-[#3ECF8E]">
+                  <div className="p-2 rounded-lg bg-blue-100 text-blue-600">
                     <item.icon size={18} />
                   </div>
                   <div className="flex-1">
-                    <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-0.5">
+                    <p className="text-xs text-neutral-500 mb-0.5">
                       {item.label}
                     </p>
                     {item.href ? (
                       <a
                         href={item.href}
-                        className="text-sm font-medium text-neutral-900 dark:text-neutral-100 hover:text-[#3ECF8E] dark:hover:text-[#3ECF8E] transition-colors"
+                        className="text-sm font-medium text-neutral-900 hover:text-[#3ECF8E] transition-colors"
                       >
                         {item.value}
                       </a>
                     ) : (
-                      <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                      <p className="text-sm font-medium text-neutral-900">
                         {item.value}
                       </p>
                     )}
@@ -365,9 +357,9 @@ export default function ContactForm() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-white dark:bg-neutral-900/60 rounded-xl p-6 shadow-lg border border-neutral-200 dark:border-neutral-800/50"
+            className="bg-white rounded-xl p-6 shadow-lg border border-neutral-200"
           >
-            <h3 className="text-lg font-bold mb-4 text-neutral-900 dark:text-neutral-100">
+            <h3 className="text-lg font-bold mb-4 text-neutral-900">
               Connect With Me
             </h3>
             <div className="grid md:grid-cols-3 gap-4">
@@ -377,19 +369,16 @@ export default function ContactForm() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center gap-2 p-4 rounded-lg bg-neutral-50 dark:bg-neutral-800/40 hover:bg-neutral-100 dark:hover:bg-neutral-800/60 transition-all duration-200 hover:scale-105 group border border-neutral-200 dark:border-neutral-700/40"
+                  className="flex flex-col items-center gap-2 p-4 rounded-lg bg-neutral-50 hover:bg-neutral-100 transition-all duration-200 hover:scale-105 group border border-neutral-200"
                 >
-                  <div className="p-2 rounded-full bg-white dark:bg-neutral-900/60 shadow-sm group-hover:shadow-md transition-shadow">
-                    <social.icon
-                      size={20}
-                      className="text-neutral-700 dark:text-neutral-300"
-                    />
+                  <div className="p-2 rounded-full bg-white shadow-sm group-hover:shadow-md transition-shadow">
+                    <social.icon size={20} className="text-neutral-700" />
                   </div>
                   <div className="text-center">
-                    <p className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-0.5">
+                    <p className="text-sm font-semibold text-neutral-900 mb-0.5">
                       {social.label}
                     </p>
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400">
+                    <p className="text-xs text-neutral-600">
                       {social.username}
                     </p>
                   </div>

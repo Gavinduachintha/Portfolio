@@ -66,16 +66,14 @@ export default function ProjectGrid() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#6C757D] dark:text-[#6C757D]">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#6C757D]">
             Featured Projects
           </h2>
-          <p className="text-neutral-600 dark:text-neutral-400 text-lg max-w-2xl mx-auto">
+          <p className="text-neutral-600 text-lg max-w-2xl mx-auto">
             Explore my latest work and side projects. Each project represents a
             unique challenge and learning experience.
           </p>
         </motion.div>
-
-        
 
         {/* Projects Grid */}
         <AnimatePresence mode="wait">
@@ -116,10 +114,10 @@ export default function ProjectGrid() {
               className="text-center py-20"
             >
               <div className="text-6xl mb-4">🔍</div>
-              <h3 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+              <h3 className="text-2xl font-bold text-neutral-900 mb-2">
                 No Projects Found
               </h3>
-              <p className="text-neutral-600 dark:text-neutral-400 mb-4">
+              <p className="text-neutral-600 mb-4">
                 Try adjusting your search or filter criteria
               </p>
               <button
@@ -143,10 +141,10 @@ export default function ProjectGrid() {
             className="text-center py-20"
           >
             <div className="text-6xl mb-4">🚧</div>
-            <h3 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+            <h3 className="text-2xl font-bold text-neutral-900 mb-2">
               Projects Coming Soon
             </h3>
-            <p className="text-neutral-600 dark:text-neutral-400">
+            <p className="text-neutral-600">
               I'm working on some exciting projects. Check back soon!
             </p>
           </motion.div>
