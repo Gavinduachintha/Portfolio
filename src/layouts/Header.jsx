@@ -70,23 +70,20 @@ export default function Header() {
 
   return (
     <header
-      className="site-header  sticky top-2 z-50 transition-all duration-300 px-4"
+      className="site-header  pt-1.5 top-2 z-50 transition-all duration-300 px-4"
       role="banner"
     >
       <div className="mx-auto max-w-[72rem]">
         <div
-          className={`h-16 flex items-center justify-between px-4 rounded-full transition-all duration-300 ${
-            scrolled
-              ? "backdrop-blur-xl bg-white/70 shadow-lg border border-neutral-200/50"
-              : "backdrop-blur-lg bg-white/30 shadow-sm border border-transparent"
-          }`}
+          className={`h-16 flex  text-white items-center justify-between px-4 rounded-full transition-all duration-300 `}
         >
           {/* Logo */}
           <button
             onClick={() => scrollToSection("home")}
             className="cursor-pointer"
           >
-            <Logo text={siteConfig.name} />
+            {/* <Logo text={siteConfig.name} /> */}
+            G
           </button>
 
           {/* Desktop Nav */}
@@ -103,7 +100,7 @@ export default function Header() {
                     className={`relative text-sm font-medium transition-all duration-300 ${
                       isActive(item.path)
                         ? "text-[#ffffff] after:w-full"
-                        : "text-white hover:text-neutral-900 after:w-0 hover:after:w-full"
+                        : "text-white hover:text-gray-400 after:w-0 hover:after:w-full"
                     } after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-[#6C757D] after:transition-all after:duration-300`}
                   >
                     {item.label}
@@ -117,7 +114,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             {siteConfig?.social?.github && (
               <a
-                className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-neutral-300/60 bg-white/40 backdrop-blur-md text-neutral-800 hover:scale-105 hover:shadow-md hover:border-neutral-400 transition-all duration-300"
+                className="inline-flex items-center justify-center w-9 h-9  text-white hover:text-gray-400 hover:scale-105 hover:shadow-md  transition-all duration-300"
                 href={siteConfig.social.github}
                 target="_blank"
                 rel="noreferrer noopener"
@@ -128,7 +125,7 @@ export default function Header() {
               </a>
             )}
             <button
-              className="inline-flex md:hidden items-center justify-center w-9 h-9 rounded-full border border-neutral-300/60 bg-white/40 backdrop-blur-md hover:scale-105 hover:border-neutral-400 transition-all duration-300"
+              className="inline-flex md:hidden items-center justify-center w-9 h-9  text-white hover:scale-105 hover:shadow-md  transition-all duration-300"
               aria-expanded={open}
               aria-controls="mobile-nav"
               onClick={() => setOpen((v) => !v)}

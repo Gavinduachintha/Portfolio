@@ -71,8 +71,8 @@ function AppContent() {
       />
 
       {/* Aurora Background - Fixed behind everything */}
-      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <Aurora {...auroraProps} />
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-[#0a0a0a]">
+        {/* <Aurora {...auroraProps} /> */}
       </div>
 
       {/* Main content with proper z-index */}
