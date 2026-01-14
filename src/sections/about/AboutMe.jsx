@@ -1,109 +1,9 @@
 import { motion } from "framer-motion";
 import { Code2, BookOpen, Cpu } from "lucide-react";
-
+import techSkills from "./techSkills";
+import IconCloud from "./IconCloud";
 export default function AboutMe() {
-  const techSkills = [
-    // Languages
-    {
-      name: "C",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
-    },
-    {
-      name: "C++",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
-    },
-    {
-      name: "Python",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-    },
-    {
-      name: "JavaScript",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-    },
-    {
-      name: "Go",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg",
-    },
-    {
-      name: "Java",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
-    },
-
-    // Databases
-    {
-      name: "PostgreSQL",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-    },
-    {
-      name: "Redis",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
-    },
-    {
-      name: "Supabase",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
-    },
-    {
-      name: "Prisma",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
-    },
-
-    // Frontend
-    {
-      name: "React",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-    },
-    {
-      name: "HTML5",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-    },
-    {
-      name: "CSS3",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-    },
-    {
-      name: "TailwindCSS",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-    },
-
-    // Backend
-    {
-      name: "Node.js",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-    },
-    {
-      name: "Express",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
-    },
-
-    // DevOps & Tools
-    {
-      name: "Docker",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-    },
-    {
-      name: "Git",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-    },
-    {
-      name: "VS Code",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
-    },
-    {
-      name: "Bash",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg",
-    },
-
-    // Embedded Systems
-    {
-      name: "Arduino",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg",
-    },
-
-    {
-      name: "Raspberry PI",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg",
-    },
-  ];
+  
 
   return (
     <section className="py-16 px-4">
@@ -125,27 +25,27 @@ export default function AboutMe() {
         </motion.div>
 
         {/* Main Content */}
-        <div className="space-y-12">
+        <div className="space-y-12 felx flex-col">
           {/* About Text */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-neutral-200"
+            className="bg-[#0a0a0a] rounded-2xl p-8 md:p-12 shadow-lg border border-[#1a1a1a]"
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 rounded-lg bg-blue-100">
                 <BookOpen className="w-6 h-6 text-black" />
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-neutral-900">
+              <h3 className="text-2xl md:text-3xl font-bold text-white">
                 Who I Am
               </h3>
             </div>
-            <div className="space-y-4 text-lg text-neutral-600 leading-relaxed">
+            <div className="space-y-4 text-lg text-white leading-relaxed">
               <p>
                 Hi! I'm{" "}
-                <strong className="text-neutral-900">Gavindu Achintha</strong>,
+                <strong className="text-neutral-200">Gavindu Achintha</strong>,
                 a 2nd year undergraduate student at university, currently
                 studying{" "}
                 <strong className="text-neutral-900">

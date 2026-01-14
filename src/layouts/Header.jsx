@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Github, Menu, X } from "lucide-react";
+import { Github, Menu, X ,Linkedin} from "lucide-react";
 import Logo from "../components/common/Logo.jsx";
 import { siteConfig } from "../config/site.config.js";
 
@@ -111,17 +111,30 @@ export default function Header() {
           </nav>
 
           {/* Right Side Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1">
             {siteConfig?.social?.github && (
+                <a
+                  className="inline-flex items-center justify-center w-9 h-9  text-white hover:text-gray-400 hover:scale-105 hover:shadow-md  transition-all duration-300 "
+                  href={siteConfig.social.github}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label="GitHub"
+                  title="GitHub"
+                >
+                  <Github size={18} />
+                </a>
+              
+            )}
+            {siteConfig?.social?.linkedin && (
               <a
-                className="inline-flex items-center justify-center w-9 h-9  text-white hover:text-gray-400 hover:scale-105 hover:shadow-md  transition-all duration-300"
-                href={siteConfig.social.github}
+                className="inline-flex items-center justify-center w-9 h-9  text-white hover:text-gray-400 hover:scale-105 hover:shadow-md  transition-all duration-300 "
+                href={siteConfig.social.linkedin}
                 target="_blank"
                 rel="noreferrer noopener"
-                aria-label="GitHub"
-                title="GitHub"
+                aria-label="LinkedIn"
+                title="LinkedIn"
               >
-                <Github size={18} />
+                <Linkedin size={18} />
               </a>
             )}
             <button

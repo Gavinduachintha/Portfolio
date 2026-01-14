@@ -61,10 +61,10 @@ export default function Hero() {
                 Backend and Robotics Enthusiast
               </span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 text-black leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white leading-tight">
               I'm Gavindu
               <br />
-              <span className="text-neutral-600">Achintha</span>
+              <span className="text-[#D25353]">Achintha</span>
             </h1>
             <p className="text-lg md:text-xl text-neutral-600 max-w-lg">
               Backend enthusiast learning to craft APIs, manage databases, and

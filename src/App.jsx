@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css";
 import { Toaster } from "react-hot-toast";
-
+import IconCloud from "./sections/about/IconCloud.jsx";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
 import RootLayout from "./layouts/RootLayout.jsx";
 import Header from "./layouts/Header.jsx";
@@ -13,6 +13,7 @@ import ContactForm from "./sections/contact/ContactForm.jsx";
 import Aurora from "./components/common/Aurora.jsx";
 import ScrollToTop from "./components/common/ScrollToTop.jsx";
 import { useState, useEffect } from "react";
+import { Icon } from "lucide-react";
 
 function AppContent() {
   const [isMobile, setIsMobile] = useState(false);
@@ -93,7 +94,7 @@ function AppContent() {
           </section>
 
           <section id="contact">
-            <ContactForm />
+            <IconCloud />
           </section>
         </main>
 
