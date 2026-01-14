@@ -94,7 +94,7 @@ function AppContent() {
           </section>
 
           <section id="contact">
-            <IconCloud />
+            
           </section>
         </main>
 

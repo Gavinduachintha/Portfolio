@@ -1,9 +1,54 @@
 import { useEffect, useState } from "react";
-import { Server, Database, Cloud, Terminal, Code2, Zap } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Server,
+  Database,
+  Cloud,
+  Terminal,
+  Code2,
+  Zap,
+  GitBranch,
+  Cpu,
+  Rocket,
+} from "lucide-react";
+
+const roles = [
+  "Backend Developer",
+  "Robotics Enthusiast",
+  "CS Student",
+  "API Architect",
+  "Cloud Explorer",
+];
+
+const stats = [
+  { icon: Rocket, value: "10+", label: "Projects" },
+  { icon: GitBranch, value: "500+", label: "Commits" },
+  { icon: Cpu, value: "2+", label: "Years Coding" },
+];
+
+const techIcons = [
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+];
 
 export default function Hero() {
   const [typedText, setTypedText] = useState("");
   const [currentLine, setCurrentLine] = useState(0);
+  const [currentRole, setCurrentRole] = useState(0);
+
+  // Role rotation effect
+  useEffect(() => {
+    const roleInterval = setInterval(() => {
+      setCurrentRole((prev) => (prev + 1) % roles.length);
+    }, 2500);
+    return () => clearInterval(roleInterval);
+  }, []);
 
   const terminalLines = [
     "$ cd ~/projects/backend-services",
@@ -57,9 +102,20 @@ export default function Hero() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Code2 className="w-6 h-6 text-[#ffffff]" />
-              <span className="text-sm font-mono text-neutral-600">
-                Backend and Robotics Enthusiast
-              </span>
+              <div className="h-6 overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={currentRole}
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -20, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-sm font-mono text-neutral-400 block"
+                  >
+                    {roles[currentRole]}
+                  </motion.span>
+                </AnimatePresence>
+              </div>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white leading-tight">
               I'm Gavindu
@@ -104,6 +160,48 @@ export default function Hero() {
             <Terminal className="w-5 h-5" />
             View My Projects
           </button>
+
+          {/* Stats Bar */}
+          <div className="flex items-center gap-6 pt-4 border-t border-neutral-800">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 + index * 0.1 }}
+                className="flex items-center gap-2"
+              >
+                <stat.icon className="w-4 h-4 text-[#D25353]" />
+                <div className="flex flex-col">
+                  <span className="text-lg font-bold text-white">
+                    {stat.value}
+                  </span>
+                  <span className="text-xs text-neutral-500">{stat.label}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Mini Tech Icon Cloud */}
+          <div className="flex items-center gap-3 pt-2">
+            <span className="text-xs text-neutral-500 font-mono">
+              Tech Stack:
+            </span>
+            <div className="flex items-center gap-2 flex-wrap">
+              {techIcons.map((icon, index) => (
+                <motion.img
+                  key={index}
+                  src={icon}
+                  alt="tech"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.8 + index * 0.05 }}
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  className="w-6 h-6 grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer"
+                />
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Right Side - Interactive Terminal */}
