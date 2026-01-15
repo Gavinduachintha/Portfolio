@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Server,
@@ -18,6 +18,7 @@ import {
   CheckCircle2,
   ExternalLink,
 } from "lucide-react";
+import profilePhoto from "../../assets/images/dp.png";
 
 const roles = [
   "Backend Developer",
@@ -35,7 +36,7 @@ const stats = [
 const techIcons = [
   // Core stack
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+  // "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
@@ -47,7 +48,7 @@ const techIcons = [
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
 
   // Cloud
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
 
   // Databases
 
@@ -70,11 +71,6 @@ export default function Hero() {
   const [typedText, setTypedText] = useState("");
   const [currentRole, setCurrentRole] = useState(0);
   const [emailCopied, setEmailCopied] = useState(false);
-  
-  // Refs for typewriter effect to avoid stale closures
-  const lineIndexRef = useRef(0);
-  const charIndexRef = useRef(0);
-  const isTypingRef = useRef(true);
 
   // Copy email to clipboard
   const copyEmail = () => {
@@ -91,33 +87,23 @@ export default function Hero() {
     return () => clearInterval(roleInterval);
   }, []);
 
-  // Typewriter effect with refs for consistent behavior
+  // Typewriter effect - build the full text string based on position
   useEffect(() => {
+    // Flatten all terminal lines into a single string with newlines
+    const fullText = terminalLines.join("\n");
+    let currentIndex = 0;
+
     const typeNextChar = () => {
-      if (!isTypingRef.current) return;
-      
-      const lineIndex = lineIndexRef.current;
-      const charIndex = charIndexRef.current;
-      
-      if (lineIndex >= terminalLines.length) {
-        isTypingRef.current = false;
+      if (currentIndex >= fullText.length) {
         return;
       }
-      
-      const currentLineText = terminalLines[lineIndex];
-      
-      if (charIndex < currentLineText.length) {
-        setTypedText((prev) => prev + currentLineText[charIndex]);
-        charIndexRef.current = charIndex + 1;
-      } else {
-        setTypedText((prev) => prev + "\n");
-        lineIndexRef.current = lineIndex + 1;
-        charIndexRef.current = 0;
-      }
+
+      currentIndex++;
+      setTypedText(fullText.substring(0, currentIndex));
     };
 
     const interval = setInterval(typeNextChar, 50);
-    
+
     return () => {
       clearInterval(interval);
     };
@@ -186,12 +172,12 @@ export default function Hero() {
           </div>
 
           {/* Current Activity */}
-          <div className="space-y-3">
+          {/* <div className="space-y-3">
             <h3 className="text-sm font-semibold text-neutral-400 uppercase tracking-wider flex items-center gap-2">
               <Zap className="w-4 h-4" />
               Current Activity
             </h3>
-          </div>
+          </div> */}
 
           {/* CTA Button */}
           <button
@@ -280,8 +266,22 @@ export default function Hero() {
             </div>
           </div>
 
+          {/* Floating Profile Photo
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="absolute -top-6 -left-6 w-40 h-50  border-4 border-neutral-800 shadow-2xl overflow-hidden bg-neutral-900"
+          >
+            <img
+              src={profilePhoto}
+              alt="Gavindu Achintha"
+              className="w-full h-full object-cover"
+            />
+          </motion.div> */}
+
           {/* Floating Status Indicator */}
-          <div className="absolute -bottom-4 -right-4 bg-[#3ECF8E] text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
+          <div className="absolute -bottom-4 -right-4 bg-[#3ea4af] text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
             <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
             <span className="text-sm font-semibold">System Online</span>
           </div>
