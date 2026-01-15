@@ -6,12 +6,12 @@ const skills = [
   {
     name: "Node.js / Express",
     level: 85,
-    color: "from-green-500 to-emerald-500",
+      color: "from-[#D25353] to-[#D25353]",
   },
-  { name: "PostgreSQL / Redis", level: 75, color: "from-blue-500 to-cyan-500" },
-  { name: "Python", level: 80, color: "from-yellow-500 to-orange-500" },
-  { name: "Docker / DevOps", level: 65, color: "from-cyan-500 to-blue-500" },
-  { name: "React / Frontend", level: 70, color: "from-purple-500 to-pink-500" },
+  { name: "PostgreSQL / Redis", level: 75, color: "from-[#D25353] to-[#D25353]" },
+  { name: "Python", level: 80, color: "from-[#D25353] to-[#D25353]" },
+  { name: "Docker / DevOps", level: 65, color: "from-[#D25353] to-[#D25353]" },
+  { name: "React / Frontend", level: 70, color: "from-[#D25353] to-[#D25353]" },
 ];
 
 const currentlyLearning = ["Go", "Kubernetes", "System Design"];
@@ -126,7 +126,7 @@ export default function AboutMe() {
                 </div>
 
                 {/* Currently Learning Badge */}
-                <motion.div
+                {/* <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -149,7 +149,7 @@ export default function AboutMe() {
                       </span>
                     ))}
                   </div>
-                </motion.div>
+                </motion.div> */}
               </div>
 
               {/* Right Side - Skill Progress Bars */}
@@ -206,9 +206,7 @@ export default function AboutMe() {
                   transition={{ duration: 0.6, delay: 0.8 }}
                   className="mt-8 text-center"
                 >
-                  <p className="text-sm text-neutral-500 font-mono">
-                    Hover on the floating icons to explore my full tech stack →
-                  </p>
+                  
                 </motion.div>
               </div>
             </div>

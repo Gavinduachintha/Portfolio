@@ -66,7 +66,7 @@ export default function ProjectGrid() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#6C757D]">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#57939f]">
             Featured Projects
           </h2>
           <p className="text-neutral-600 text-lg max-w-2xl mx-auto">
