@@ -10,6 +10,13 @@ import {
   GitBranch,
   Cpu,
   Rocket,
+  Download,
+  Github,
+  Linkedin,
+  Mail,
+  Copy,
+  CheckCircle2,
+  ExternalLink,
 } from "lucide-react";
 
 const roles = [
@@ -41,6 +48,14 @@ export default function Hero() {
   const [typedText, setTypedText] = useState("");
   const [currentLine, setCurrentLine] = useState(0);
   const [currentRole, setCurrentRole] = useState(0);
+  const [emailCopied, setEmailCopied] = useState(false);
+
+  // Copy email to clipboard
+  const copyEmail = () => {
+    navigator.clipboard.writeText("gavindu@example.com");
+    setEmailCopied(true);
+    setTimeout(() => setEmailCopied(false), 2000);
+  };
 
   // Role rotation effect
   useEffect(() => {
@@ -51,14 +66,14 @@ export default function Hero() {
   }, []);
 
   const terminalLines = [
-    "$ cd ~/projects/backend-services",
-    "$ docker-compose up -d",
-    "✓ PostgreSQL container started",
-    "✓ Redis cache connected",
-    "✓ Express server running on :3000",
-    "$ npm run dev",
-    "> Watching for changes...",
-    "Ready to build scalable APIs 🚀",
+    "$ systemctl status portfolio.service",
+    "● portfolio.service - Running",
+    "   Active: active (running)",
+    "   Memory: 42.3 MB | CPU: 0.8%",
+    "   Uptime: 730 days",
+    "$ curl -I gavindu.dev/api/status",
+    "HTTP/2 200 OK",
+    "✓ All systems operational 🚀",
   ];
 
   useEffect(() => {
@@ -82,15 +97,31 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  const techBadges = [
-    { icon: Server, label: "REST APIs", color: "from-blue-500 to-cyan-500" },
-    { icon: Database, label: "PostgreSQL", color: "from-cyan-500 to-teal-500" },
+  const currentActivity = [
     {
-      icon: Cloud,
-      label: "Cloud Native",
-      color: "from-teal-500 to-emerald-500",
+      icon: Code2,
+      label: "Currently Learning",
+      value: "Kubernetes & System Design",
+      color: "text-blue-500",
     },
-    { icon: Zap, label: "Real-time", color: "from-emerald-500 to-green-500" },
+    {
+      icon: Rocket,
+      label: "Active Projects",
+      value: "3 in production",
+      color: "text-purple-500",
+    },
+    {
+      icon: Server,
+      label: "Latest Stack",
+      value: "Node.js + PostgreSQL + Redis",
+      color: "text-green-500",
+    },
+    {
+      icon: GitBranch,
+      label: "Last Commit",
+      value: "2 hours ago",
+      color: "text-orange-500",
+    },
   ];
 
   return (
@@ -128,20 +159,16 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Tech Specializations */}
-          <div className="grid grid-cols-2 gap-3">
-            {techBadges.map((tech, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 px-4 py-3 rounded-lg bg-neutral-100 border border-neutral-200 hover:border-[#3ECF8E]/50 transition-all duration-300 group"
-              >
-                <tech.icon className="w-4 h-4 text-[#ffffff] group-hover:scale-110 transition-transform" />
-                <span className="text-sm font-medium text-neutral-700">
-                  {tech.label}
-                </span>
-              </div>
-            ))}
+          {/* Current Activity */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-semibold text-neutral-400 uppercase tracking-wider flex items-center gap-2">
+              <Zap className="w-4 h-4" />
+              Current Activity
+            </h3>
+            
           </div>
+
+          
 
           {/* CTA Button */}
           <button

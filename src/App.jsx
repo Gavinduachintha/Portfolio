@@ -97,7 +97,9 @@ function AppContent() {
             
           </section>
         </main>
-
+<section id="contact-from">
+            <ContactForm />
+</section>
         <Footer />
       </div>
 
