@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Server,
@@ -32,23 +32,49 @@ const stats = [
   { icon: GitBranch, value: "500+", label: "Commits" },
   { icon: Cpu, value: "2+", label: "Years Coding" },
 ];
-
 const techIcons = [
+  // Core stack
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+
+  // DevOps & Infra
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+
+  // Cloud
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+
+  // Databases
+
+  // Tools & Languages
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+];
+
+const terminalLines = [
+  "$ systemctl status portfolio.service",
+  "● portfolio.service - Running",
+  "   Active: active (running)",
+  "   Memory: 42.3 MB | CPU: 0.8%",
+  "   Uptime: 730 days",
+  "$ curl -I gavindu.dev/api/status",
+  "HTTP/2 200 OK",
+  "✓ All systems operational 🚀",
 ];
 
 export default function Hero() {
   const [typedText, setTypedText] = useState("");
-  const [currentLine, setCurrentLine] = useState(0);
   const [currentRole, setCurrentRole] = useState(0);
   const [emailCopied, setEmailCopied] = useState(false);
+  
+  // Refs for typewriter effect to avoid stale closures
+  const lineIndexRef = useRef(0);
+  const charIndexRef = useRef(0);
+  const isTypingRef = useRef(true);
 
   // Copy email to clipboard
   const copyEmail = () => {
@@ -65,64 +91,64 @@ export default function Hero() {
     return () => clearInterval(roleInterval);
   }, []);
 
-  const terminalLines = [
-    "$ systemctl status portfolio.service",
-    "● portfolio.service - Running",
-    "   Active: active (running)",
-    "   Memory: 42.3 MB | CPU: 0.8%",
-    "   Uptime: 730 days",
-    "$ curl -I gavindu.dev/api/status",
-    "HTTP/2 200 OK",
-    "✓ All systems operational 🚀",
-  ];
-
+  // Typewriter effect with refs for consistent behavior
   useEffect(() => {
-    let lineIndex = 0;
-    let charIndex = 0;
-    const interval = setInterval(() => {
-      if (lineIndex < terminalLines.length) {
-        if (charIndex < terminalLines[lineIndex].length) {
-          setTypedText((prev) => prev + terminalLines[lineIndex][charIndex]);
-          charIndex++;
-        } else {
-          setTypedText((prev) => prev + "\n");
-          lineIndex++;
-          charIndex = 0;
-          setCurrentLine(lineIndex);
-        }
-      } else {
-        clearInterval(interval);
+    const typeNextChar = () => {
+      if (!isTypingRef.current) return;
+      
+      const lineIndex = lineIndexRef.current;
+      const charIndex = charIndexRef.current;
+      
+      if (lineIndex >= terminalLines.length) {
+        isTypingRef.current = false;
+        return;
       }
-    }, 50);
-    return () => clearInterval(interval);
+      
+      const currentLineText = terminalLines[lineIndex];
+      
+      if (charIndex < currentLineText.length) {
+        setTypedText((prev) => prev + currentLineText[charIndex]);
+        charIndexRef.current = charIndex + 1;
+      } else {
+        setTypedText((prev) => prev + "\n");
+        lineIndexRef.current = lineIndex + 1;
+        charIndexRef.current = 0;
+      }
+    };
+
+    const interval = setInterval(typeNextChar, 50);
+    
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
-  const currentActivity = [
-    {
-      icon: Code2,
-      label: "Currently Learning",
-      value: "Kubernetes & System Design",
-      color: "text-blue-500",
-    },
-    {
-      icon: Rocket,
-      label: "Active Projects",
-      value: "3 in production",
-      color: "text-purple-500",
-    },
-    {
-      icon: Server,
-      label: "Latest Stack",
-      value: "Node.js + PostgreSQL + Redis",
-      color: "text-green-500",
-    },
-    {
-      icon: GitBranch,
-      label: "Last Commit",
-      value: "2 hours ago",
-      color: "text-orange-500",
-    },
-  ];
+  // const currentActivity = [
+  //   {
+  //     icon: Code2,
+  //     label: "Currently Learning",
+  //     value: "Kubernetes & System Design",
+  //     color: "text-blue-500",
+  //   },
+  //   {
+  //     icon: Rocket,
+  //     label: "Active Projects",
+  //     value: "3 in production",
+  //     color: "text-purple-500",
+  //   },
+  //   {
+  //     icon: Server,
+  //     label: "Latest Stack",
+  //     value: "Node.js + PostgreSQL + Redis",
+  //     color: "text-green-500",
+  //   },
+  //   {
+  //     icon: GitBranch,
+  //     label: "Last Commit",
+  //     value: "2 hours ago",
+  //     color: "text-orange-500",
+  //   },
+  // ];
 
   return (
     <section className="hero-section min-h-screen flex items-center relative overflow-hidden py-20 px-4">
@@ -133,7 +159,7 @@ export default function Hero() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Code2 className="w-6 h-6 text-[#ffffff]" />
-              <div className="h-6 overflow-hidden">
+              <div className=" overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={currentRole}
@@ -165,10 +191,7 @@ export default function Hero() {
               <Zap className="w-4 h-4" />
               Current Activity
             </h3>
-            
           </div>
-
-          
 
           {/* CTA Button */}
           <button

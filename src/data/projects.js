@@ -18,7 +18,17 @@ const projects = [
     url: "https://github.com/Gavinduachintha/Shorty",
     tags: ["React", "Supabase", "Tailwind CSS", "Vite"],
     year: 2025,
-    image: "/src/assets/images/shorty.png",
+    image: "/src/assets/images/Shorty.png",
+  },
+  {
+    slug: "petreunification",
+    title: "PetReunification",
+    summary:
+      "A web-based system that helps reunite lost pets with their owners through a unique QR code attached to the pet's collar. When the QR code is scanned, it opens a mobile-friendly webpage showing the pet's profile and the owner's contact information.",
+    url: "https://api.github.com/repos/Gavinduachintha/PetReunification",
+    tags: ["React", "Supabase", "Tailwind CSS", "Vite"],
+    year: 2025,
+    image: "/src/assets/images/PetConnnect.png",
   },
 ];
 export default projects;

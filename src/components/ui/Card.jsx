@@ -12,7 +12,7 @@ const Card = ({
   as: Component = "div",
 }) => {
   const content = (
-    <div className="group relative flex flex-col w-full h-full border border-[#211d1d] rounded-2xl shadow-md overflow-hidden bg-[#0a0a0a] transition-all duration-300 hover:shadow-xl hover:border-[#252323]">
+    <div className="group relative flex flex-col w-full h-full border border-[#211d1d] rounded-md shadow-md overflow-hidden bg-[#0a0a0a] transition-all duration-300 hover:shadow-xl hover:border-[#252323]">
       {/* Image Container with Overlay */}
       <div className="relative w-full h-56 overflow-hidden bg-gradient-to-br from-cyan-50 to-teal-50">
         <ImageLoader
