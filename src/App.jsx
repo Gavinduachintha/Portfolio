@@ -84,22 +84,19 @@ function AppContent() {
           <section id="home">
             <Hero />
           </section>
+          <section id="about">
+            <AboutMe />
+          </section>
 
           <section id="projects">
             <ProjectGrid />
           </section>
 
-          <section id="about">
-            <AboutMe />
-          </section>
-
-          <section id="contact">
-            
-          </section>
+          <section id="contact"></section>
         </main>
-<section id="contact-from">
-            <ContactForm />
-</section>
+        <section id="contact-from">
+          <ContactForm />
+        </section>
         <Footer />
       </div>
 

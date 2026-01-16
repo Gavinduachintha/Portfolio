@@ -2,7 +2,7 @@ import projects from "../../data/projects.js";
 import Card from "../../components/ui/Card.jsx";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useMemo } from "react";
-import { Search, Filter, X } from "lucide-react";
+import { ChevronsRight  } from "lucide-react";
 
 export default function ProjectGrid() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -57,25 +57,36 @@ export default function ProjectGrid() {
   };
 
   return (
-    <section className="py-16 px-4">
-      <div className="mx-auto max-w-[72rem]">
+    <section className="py-16 px-16">
+      <div className="mx-auto max-w-[72rem] ">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-left mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#57939f]">
             Featured Projects
           </h2>
-          <p className="text-neutral-600 text-lg max-w-2xl mx-auto">
+          <p className="text-neutral-600 text-lg max-w-2xl">
             Explore my latest work and side projects. Each project represents a
             unique challenge and learning experience.
           </p>
+          <div className="pt-1">
+            <a
+              href="https://github.com/Gavinduachintha?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-xl text-[#4fda8e] hover:text-[#3bb36d] cursor-pointer"
+            >
+              <span>Explore more</span>
+              <ChevronsRight  className="w-5 h-5" />
+            </a>
+          </div>
         </motion.div>
 
-        {/* Projects Grid */}
+        {/* Projects Grid - Alternating Overlapping Layout */}
         <AnimatePresence mode="wait">
           {filteredProjects.length > 0 ? (
             <motion.div
@@ -84,24 +95,29 @@ export default function ProjectGrid() {
               initial="hidden"
               animate="visible"
               exit="hidden"
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              className="relative"
             >
               {filteredProjects.map((project, index) => (
                 <motion.div
                   key={project.slug}
                   variants={itemVariants}
                   layout
-                  className="h-full"
+                  className={`flex ${
+                    index % 2 === 0 ? "justify-start" : "justify-end"
+                  } ${index > 0 ? "-mt-32 md:-mt-40" : ""}`}
+                  style={{ zIndex: filteredProjects.length - index }}
                 >
-                  <Card
-                    title={project.title}
-                    description={project.summary}
-                    image={project.image}
-                    href={project.url}
-                    tags={project.tags}
-                    year={project.year}
-                    as="div"
-                  />
+                  <div className="w-full md:w-[48%]">
+                    <Card
+                      title={project.title}
+                      description={project.summary}
+                      image={project.image}
+                      href={project.url}
+                      tags={project.tags}
+                      year={project.year}
+                      as="div"
+                    />
+                  </div>
                 </motion.div>
               ))}
             </motion.div>

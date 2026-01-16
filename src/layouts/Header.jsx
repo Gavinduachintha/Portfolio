@@ -134,7 +134,7 @@ export default function Header() {
                 aria-label="LinkedIn"
                 title="LinkedIn"
               >
-                <Linkedin size={18} />
+                <Linkedin size={18} className="hover:text-blue-400" />
               </a>
             )}
             <button

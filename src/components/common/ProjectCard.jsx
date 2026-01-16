@@ -3,7 +3,7 @@ import { Github } from "lucide-react";
 
 const ProjectCard = ({ title, description, image, link }) => {
   return (
-    <div className="flex w-[100vw] max-w-md h-48 border border-gray-300 rounded-lg shadow-md overflow-hidden bg-white">
+    <div className="flex w-[100vw] max-w-md h-48 border border-gray-300 rounded-2xl shadow-md overflow-hidden bg-white">
       {/* Left side: Project photo */}
       <div className="flex-1">
         <img src={image} alt={title} className="w-full h-full object-cover" />

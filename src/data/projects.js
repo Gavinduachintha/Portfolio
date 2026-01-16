@@ -2,11 +2,17 @@
 const projects = [
   {
     slug: "looma-email-dashboard",
-    title: "Looma Email Dashboard",
+    title: "Looma - Personal AI Email Summarizer",
     summary:
       "AI-powered email management platform with Gmail integration, real-time analytics, and smart calendar synchronization.",
     url: "https://github.com/Gavinduachintha/Looma",
-    tags: ["React", "Node.js", "PostgreSQL", "Gmail API", "AI"],
+    tags: [
+      { name: "React", color: "#61DAFB" },
+      "Node.js",
+      "PostgreSQL",
+      "Gmail API",
+      "AI",
+    ],
     year: 2025,
     image: "/src/assets/images/looma.png",
   },
@@ -22,7 +28,7 @@ const projects = [
   },
   {
     slug: "petreunification",
-    title: "PetReunification",
+    title: "Pet  Connect - Lost Pet Reunification System",
     summary:
       "A web-based system that helps reunite lost pets with their owners through a unique QR code attached to the pet's collar. When the QR code is scanned, it opens a mobile-friendly webpage showing the pet's profile and the owner's contact information.",
     url: "https://api.github.com/repos/Gavinduachintha/PetReunification",

@@ -18,17 +18,17 @@ export default function ContactForm() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
       </div>
 
-      <div className="mx-auto max-w-[72rem] relative">
+      <div className="mx-auto max-w-[40rem] relative">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#D25353]">
-            Get In Touch
+          <h2 className="text-4xl md:text-5xl font-bold mb-1 text-white">
+            Keep In Touch
           </h2>
           <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
             Let's connect! Feel free to reach out for collaborations,
@@ -42,32 +42,12 @@ export default function ContactForm() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative z-10 backdrop-blur-sm bg-gradient-to-br from-[#0a0a0a]/90 to-[#111111]/90 rounded-2xl p-8 md:p-12 shadow-xl border border-[#1a1a1a] hover:border-[#2a2a2a] transition-colors duration-300"
+          className="relative z-10 p-6 md:p-8 text-sm transition-colors duration-300"
         >
           <div className="space-y-8">
-            {/* Contact Info */}
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-lg bg-[#D25353]/20">
-                  <Mail className="w-6 h-6 text-[#D25353]" />
-                </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white">
-                  Connect With Me
-                </h3>
-              </div>
-              <p className="text-neutral-300 text-lg mb-8">
-                I'm always excited to discuss new projects, creative ideas, or
-                opportunities to be part of your vision.
-              </p>
-            </div>
-
             {/* Quick Links Grid */}
-            <div className="space-y-4">
-              <h4 className="text-sm font-semibold text-neutral-400 uppercase tracking-wider flex items-center gap-2">
-                <Send className="w-4 h-4" />
-                Quick Links
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="space-y-4 ">
+              <div className="grid grid-cols-3 sm:grid-cols-3 gap-4">
                 {/* Download Resume */}
                 <motion.a
                   href="/resume.pdf"
@@ -79,22 +59,7 @@ export default function ContactForm() {
                   className="flex items-center justify-center gap-2 px-6 py-4 rounded-lg bg-[#D25353] hover:bg-[#b74444] text-white font-medium transition-all duration-300 hover:scale-105 shadow-lg"
                 >
                   <Download className="w-5 h-5" />
-                  Download Resume
-                </motion.a>
-
-                {/* GitHub */}
-                <motion.a
-                  href="https://github.com/yourusername"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 }}
-                  className="flex items-center justify-center gap-2 px-6 py-4 rounded-lg bg-neutral-900/50 border border-neutral-800 hover:border-[#D25353]/50 text-white font-medium transition-all duration-300 hover:scale-105 group"
-                >
-                  <Github className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-                  GitHub
+                  Resume
                 </motion.a>
 
                 {/* LinkedIn */}
@@ -106,9 +71,9 @@ export default function ContactForm() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.5 }}
-                  className="flex items-center justify-center gap-2 px-6 py-4 rounded-lg bg-neutral-900/50 border border-neutral-800 hover:border-blue-500/50 text-white font-medium transition-all duration-300 hover:scale-105 group"
+                  className="flex items-center justify-center gap-2 px-6 py-4 rounded-lg bg-neutral-900/50 border border-neutral-800 hover:text-blue-500/50 hover:border-blue-500/50 text-white font-medium transition-all duration-300 hover:scale-105 group"
                 >
-                  <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  <Linkedin className="w-5 h-5 group-hover:scale-110  transition-transform" />
                   LinkedIn
                 </motion.a>
 

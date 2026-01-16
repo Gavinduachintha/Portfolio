@@ -137,7 +137,7 @@ export default function Hero() {
   // ];
 
   return (
-    <section className="hero-section min-h-screen flex items-center relative overflow-hidden py-20 px-4">
+    <section className="hero-section min-h-screen flex items-center relative overflow-hidden  px-0">
       <div className="relative z-10 max-w-[72rem] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Side - Identity & Tech Stack */}
         <div className="text-left space-y-8">
@@ -161,9 +161,9 @@ export default function Hero() {
               </div>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white leading-tight">
-              I'm Gavindu
+              Hey I'm 
               <br />
-              <span className="text-[#D25353]">Achintha</span>
+              <span className="text-[#4fda8e]">Gavindu Achintha_</span>
             </h1>
             <p className="text-lg md:text-xl text-neutral-600 max-w-lg">
               Backend enthusiast learning to craft APIs, manage databases, and

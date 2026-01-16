@@ -36,10 +36,10 @@ export default function ScrollToTop() {
           initial={{ opacity: 0, scale: 0.8, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
-          whileHover={{ scale: 1.1, y: -2 }}
+          whileHover={{ scale: 1, y: -1 }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-[#6C757D] hover:bg-[#495057] text-white shadow-lg hover:shadow-xl transition-all duration-300 group"
+          className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-[#D25353] hover:bg-[#e85151] text-white shadow-lg hover:shadow-xl transition-all duration-100 group"
           aria-label="Scroll to top"
         >
           <ArrowUp size={24} className="group-hover:animate-bounce" />
