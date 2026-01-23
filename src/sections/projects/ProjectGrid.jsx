@@ -1,4 +1,5 @@
 import projects from "../../data/projects.js";
+
 import Card from "../../components/ui/Card.jsx";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useMemo } from "react";
