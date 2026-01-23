@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 import { Toaster } from "react-hot-toast";
 import IconCloud from "./sections/about/IconCloud.jsx";
-import { ThemeProvider } from "./context/ThemeContext.jsx";
+import { ThemeProvider, useTheme } from "./context/ThemeContext.jsx";
 import RootLayout from "./layouts/RootLayout.jsx";
 import Header from "./layouts/Header.jsx";
 import Footer from "./layouts/Footer.jsx";
@@ -16,6 +16,7 @@ import { useState, useEffect } from "react";
 import { Icon } from "lucide-react";
 
 function AppContent() {
+  const { theme } = useTheme();
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -39,12 +40,34 @@ function AppContent() {
         speed: 0.8,
       };
 
-  return (
-    <RootLayout>
-      {/* Toast Notifications */}
-      <Toaster
-        position="bottom-right"
-        toastOptions={{
+  const toastOptions =
+    theme === "dark"
+      ? {
+          duration: 4000,
+          style: {
+            borderRadius: "12px",
+            background: "#1f2937",
+            color: "#f9fafb",
+            padding: "16px",
+            fontSize: "14px",
+            fontWeight: "500",
+            boxShadow:
+              "0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2)",
+          },
+          success: {
+            iconTheme: {
+              primary: "#10b981",
+              secondary: "#1f2937",
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: "#ef4444",
+              secondary: "#1f2937",
+            },
+          },
+        }
+      : {
           duration: 4000,
           style: {
             borderRadius: "12px",
@@ -68,7 +91,15 @@ function AppContent() {
               secondary: "#fff",
             },
           },
-        }}
+        };
+
+  return (
+    <RootLayout>
+      {/* Toast Notifications */}
+      <Toaster
+        position="bottom-right"
+        theme={theme}
+        toastOptions={toastOptions}
       />
 
       {/* Aurora Background - Fixed behind everything */}

@@ -14,7 +14,7 @@ const projects = [
       "AI",
     ],
     year: 2025,
-    image: "/src/assets/images/looma.png",
+    image: "/src/assets/images/looma.jpg",
   },
   {
     slug: "shorty-url-shortener",
@@ -24,7 +24,7 @@ const projects = [
     url: "https://github.com/Gavinduachintha/Shorty",
     tags: ["React", "Supabase", "Tailwind CSS", "Vite"],
     year: 2025,
-    image: "/src/assets/images/Shorty.png",
+    image: "/src/assets/images/Shorty.jpg",
   },
   {
     slug: "petreunification",
@@ -34,7 +34,7 @@ const projects = [
     url: "https://api.github.com/repos/Gavinduachintha/PetReunification",
     tags: ["React", "Supabase", "Tailwind CSS", "Vite"],
     year: 2025,
-    image: "/src/assets/images/PetConnnect.png",
+    image: "/src/assets/images/PetConnnect.jpg",
   },
 ];
 export default projects;

@@ -10,9 +10,8 @@ export const siteConfig = {
   },
   social: {
     github: "https://github.com/Gavinduachintha",
-    linkedin: "https://linkedin.com/in/yourname",
-    twitter: "https://x.com/yourname",
-    dribbble: "https://dribbble.com/yourname",
+    linkedin: "https://linkedin.com/in/gavindu-achintha",
+    twitter: "https://x.com/P911Stum",
   },
   navigation: [
     { label: "Home", path: "home" },

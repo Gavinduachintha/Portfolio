@@ -166,7 +166,7 @@ export default function Hero() {
             className="px-8 py-3 bg-[#ffffff] hover:bg-[#bdbcbc] text-black rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2 w-fit"
           >
             <Terminal className="w-5 h-5" />
-            View My Projects
+            Explore Me
           </button>
 
           {/* Stats Bar */}
