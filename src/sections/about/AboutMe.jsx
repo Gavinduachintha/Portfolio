@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { BookOpen, Sparkles, TrendingUp } from "lucide-react";
-import profilePhoto from "../../assets/images/profilePhoto.jpg";
+import { BookOpen, Sparkles, TrendingUp, Gamepad } from "lucide-react";
 
 const skills = [
   {
@@ -80,46 +79,33 @@ export default function AboutMe() {
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Side - About Text */}
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-lg bg-[#4fda8e]/20">
-                  <BookOpen className="w-6 h-6 text-[#4fda8e]" />
-                </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white">
-                  Who I Am
-                </h3>
-              </div>
-              <div className="space-y-4 text-lg text-neutral-300 leading-relaxed">
-                <p>
-                  Hi! I'm{" "}
-                  <strong className="text-blue-400">Gavindu Achintha</strong>, a
-                  2nd year undergraduate student at university, currently
-                  studying{" "}
-                  <strong className="text-[#4fda8e]">
-                    Computer Science, Electronics, and Mathematics
-                  </strong>
-                  .
-                </p>
-                <p>
-                  I have a passion for{" "}
-                  <strong className="text-[#4fda8e]">
-                    building web applications
-                  </strong>{" "}
-                  and I'm particularly interested in the{" "}
-                  <strong className="text-blue-400">
-                    backend development path
-                  </strong>
-                  . I love creating robust, scalable APIs and systems that power
-                  modern web applications.
-                </p>
-                <p>
-                  Beyond software, I'm deeply passionate about{" "}
-                  <strong className="text-[#D25353]">robotics</strong> —
-                  combining my knowledge of electronics and programming to bring
-                  innovative ideas to life.
-                </p>
-              </div>
-            </div>
+            <div className="space-y-4 text-lg text-neutral-300 leading-relaxed">
+  <p>
+    Hi! I’m{" "}
+    <strong className="text-blue-400">Gavindu Achintha</strong>, an undergraduate
+    student passionate about technology and innovation, currently studying{" "}
+    <strong className="text-[#4fda8e]">
+      Computer Science, Electronics, and Mathematics
+    </strong>.
+  </p>
+  <p>
+    I focus on building{" "}
+    <strong className="text-[#4fda8e]">scalable web applications</strong> with a
+    strong interest in{" "}
+    <strong className="text-blue-400">
+      backend development, AI/ML, and Robotics
+    </strong>.
+  </p>
+  <p>
+    Beyond coding, I enjoy{" "}
+    <strong className="text-[#D25353]">basketball</strong>,{" "}
+    <strong className="text-purple-400">
+      gaming <Gamepad className="inline w-5 h-5" />
+    </strong>
+    , and hands-on electronics projects.
+  </p>
+</div>
+
 
             {/* Right Side - Profile Photo */}
             <motion.div
@@ -140,8 +126,8 @@ export default function AboutMe() {
                   <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#D25353] via-purple-500 to-blue-500 p-1">
                     <div className="w-full h-full rounded-full bg-[#0a0a0a] p-2">
                       <img
-                        src={profilePhoto}
-                        alt="Profile"
+                        src="/images/profilePhoto.jpg"
+                        alt="Gavindu Achintha - Profile Photo"
                         className="w-full h-full object-cover rounded-full"
                       />
                     </div>
@@ -157,8 +143,6 @@ export default function AboutMe() {
             </motion.div>
           </div>
         </motion.div>
-
-        
       </div>
     </section>
   );

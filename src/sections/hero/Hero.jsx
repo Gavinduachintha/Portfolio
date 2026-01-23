@@ -154,7 +154,7 @@ export default function Hero() {
           {/* CTA Button */}
           <button
             onClick={() => {
-              const element = document.getElementById("projects");
+              const element = document.getElementById("about");
               if (element) {
                 const offset = 80;
                 const elementPosition = element.getBoundingClientRect().top;

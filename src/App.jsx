@@ -96,11 +96,6 @@ function AppContent() {
   return (
     <RootLayout>
       {/* Toast Notifications */}
-      <Toaster
-        position="bottom-right"
-        theme={theme}
-        toastOptions={toastOptions}
-      />
 
       {/* Aurora Background - Fixed behind everything */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-[#0a0a0a]">
