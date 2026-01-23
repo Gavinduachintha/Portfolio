@@ -36,7 +36,6 @@ const stats = [
 const techIcons = [
   // Core stack
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  // "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
@@ -49,15 +48,15 @@ const techIcons = [
 
   // Cloud
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/digitalocean/digitalocean-original-wordmark.svg",
 
-  // Databases
-
-  // Tools & Languages
+  // Tools
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
 ];
 
+
 const terminalLines = [
-  "$ systemctl status portfolio.service",
+  "$ system status portfolio.service",
   "● portfolio.service - Running",
   "   Active: active (running)",
   "   Memory: 42.3 MB | CPU: 0.8%",
@@ -109,33 +108,6 @@ export default function Hero() {
     };
   }, []);
 
-  // const currentActivity = [
-  //   {
-  //     icon: Code2,
-  //     label: "Currently Learning",
-  //     value: "Kubernetes & System Design",
-  //     color: "text-blue-500",
-  //   },
-  //   {
-  //     icon: Rocket,
-  //     label: "Active Projects",
-  //     value: "3 in production",
-  //     color: "text-purple-500",
-  //   },
-  //   {
-  //     icon: Server,
-  //     label: "Latest Stack",
-  //     value: "Node.js + PostgreSQL + Redis",
-  //     color: "text-green-500",
-  //   },
-  //   {
-  //     icon: GitBranch,
-  //     label: "Last Commit",
-  //     value: "2 hours ago",
-  //     color: "text-orange-500",
-  //   },
-  // ];
-
   return (
     <section className="hero-section min-h-screen flex items-center relative overflow-hidden  px-0">
       <div className="relative z-10 max-w-[72rem] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -161,7 +133,7 @@ export default function Hero() {
               </div>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white leading-tight">
-              Hey I'm 
+              Hey I'm
               <br />
               <span className="text-[#4fda8e]">Gavindu Achintha_</span>
             </h1>

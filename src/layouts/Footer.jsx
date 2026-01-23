@@ -10,16 +10,15 @@ export default function Footer() {
       <div className="mx-auto max-w-[72rem] px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="text-center sm:text-left">
           <p className="text-sm text-neutral-300">
-            Designed &amp; built by
-            <a
-              href={`mailto:${siteConfig.author.email}`}
-              className="ml-1 font-medium text-neutral-100 hover:underline"
-            >
-              {siteConfig.author.name}
-            </a>
+            Designed &amp; Developed by
+            
+              {" "}{siteConfig.author.name}
+            
             .
           </p>
-          <p className="text-xs text-neutral-500 mt-1">Built with React &amp; Tailwind CSS</p>
+          <p className="text-xs text-neutral-500 mt-1">
+            Built with React, Tailwind CSS and hosted on Vercel.
+          </p>
         </div>
 
         <div className="flex items-center gap-4">
@@ -63,11 +62,11 @@ export default function Footer() {
               </a>
             )}
           </div>
-
-          
         </div>
 
-        <p className="text-xs text-neutral-500 sm:hidden text-center">© {year} {siteConfig.name}</p>
+        <p className="text-xs text-neutral-500 sm:hidden text-center">
+          © {year} {siteConfig.name}
+        </p>
       </div>
     </footer>
   );
