@@ -20,13 +20,12 @@ import {
 } from "lucide-react";
 import GlitchText from "../../components/ui/GlitchText.jsx";
 
-// import profilePhoto from "../../assets/images/dp.png";
-
 const roles = [
-  "Backend Developer",
+  "Allrounder",
+  "Backend Lover",
   "Robotics Enthusiast",
-  "CS Student",
-  "API Architect",
+  "Undergrad",
+  "Swimmer and Basketball Player",
   "Cloud Explorer",
 ];
 
@@ -139,7 +138,7 @@ export default function Hero() {
               <GlitchText
                 speed={0.8}
                 enableShadows={true}
-                className="text-[#4fda8e]"
+                className="text-[#d6e40d]"
               >
                 Gavindu Achintha_
               </GlitchText>
@@ -149,14 +148,6 @@ export default function Hero() {
               deploy cloud solutions
             </p>
           </div>
-
-          {/* Current Activity */}
-          {/* <div className="space-y-3">
-            <h3 className="text-sm font-semibold text-neutral-400 uppercase tracking-wider flex items-center gap-2">
-              <Zap className="w-4 h-4" />
-              Current Activity
-            </h3>
-          </div> */}
 
           {/* CTA Button */}
           <button
@@ -236,30 +227,107 @@ export default function Hero() {
             </div>
 
             {/* Terminal Content */}
-            <div className="p-6 font-mono text-sm min-h-[320px]">
-              <pre className="text-white whitespace-pre-wrap leading-relaxed">
-                {typedText}
-                <span className="animate-pulse text-white">▊</span>
-              </pre>
+            <div className="p-6 font-mono text-sm min-h-[320px] flex flex-col text-left">
+              {typedText.split("\n").map((line, index, arr) => {
+                const isLast = index === arr.length - 1;
+                let content;
+
+                if (line.startsWith("$")) {
+                  content = (
+                    <>
+                      <span className="text-[#4fda8e] mr-2">$</span>
+                      <span className="text-blue-300">{line.substring(2)}</span>
+                    </>
+                  );
+                } else if (line.startsWith("●")) {
+                  content = (
+                    <>
+                      <span className="text-[#4fda8e] mr-2">●</span>
+                      <span className="text-white">{line.substring(2)}</span>
+                    </>
+                  );
+                } else if (line.startsWith("   Active:")) {
+                  content = (
+                    <>
+                      <span className="text-neutral-500">{"   Active: "}</span>
+                      <span className="text-[#4fda8e]">
+                        {line.substring(11)}
+                      </span>
+                    </>
+                  );
+                } else if (line.startsWith("   Memory:")) {
+                  if (line.includes("| CPU:")) {
+                    const parts = line.split("| CPU:");
+                    content = (
+                      <>
+                        <span className="text-neutral-500">
+                          {"   Memory: "}
+                        </span>
+                        <span className="text-yellow-300">
+                          {parts[0].substring(11)}
+                        </span>
+                        <span className="text-neutral-500">{"| CPU:"}</span>
+                        <span className="text-yellow-300">{parts[1]}</span>
+                      </>
+                    );
+                  } else {
+                    content = (
+                      <>
+                        <span className="text-neutral-500">
+                          {"   Memory: "}
+                        </span>
+                        <span className="text-yellow-300">
+                          {line.substring(11)}
+                        </span>
+                      </>
+                    );
+                  }
+                } else if (line.startsWith("   Uptime:")) {
+                  content = (
+                    <>
+                      <span className="text-neutral-500">{"   Uptime: "}</span>
+                      <span className="text-yellow-300">
+                        {line.substring(11)}
+                      </span>
+                    </>
+                  );
+                } else if (line.startsWith("HTTP/2")) {
+                  content = (
+                    <>
+                      <span className="text-purple-400">{"HTTP/2 "}</span>
+                      <span className="text-[#4fda8e]">
+                        {line.substring(7)}
+                      </span>
+                    </>
+                  );
+                } else if (line.startsWith("✓")) {
+                  content = (
+                    <>
+                      <span className="text-[#4fda8e] mr-2">✓</span>
+                      <span className="text-white">{line.substring(2)}</span>
+                    </>
+                  );
+                } else {
+                  content = <span className="text-neutral-400">{line}</span>;
+                }
+
+                return (
+                  <div
+                    key={index}
+                    className="leading-relaxed whitespace-pre-wrap"
+                  >
+                    {content}
+                    {isLast && (
+                      <span className="animate-pulse text-white ml-2">▊</span>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
 
-          {/* Floating Profile Photo
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-            className="absolute -top-6 -left-6 w-40 h-50  border-4 border-neutral-800 shadow-2xl overflow-hidden bg-neutral-900"
-          >
-            <img
-              src={profilePhoto}
-              alt="Gavindu Achintha"
-              className="w-full h-full object-cover"
-            />
-          </motion.div> */}
-
           {/* Floating Status Indicator */}
-          <div className="absolute -bottom-4 -right-4 bg-[#3ea4af] text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
+          <div className="absolute -bottom-4 -right-4 border border-neutral-600 hover:bg-[#3ea4af] text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
             <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
             <span className="text-sm font-semibold">System Online</span>
           </div>
