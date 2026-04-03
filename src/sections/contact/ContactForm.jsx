@@ -10,7 +10,7 @@ import {
 import { motion } from "framer-motion";
 import toast, { Toaster } from "react-hot-toast";
 import { useTheme } from "../../context/ThemeContext.jsx";
-
+import LetterGlitchWrapper from "../../components/common/LetterGlitch.jsx";
 const notify = () =>
   toast.success("Coming soon!", {
     duration: 3000,
@@ -73,6 +73,7 @@ export default function ContactForm() {
   return (
     <section className="py-16 px-4 relative overflow-hidden">
       {/* Subtle background pattern */}
+      <LetterGlitchWrapper />
       <Toaster position="top-center" toastOptions={toastOptions} />
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]" />

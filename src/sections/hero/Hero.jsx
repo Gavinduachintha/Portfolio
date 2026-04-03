@@ -18,6 +18,8 @@ import {
   CheckCircle2,
   ExternalLink,
 } from "lucide-react";
+import GlitchText from "../../components/ui/GlitchText.jsx";
+
 // import profilePhoto from "../../assets/images/dp.png";
 
 const roles = [
@@ -53,7 +55,6 @@ const techIcons = [
   // Tools
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
 ];
-
 
 const terminalLines = [
   "$ system status portfolio.service",
@@ -135,7 +136,13 @@ export default function Hero() {
             <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white leading-tight">
               Hey I'm
               <br />
-              <span className="text-[#4fda8e]">Gavindu Achintha_</span>
+              <GlitchText
+                speed={0.8}
+                enableShadows={true}
+                className="text-[#4fda8e]"
+              >
+                Gavindu Achintha_
+              </GlitchText>
             </h1>
             <p className="text-lg md:text-xl text-neutral-600 max-w-lg">
               Backend enthusiast learning to craft APIs, manage databases, and
@@ -204,8 +211,7 @@ export default function Hero() {
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.8 + index * 0.05 }}
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  className="w-6 h-6 grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer"
+                  className="w-6 h-6  transition-all duration-300 cursor-pointer"
                 />
               ))}
             </div>
