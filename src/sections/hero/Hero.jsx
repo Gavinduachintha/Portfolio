@@ -55,17 +55,6 @@ const techIcons = [
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
 ];
 
-const terminalLines = [
-  "$ system status portfolio.service",
-  "● portfolio.service - Running",
-  "   Active: active (running)",
-  "   Memory: 42.3 MB | CPU: 0.8%",
-  "   Uptime: 730 days",
-  "$ curl -I gavindu.dev/api/status",
-  "HTTP/2 200 OK",
-  "✓ All systems operational 🚀",
-];
-
 export default function Hero() {
   const [typedText, setTypedText] = useState("");
   const [currentRole, setCurrentRole] = useState(0);
@@ -88,8 +77,38 @@ export default function Hero() {
 
   // Typewriter effect - build the full text string based on position
   useEffect(() => {
+    // Gather real client metrics
+    let memAmount = "42.3"; // Fallback
+    if (window.performance && window.performance.memory) {
+      memAmount = (
+        window.performance.memory.usedJSHeapSize /
+        (1024 * 1024)
+      ).toFixed(1);
+    }
+
+    let loadTime = 120; // Fallback
+    if (window.performance) {
+      const navEntry = window.performance.getEntriesByType?.("navigation")?.[0];
+      if (navEntry) {
+        loadTime = Math.round(navEntry.domComplete || performance.now());
+      }
+    }
+
+    const cores = navigator.hardwareConcurrency || 4;
+
+    const dynamicTerminalLines = [
+      "$ system status portfolio.client",
+      "● portfolio.client - Running",
+      "   Active: active (running)",
+      `   Memory: ${memAmount} MB | Cores: ${cores}`,
+      `   Load Time: ${loadTime}ms`,
+      "$ curl -I gavindu.dev/api/status",
+      "HTTP/2 200 OK",
+      "✓ All systems operational 🚀",
+    ];
+
     // Flatten all terminal lines into a single string with newlines
-    const fullText = terminalLines.join("\n");
+    const fullText = dynamicTerminalLines.join("\n");
     let currentIndex = 0;
 
     const typeNextChar = () => {
@@ -256,8 +275,8 @@ export default function Hero() {
                     </>
                   );
                 } else if (line.startsWith("   Memory:")) {
-                  if (line.includes("| CPU:")) {
-                    const parts = line.split("| CPU:");
+                  if (line.includes("| Cores:")) {
+                    const parts = line.split("| Cores:");
                     content = (
                       <>
                         <span className="text-neutral-500">
@@ -266,7 +285,7 @@ export default function Hero() {
                         <span className="text-yellow-300">
                           {parts[0].substring(11)}
                         </span>
-                        <span className="text-neutral-500">{"| CPU:"}</span>
+                        <span className="text-neutral-500">{"| Cores:"}</span>
                         <span className="text-yellow-300">{parts[1]}</span>
                       </>
                     );
@@ -282,12 +301,14 @@ export default function Hero() {
                       </>
                     );
                   }
-                } else if (line.startsWith("   Uptime:")) {
+                } else if (line.startsWith("   Load Time:")) {
                   content = (
                     <>
-                      <span className="text-neutral-500">{"   Uptime: "}</span>
+                      <span className="text-neutral-500">
+                        {"   Load Time: "}
+                      </span>
                       <span className="text-yellow-300">
-                        {line.substring(11)}
+                        {line.substring(14)}
                       </span>
                     </>
                   );
