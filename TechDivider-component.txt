@@ -1,0 +1,182 @@
+// TechDivider.jsx - Complete Component Code
+// Save to: src/components/effects/TechDivider.jsx
+
+import { useMemo } from 'react';
+
+/**
+ * TechDivider - Animated section divider with circuit board aesthetics
+ * 
+ * @param {Object} props
+ * @param {'circuit'|'hex'|'minimal'} [props.variant='circuit'] - Visual style
+ * @param {boolean} [props.animated=true] - Enable animations
+ * @param {string[]} [props.colors] - Custom colors
+ * @param {number} [props.height=80] - Divider height in pixels
+ */
+const TechDivider = ({
+  variant = 'circuit',
+  animated = true,
+  colors = ['#3B82F6', '#8B5CF6', '#06B6D4'],
+  height = 80,
+  className = ''
+}) => {
+  const uniqueId = useMemo(() => Math.random().toString(36).substr(2, 9), []);
+
+  const renderCircuitVariant = () => (
+    <svg
+      width="100%"
+      height={height}
+      viewBox={`0 0 1200 ${height}`}
+      preserveAspectRatio="none"
+      className={className}
+      style={{ display: 'block' }}
+    >
+      <defs>
+        <linearGradient id={`gradient-${uniqueId}`} x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor={colors[0]} stopOpacity="0.3" />
+          <stop offset="50%" stopColor={colors[1]} stopOpacity="0.6" />
+          <stop offset="100%" stopColor={colors[2]} stopOpacity="0.3" />
+        </linearGradient>
+        
+        <filter id={`glow-${uniqueId}`}>
+          <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+          <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+
+      {/* Main circuit lines */}
+      <g stroke={`url(#gradient-${uniqueId})`} strokeWidth="2" fill="none">
+        <line x1="0" y1={height/2} x2="1200" y2={height/2} />
+        <line x1="0" y1={height/2 - 10} x2="1200" y2={height/2 - 10} opacity="0.5" />
+        <line x1="0" y1={height/2 + 10} x2="1200" y2={height/2 + 10} opacity="0.5" />
+      </g>
+
+      {/* Connection nodes */}
+      {[200, 400, 600, 800, 1000].map((x, i) => (
+        <g key={i}>
+          <circle
+            cx={x}
+            cy={height/2}
+            r="4"
+            fill={colors[i % colors.length]}
+            filter={`url(#glow-${uniqueId})`}
+          >
+            {animated && (
+              <animate
+                attributeName="opacity"
+                values="0.3;1;0.3"
+                dur={`${2 + i * 0.2}s`}
+                repeatCount="indefinite"
+              />
+            )}
+          </circle>
+        </g>
+      ))}
+
+      {/* Animated data packets */}
+      {animated && [0, 300, 600, 900].map((offset, i) => (
+        <circle
+          key={`packet-${i}`}
+          r="3"
+          fill={colors[i % colors.length]}
+          filter={`url(#glow-${uniqueId})`}
+        >
+          <animateMotion
+            path={`M ${offset} ${height/2} L ${offset + 1200} ${height/2}`}
+            dur={`${3 + i * 0.5}s`}
+            repeatCount="indefinite"
+          />
+        </circle>
+      ))}
+    </svg>
+  );
+
+  const renderHexVariant = () => (
+    <div className={`relative ${className}`} style={{ height: `${height}px` }}>
+      <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+        <div className="flex gap-4">
+          {[...Array(12)].map((_, i) => (
+            <div
+              key={i}
+              className="hexagon"
+              style={{
+                width: '40px',
+                height: '46px',
+                background: `linear-gradient(135deg, ${colors[0]}33, ${colors[1]}33)`,
+                clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+                opacity: 0.5,
+                animation: animated ? `hexPulse ${2 + (i * 0.1)}s ease-in-out infinite` : 'none',
+              }}
+            />
+          ))}
+        </div>
+      </div>
+      <style jsx>{`
+        @keyframes hexPulse {
+          0%, 100% { opacity: 0.3; transform: scale(1); }
+          50% { opacity: 0.8; transform: scale(1.1); }
+        }
+      `}</style>
+    </div>
+  );
+
+  const renderMinimalVariant = () => (
+    <div className={`relative ${className}`} style={{ height: `${height}px` }}>
+      <div className="absolute inset-0 flex items-center">
+        <div
+          className="w-full h-px"
+          style={{
+            background: `linear-gradient(90deg, transparent, ${colors[0]}, ${colors[1]}, ${colors[2]}, transparent)`,
+          }}
+        />
+      </div>
+    </div>
+  );
+
+  switch (variant) {
+    case 'hex':
+      return renderHexVariant();
+    case 'minimal':
+      return renderMinimalVariant();
+    case 'circuit':
+    default:
+      return renderCircuitVariant();
+  }
+};
+
+export default TechDivider;
+
+// Usage Examples:
+/*
+// 1. Circuit variant with animated data packets
+<TechDivider 
+  variant="circuit" 
+  animated 
+  colors={['#3B82F6', '#8B5CF6', '#06B6D4']}
+  height={80}
+/>
+
+// 2. Hexagonal pattern variant
+<TechDivider 
+  variant="hex" 
+  animated 
+  colors={['#3B82F6', '#8B5CF6']}
+  height={100}
+/>
+
+// 3. Minimal gradient line
+<TechDivider 
+  variant="minimal" 
+  colors={['#3B82F6', '#8B5CF6', '#06B6D4']}
+  height={60}
+/>
+
+// 4. Static circuit (no animation)
+<TechDivider 
+  variant="circuit" 
+  animated={false}
+  height={80}
+/>
+*/
