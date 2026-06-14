@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Github, Menu, X ,Linkedin} from "lucide-react";
-import Logo from "../components/common/Logo.jsx";
 import { siteConfig } from "../config/site.config.js";
+import hacksterLogo from "../assets/images/H.png";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -135,6 +135,22 @@ export default function Header() {
                 title="LinkedIn"
               >
                 <Linkedin size={18} className="hover:text-blue-400" />
+              </a>
+            )}
+            {siteConfig?.social?.hackster && (
+              <a
+                className="inline-flex items-center justify-center w-9 h-9 text-white hover:scale-105 hover:shadow-md transition-all duration-300"
+                href={siteConfig.social.hackster}
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="Hackster"
+                title="Hackster"
+              >
+                <img
+                  src={hacksterLogo}
+                  alt="Hackster"
+                  className="h-5 w-5 object-contain"
+                />
               </a>
             )}
             <button

@@ -5,6 +5,7 @@ import IconCloud from "./sections/about/IconCloud.jsx";
 import { ThemeProvider, useTheme } from "./context/ThemeContext.jsx";
 import RootLayout from "./layouts/RootLayout.jsx";
 import Header from "./layouts/Header.jsx";
+import Articles from "./sections/Article/Articles.jsx";
 import Footer from "./layouts/Footer.jsx";
 import Hero from "./sections/hero/Hero.jsx";
 import ProjectGrid from "./sections/projects/ProjectGrid.jsx";
@@ -117,6 +118,10 @@ function AppContent() {
           <section id="projects">
             <ProjectGrid />
           </section>
+
+          {/* <section id="articles">
+            <Articles />
+          </section> */}
 
           <section id="contact"></section>
         </main>

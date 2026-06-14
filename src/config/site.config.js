@@ -12,6 +12,7 @@ export const siteConfig = {
     github: "https://github.com/Gavinduachintha",
     linkedin: "https://linkedin.com/in/gavindu-achintha",
     twitter: "https://x.com/P911Stum",
+    hackster: "https://www.hackster.io/gavindu911",
   },
   navigation: [
     { label: "Home", path: "home" },
