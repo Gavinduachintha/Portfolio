@@ -73,10 +73,13 @@ export default function ProjectGrid() {
           transition={{ duration: 0.6 }}
           className="text-left mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-neutral-100">
+          <p className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">
+            Projects
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-100 mb-4">
             Featured Projects
           </h2>
-          <p className="text-neutral-400 text-lg max-w-2xl">
+          <p className="text-neutral-400 text-sm max-w-2xl">
             Explore my latest work and side projects. Each project represents a
             unique challenge and learning experience.
           </p>
@@ -85,10 +88,10 @@ export default function ProjectGrid() {
               href="https://github.com/Gavinduachintha?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xl text-[#4fda8e] hover:text-[#3bb36d] cursor-pointer"
+              className="inline-flex items-center gap-2 text-sm font-mono text-[#4fda8e] hover:text-[#3bb36d] cursor-pointer"
             >
               <span>Explore more</span>
-              <ChevronsRight className="w-5 h-5" />
+              <ChevronsRight className="w-4 h-4" />
             </a>
           </div>
         </motion.div>

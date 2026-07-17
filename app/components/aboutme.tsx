@@ -31,14 +31,14 @@ export default function AboutMe() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-right mb-16"
+          className="mb-12"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-neutral-100">
-            About Me
-          </h1>
-          <p className="text-xl text-neutral-400 leading-relaxed">
-            CS Undergraduate | Backend Developer | Robotics Enthusiast
+          <p className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">
+            About
           </p>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-100">
+            About Me
+          </h2>
         </motion.div>
 
         {/* Main Content */}

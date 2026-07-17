@@ -39,22 +39,38 @@ export default function Card({
       <div className="p-5 space-y-3">
         {/* Meta row: year + link, datasheet style */}
         <div className="flex items-center justify-between">
-          <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-500">
-            {year ?? "—"}
+          <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-neutral-500">
+            {year || "—"}
           </span>
+
           {href && (
             <a
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`View ${title}`}
-              className="flex items-center gap-1 text-[11px] font-mono uppercase tracking-widest text-neutral-500 hover:text-[#4fda8e] transition-colors"
+              aria-label={`View ${title} repository`}
+              className="
+        group/link
+        flex items-center gap-1.5
+        text-[11px]
+        font-mono
+        uppercase
+        tracking-[0.18em]
+        text-neutral-500
+        transition-colors
+        hover:text-[#4fda8e]
+      "
               onClick={(e) => e.stopPropagation()}
             >
-              View
+              <span>View</span>
+
               <RiGitRepositoryLine
                 size={12}
-                className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                className="
+          transition-transform
+          duration-200
+          
+        "
               />
             </a>
           )}
