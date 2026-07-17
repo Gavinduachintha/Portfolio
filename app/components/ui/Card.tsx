@@ -22,7 +22,7 @@ export default function Card({
   as: Wrapper = "div",
 }: CardProps) {
   return (
-    <Wrapper className="group relative bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors duration-200 hover:border-[#8B5CF6]/50">
+    <Wrapper className="group relative bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors duration-200 hover:border-[#4fda8e]/40">
       {/* Image */}
       {image && (
         <div className="relative w-full h-44 overflow-hidden border-b border-neutral-800">
@@ -47,11 +47,14 @@ export default function Card({
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`View ${title}`}
-              className="flex items-center gap-1 text-[11px] font-mono uppercase tracking-widest text-neutral-500 hover:text-[#8B5CF6] transition-colors"
+              className="flex items-center gap-1 text-[11px] font-mono uppercase tracking-widest text-neutral-500 hover:text-[#4fda8e] transition-colors"
               onClick={(e) => e.stopPropagation()}
             >
               View
-              <ArrowUpRight size={12} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight
+                size={12}
+                className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
             </a>
           )}
         </div>

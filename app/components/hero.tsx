@@ -13,7 +13,6 @@ import {
   Cpu,
   Rocket,
   Download,
- 
   Mail,
   Copy,
   CheckCircle2,
@@ -136,7 +135,7 @@ export default function Hero() {
           {/* Main Title */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Code2 className="w-6 h-6 text-[#ffffff]" />
+              <Code2 className="w-6 h-6 text-neutral-400" />
               <div className=" overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.span
@@ -152,18 +151,18 @@ export default function Hero() {
                 </AnimatePresence>
               </div>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-neutral-100 leading-tight">
               Hey I'm
               <br />
               <GlitchText
                 speed={0.8}
                 enableShadows={true}
-                className="text-[#d6e40d] whitespace-nowrap"
+                className="text-[#4fda8e] whitespace-nowrap"
               >
                 Gavindu Achintha_
               </GlitchText>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-neutral-600 max-w-lg leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-neutral-400 max-w-lg leading-relaxed">
               Backend enthusiast learning to craft APIs, manage databases, and
               deploy cloud solutions
             </p>
@@ -181,7 +180,7 @@ export default function Hero() {
                 window.scrollTo({ top: offsetPosition, behavior: "smooth" });
               }
             }}
-            className="px-8 py-3 bg-[#ffffff] hover:bg-[#bdbcbc] text-black rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2 w-fit"
+            className="px-8 py-3 bg-[#4fda8e] hover:bg-[#3bb36d] text-black rounded-lg font-semibold transition-all duration-300 hover:scale-105 flex items-center gap-2 w-fit"
           >
             <Terminal className="w-5 h-5" />
             Explore Me
@@ -197,7 +196,7 @@ export default function Hero() {
                 transition={{ delay: 0.5 + index * 0.1 }}
                 className="flex items-center gap-2 min-w-[120px] sm:min-w-0"
               >
-                <stat.icon className="w-4 h-4 text-[#D25353] shrink-0" />
+                <stat.icon className="w-4 h-4 text-[#4fda8e] shrink-0" />
                 <div className="flex flex-col">
                   <span className="text-base sm:text-lg font-bold text-white leading-tight">
                     {stat.value}
@@ -349,8 +348,8 @@ export default function Hero() {
           </div>
 
           {/* Floating Status Indicator */}
-          <div className="absolute -bottom-4 -right-4 border border-neutral-600 hover:bg-[#3ea4af] text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
-            <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+          <div className="absolute -bottom-4 -right-4 border border-neutral-700 bg-neutral-900 text-neutral-200 px-4 py-2 rounded-lg flex items-center gap-2">
+            <div className="w-2 h-2 bg-[#4fda8e] rounded-full animate-pulse"></div>
             <span className="text-sm font-semibold">System Online</span>
           </div>
         </div>

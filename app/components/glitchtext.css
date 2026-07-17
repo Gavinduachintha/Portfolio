@@ -23,7 +23,7 @@
 .glitch-active::before,
 .glitch-hover:hover::before {
   left: -2px;
-  text-shadow: var(--before-shadow, 4px 0 #4fda8e);
+  text-shadow: var(--before-shadow, 3px 0 #4fda8e);
   animation: glitch-anim-1 var(--before-duration, 2s) infinite linear
     alternate-reverse;
   opacity: 1;
@@ -33,7 +33,7 @@
 .glitch-active::after,
 .glitch-hover:hover::after {
   left: 2px;
-  text-shadow: var(--after-shadow, -4px 0 red);
+  text-shadow: var(--after-shadow, -3px 0 #111111);
   animation: glitch-anim-2 var(--after-duration, 3s) infinite linear
     alternate-reverse;
   opacity: 1;

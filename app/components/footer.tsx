@@ -13,9 +13,9 @@ export default function Footer() {
             Designed &amp; Developed by {siteConfig.author.name}.
           </p>
           <p className="text-xs text-neutral-500 mt-1">
-            Built with <span className="text-[#61DBFB]">React</span>,{" "}
-            <span className="text-[#38B2AC]">Tailwind CSS</span> and hosted on{" "}
-            <span className="text-[#fff]">Vercel</span>.
+            Built with <span className="text-neutral-300">React</span>,{" "}
+            <span className="text-neutral-300">Tailwind CSS</span> and hosted on{" "}
+            <span className="text-neutral-300">Vercel</span>.
           </p>
         </div>
 

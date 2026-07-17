@@ -12,8 +12,8 @@ const GlitchText = ({
   const inlineStyles = {
     "--after-duration": `${speed * 3}s`,
     "--before-duration": `${speed * 2}s`,
-    "--after-shadow": enableShadows ? "-4px 0 red" : "none",
-    "--before-shadow": enableShadows ? "4px 0 #4fda8e" : "none",
+    "--after-shadow": enableShadows ? "-3px 0 #111111" : "none",
+    "--before-shadow": enableShadows ? "3px 0 #4fda8e" : "none",
   };
 
   const hoverClass = enableOnHover ? "glitch-hover" : "glitch-active";

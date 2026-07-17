@@ -8,7 +8,7 @@ import Footer from "./components/footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex flex-col flex-1 bg-[#0a0a0a] font-sans">
       <Header />
       <main className="flex-1">
         <section id="home">

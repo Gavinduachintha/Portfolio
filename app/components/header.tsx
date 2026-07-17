@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import {  Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { siteConfig } from "../config/site.config";
 const hacksterLogo = "/H.png"; // Place H.png in /public to use this logo
 
@@ -100,9 +100,9 @@ export default function Header() {
                     onClick={() => scrollToSection(item.path)}
                     className={`relative text-sm font-medium transition-all duration-300 ${
                       isActive(item.path)
-                        ? "text-[#ffffff] after:w-full"
-                        : "text-white hover:text-gray-400 after:w-0 hover:after:w-full"
-                    } after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-[#6C757D] after:transition-all after:duration-300`}
+                        ? "text-[#4fda8e] after:w-full"
+                        : "text-neutral-300 hover:text-neutral-100 after:w-0 hover:after:w-full"
+                    } after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-[#4fda8e] after:transition-all after:duration-300`}
                   >
                     {item.label}
                   </button>
@@ -175,15 +175,15 @@ export default function Header() {
             : "opacity-0 -translate-y-2 pointer-events-none"
         }`}
       >
-        <ul className="flex flex-col gap-2 rounded-2xl border border-neutral-300/60 p-4 bg-white/50 backdrop-blur-xl shadow-lg">
+        <ul className="flex flex-col gap-2 rounded-2xl border border-neutral-800 p-4 bg-neutral-900/90 backdrop-blur-xl">
           {siteConfig.navigation.map((item) => (
             <li key={item.path}>
               <button
                 onClick={() => scrollToSection(item.path)}
                 className={`block w-full text-left py-2 px-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                   isActive(item.path)
-                    ? "bg-[#6C757D]/10 text-[#6C757D]"
-                    : "text-neutral-800 hover:bg-white/60 hover:text-neutral-900"
+                    ? "bg-[#4fda8e]/10 text-[#4fda8e]"
+                    : "text-neutral-300 hover:bg-neutral-800 hover:text-neutral-100"
                 }`}
               >
                 {item.label}

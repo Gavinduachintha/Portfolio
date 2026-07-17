@@ -73,10 +73,10 @@ export default function ProjectGrid() {
           transition={{ duration: 0.6 }}
           className="text-left mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#57939f]">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-neutral-100">
             Featured Projects
           </h2>
-          <p className="text-neutral-600 text-lg max-w-2xl">
+          <p className="text-neutral-400 text-lg max-w-2xl">
             Explore my latest work and side projects. Each project represents a
             unique challenge and learning experience.
           </p>
@@ -136,10 +136,10 @@ export default function ProjectGrid() {
               className="text-center py-20"
             >
               <div className="text-6xl mb-4">🔍</div>
-              <h3 className="text-2xl font-bold text-neutral-900 mb-2">
+              <h3 className="text-2xl font-bold text-neutral-100 mb-2">
                 No Projects Found
               </h3>
-              <p className="text-neutral-600 mb-4">
+              <p className="text-neutral-400 mb-4">
                 Try adjusting your search or filter criteria
               </p>
               <button
@@ -163,10 +163,10 @@ export default function ProjectGrid() {
             className="text-center py-20"
           >
             <div className="text-6xl mb-4">🚧</div>
-            <h3 className="text-2xl font-bold text-neutral-900 mb-2">
+            <h3 className="text-2xl font-bold text-neutral-100 mb-2">
               Projects Coming Soon
             </h3>
-            <p className="text-neutral-600">
+            <p className="text-neutral-400">
               I'm working on some exciting projects. Check back soon!
             </p>
           </motion.div>
