@@ -5,6 +5,9 @@ import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { LuGithub } from "react-icons/lu";
 import { FiLinkedin } from "react-icons/fi";
 import { FaXTwitter } from "react-icons/fa6";
+import { FaMedium } from "react-icons/fa6";
+import { SiHackster } from "react-icons/si";
+import { FaDev } from "react-icons/fa";
 
 const ACCENT = "#4fda8e";
 
@@ -36,33 +39,33 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
- const contactInfo = [
-  {
-    label: "Email",
-    value: "gavindu@example.com",
-    href: "mailto:gavindu@example.com",
-  },
-  {
-    label: "Location",
-    value: "Colombo, Sri Lanka",
-    href: null,
-  },
-  {
-    label: "GitHub",
-    value: "github.com/GavinduAchintha",
-    href: "https://github.com/GavinduAchintha",
-  },
-  {
-    label: "LinkedIn",
-    value: "linkedin.com/in/gavinduachintha",
-    href: "https://linkedin.com/in/gavinduachintha",
-  },
-  {
-    label: "Resume",
-    value: "Download CV",
-    href: "/resume.pdf",
-  },
-];
+  const contactInfo = [
+    {
+      label: "Email",
+      value: "gavindu@example.com",
+      href: "mailto:gavindu@example.com",
+    },
+    {
+      label: "Location",
+      value: "Colombo, Sri Lanka",
+      href: null,
+    },
+    {
+      label: "GitHub",
+      value: "github.com/GavinduAchintha",
+      href: "https://github.com/GavinduAchintha",
+    },
+    {
+      label: "LinkedIn",
+      value: "linkedin.com/in/gavinduachintha",
+      href: "https://linkedin.com/in/gavinduachintha",
+    },
+    {
+      label: "Resume",
+      value: "Download CV",
+      href: "/resume.pdf",
+    },
+  ];
 
   const socialLinks = [
     {
@@ -76,6 +79,9 @@ export default function Contact() {
       href: "https://linkedin.com/in/gavinduachintha",
     },
     { icon: FaXTwitter, label: "Twitter", href: "https://x.com/P911Stum" },
+    { icon: FaMedium, label: "Medium", href: "medium.com" },
+    { icon: SiHackster, label: "Hackster", href: "hackster.io" },
+    { icon: FaDev, label: "DEV", href: "dev.to" },
   ];
 
   const inputClasses =

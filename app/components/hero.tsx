@@ -55,9 +55,9 @@ export default function Hero() {
 
     let loadTime = 120;
     if (window.performance) {
-      const navEntry = window.performance.getEntriesByType?.("navigation")?.[0] as
-        | PerformanceNavigationTiming
-        | undefined;
+      const navEntry = window.performance.getEntriesByType?.(
+        "navigation",
+      )?.[0] as PerformanceNavigationTiming | undefined;
       if (navEntry) {
         loadTime = Math.round(navEntry.domComplete || performance.now());
       }
@@ -217,21 +217,27 @@ export default function Hero() {
                   content = (
                     <>
                       <span className="text-[#4fda8e] mr-2">$</span>
-                      <span className="text-neutral-300">{line.substring(2)}</span>
+                      <span className="text-neutral-300">
+                        {line.substring(2)}
+                      </span>
                     </>
                   );
                 } else if (line.startsWith("●")) {
                   content = (
                     <>
                       <span className="text-[#4fda8e] mr-2">●</span>
-                      <span className="text-neutral-100">{line.substring(2)}</span>
+                      <span className="text-neutral-100">
+                        {line.substring(2)}
+                      </span>
                     </>
                   );
                 } else if (line.startsWith("   Active:")) {
                   content = (
                     <>
                       <span className="text-neutral-500 ml-3">Active: </span>
-                      <span className="text-[#4fda8e]">{line.substring(11)}</span>
+                      <span className="text-[#4fda8e]">
+                        {line.substring(11)}
+                      </span>
                     </>
                   );
                 } else if (line.startsWith("   Memory:")) {
@@ -245,7 +251,9 @@ export default function Hero() {
                         </span>
                         <span className="text-neutral-600 mx-2">│</span>
                         <span className="text-neutral-500">Cores:</span>
-                        <span className="text-neutral-200 ml-1">{parts[1]}</span>
+                        <span className="text-neutral-200 ml-1">
+                          {parts[1]}
+                        </span>
                       </>
                     );
                   } else {
@@ -262,21 +270,27 @@ export default function Hero() {
                   content = (
                     <>
                       <span className="text-neutral-500 ml-3">Load Time: </span>
-                      <span className="text-neutral-200">{line.substring(14)}</span>
+                      <span className="text-neutral-200">
+                        {line.substring(14)}
+                      </span>
                     </>
                   );
                 } else if (line.startsWith("HTTP/2")) {
                   content = (
                     <>
                       <span className="text-neutral-400">HTTP/2 </span>
-                      <span className="text-[#4fda8e]">{line.substring(7)}</span>
+                      <span className="text-[#4fda8e]">
+                        {line.substring(7)}
+                      </span>
                     </>
                   );
                 } else if (line.startsWith("✓")) {
                   content = (
                     <>
                       <span className="text-[#4fda8e] mr-2">✓</span>
-                      <span className="text-neutral-100">{line.substring(2)}</span>
+                      <span className="text-neutral-100">
+                        {line.substring(2)}
+                      </span>
                     </>
                   );
                 } else {
@@ -284,10 +298,15 @@ export default function Hero() {
                 }
 
                 return (
-                  <div key={index} className="leading-loose whitespace-pre-wrap">
+                  <div
+                    key={index}
+                    className="leading-loose whitespace-pre-wrap"
+                  >
                     {content}
                     {isLast && (
-                      <span className="animate-pulse text-[#4fda8e] ml-1.5">▊</span>
+                      <span className="animate-pulse text-[#4fda8e] ml-1.5">
+                        ▊
+                      </span>
                     )}
                   </div>
                 );
