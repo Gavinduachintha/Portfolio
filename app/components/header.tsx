@@ -20,19 +20,19 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    if (open) document.addEventListener("click", onDocClick);
-    return () => document.removeEventListener("click", onDocClick);
-    function onDocClick(e) {
-      const header = document.querySelector("header.site-header");
-      if (header && !header.contains(e.target)) setOpen(false);
-    }
-  }, [open]);
+  // useEffect(() => {
+  //   if (open) document.addEventListener("click", onDocClick);
+  //   return () => document.removeEventListener("click", onDocClick);
+  //   function onDocClick(e) {
+  //     const header = document.querySelector("header.site-header");
+  //     if (header && !header.contains(e.target)) setOpen(false);
+  //   }
+  // }, [open]);
 
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "projects", "contact"];
+      const sections = ["home", "about", "skills", "projects", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -130,7 +130,6 @@ export default function Header() {
               >
                 {/* <Github size={18} /> */}
                 <LuGithub size={18} />
-
               </a>
             )}
             {siteConfig?.social?.linkedin && (
@@ -143,8 +142,7 @@ export default function Header() {
                 title="LinkedIn"
               >
                 {/* <Linkedin size={18} /> */}
-                <FiLinkedin size={18}/>
-
+                <FiLinkedin size={18} />
               </a>
             )}
             {siteConfig?.social?.hackster && (

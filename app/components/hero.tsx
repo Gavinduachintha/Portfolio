@@ -2,22 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Server,
-  Database,
-  Cloud,
-  Terminal,
-  Code2,
-  Zap,
-  GitBranch,
-  Cpu,
-  Rocket,
-  Download,
-  Mail,
-  Copy,
-  CheckCircle2,
-  ExternalLink,
-} from "lucide-react";
+import { Terminal, Code2, GitBranch, Cpu, Rocket } from "lucide-react";
 import GlitchText from "./glitchtext";
 
 const roles = [
@@ -34,40 +19,24 @@ const stats = [
   { icon: GitBranch, value: "500+", label: "Commits" },
   { icon: Cpu, value: "2+", label: "Years Coding" },
 ];
+
 const techIcons = [
-  // Core stack
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
-
-  // DevOps & Infra
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-
-  // Cloud
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/digitalocean/digitalocean-original-wordmark.svg",
-
-  // Tools
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
 ];
 
 export default function Hero() {
   const [typedText, setTypedText] = useState("");
   const [currentRole, setCurrentRole] = useState(0);
-  const [emailCopied, setEmailCopied] = useState(false);
 
-  // Copy email to clipboard
-  const copyEmail = () => {
-    navigator.clipboard.writeText("gavindu@example.com");
-    setEmailCopied(true);
-    setTimeout(() => setEmailCopied(false), 2000);
-  };
-
-  // Role rotation effect
   useEffect(() => {
     const roleInterval = setInterval(() => {
       setCurrentRole((prev) => (prev + 1) % roles.length);
@@ -75,20 +44,20 @@ export default function Hero() {
     return () => clearInterval(roleInterval);
   }, []);
 
-  // Typewriter effect - build the full text string based on position
   useEffect(() => {
-    // Gather real client metrics
-    let memAmount = "42.3"; // Fallback
-    if (window.performance && window.performance.memory) {
+    let memAmount = "42.3";
+    if (window.performance && (window.performance as any).memory) {
       memAmount = (
-        window.performance.memory.usedJSHeapSize /
+        (window.performance as any).memory.usedJSHeapSize /
         (1024 * 1024)
       ).toFixed(1);
     }
 
-    let loadTime = 120; // Fallback
+    let loadTime = 120;
     if (window.performance) {
-      const navEntry = window.performance.getEntriesByType?.("navigation")?.[0];
+      const navEntry = window.performance.getEntriesByType?.("navigation")?.[0] as
+        | PerformanceNavigationTiming
+        | undefined;
       if (navEntry) {
         loadTime = Math.round(navEntry.domComplete || performance.now());
       }
@@ -104,27 +73,20 @@ export default function Hero() {
       `   Load Time: ${loadTime}ms`,
       "$ curl -I gavindu.dev/api/status",
       "HTTP/2 200 OK",
-      "✓ All systems operational 🚀",
+      "✓ All systems operational",
     ];
 
-    // Flatten all terminal lines into a single string with newlines
     const fullText = dynamicTerminalLines.join("\n");
     let currentIndex = 0;
 
     const typeNextChar = () => {
-      if (currentIndex >= fullText.length) {
-        return;
-      }
-
+      if (currentIndex >= fullText.length) return;
       currentIndex++;
       setTypedText(fullText.substring(0, currentIndex));
     };
 
     const interval = setInterval(typeNextChar, 50);
-
-    return () => {
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -132,11 +94,10 @@ export default function Hero() {
       <div className="relative z-10 max-w-[72rem] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
         {/* Left Side - Identity & Tech Stack */}
         <div className="text-left space-y-6 sm:space-y-8">
-          {/* Main Title */}
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Code2 className="w-6 h-6 text-neutral-400" />
-              <div className=" overflow-hidden">
+              <div className="overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={currentRole}
@@ -168,7 +129,6 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* CTA Button */}
           <button
             onClick={() => {
               const element = document.getElementById("about");
@@ -180,13 +140,12 @@ export default function Hero() {
                 window.scrollTo({ top: offsetPosition, behavior: "smooth" });
               }
             }}
-            className="px-8 py-3 bg-[#4fda8e] hover:bg-[#3bb36d] text-black rounded-lg font-semibold transition-all duration-300 hover:scale-105 flex items-center gap-2 w-fit"
+            className="px-8 py-3 bg-[#4fda8e] hover:bg-[#3bb36d] text-black rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2 w-fit"
           >
             <Terminal className="w-5 h-5" />
-            Explore Me
+            Explore me
           </button>
 
-          {/* Stats Bar */}
           <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-4 border-t border-neutral-800">
             {stats.map((stat, index) => (
               <motion.div
@@ -207,10 +166,9 @@ export default function Hero() {
             ))}
           </div>
 
-          {/* Mini Tech Icon Cloud */}
           <div className="flex items-center gap-3 pt-2">
             <span className="text-xs text-neutral-500 font-mono">
-              Tech Stack:
+              Tech stack:
             </span>
             <div className="flex items-center gap-2 flex-wrap">
               {techIcons.map((icon, index) => (
@@ -221,32 +179,36 @@ export default function Hero() {
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.8 + index * 0.05 }}
-                  className="w-6 h-6  transition-all duration-300 cursor-pointer"
+                  className="w-6 h-6 transition-opacity duration-200 cursor-pointer"
                 />
               ))}
             </div>
           </div>
         </div>
 
-        {/* Right Side - Interactive Terminal */}
+        {/* Right Side - Interactive Terminal, flat single-accent */}
         <div className="relative">
-          {/* Terminal Window */}
-          <div className="backdrop-blur-xl bg-neutral-900/95 border border-neutral-700/50 rounded-xl overflow-hidden shadow-2xl">
+          <div className="bg-neutral-950 border border-neutral-800 rounded-xl overflow-hidden">
             {/* Terminal Header */}
-            <div className="flex items-center justify-between px-4 py-3 bg-neutral-800/50 border-b border-neutral-700/50">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+            <div className="flex items-center justify-between px-5 py-3.5 bg-neutral-900 border-b border-neutral-800">
+              <div className="flex items-center gap-2.5">
+                <div className="w-3 h-3 rounded-full bg-neutral-700" />
+                <div className="w-3 h-3 rounded-full bg-neutral-700" />
+                <div className="w-3 h-3 rounded-full bg-neutral-700" />
               </div>
               <span className="text-xs font-mono text-neutral-400">
-                backend@dev: ~/workspace
+                gavindu@portfolio:~/dev
               </span>
-              <Terminal className="w-4 h-4 text-neutral-500" />
+              <div className="flex items-center gap-1.5">
+                <div className="w-1.5 h-1.5 bg-[#4fda8e] rounded-full" />
+                <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">
+                  Live
+                </span>
+              </div>
             </div>
 
             {/* Terminal Content */}
-            <div className="p-6 font-mono text-sm min-h-[320px] flex flex-col text-left">
+            <div className="p-6 font-mono text-[13px] min-h-[300px] flex flex-col text-left leading-loose">
               {typedText.split("\n").map((line, index, arr) => {
                 const isLast = index === arr.length - 1;
                 let content;
@@ -255,23 +217,21 @@ export default function Hero() {
                   content = (
                     <>
                       <span className="text-[#4fda8e] mr-2">$</span>
-                      <span className="text-blue-300">{line.substring(2)}</span>
+                      <span className="text-neutral-300">{line.substring(2)}</span>
                     </>
                   );
                 } else if (line.startsWith("●")) {
                   content = (
                     <>
                       <span className="text-[#4fda8e] mr-2">●</span>
-                      <span className="text-white">{line.substring(2)}</span>
+                      <span className="text-neutral-100">{line.substring(2)}</span>
                     </>
                   );
                 } else if (line.startsWith("   Active:")) {
                   content = (
                     <>
-                      <span className="text-neutral-500">{"   Active: "}</span>
-                      <span className="text-[#4fda8e]">
-                        {line.substring(11)}
-                      </span>
+                      <span className="text-neutral-500 ml-3">Active: </span>
+                      <span className="text-[#4fda8e]">{line.substring(11)}</span>
                     </>
                   );
                 } else if (line.startsWith("   Memory:")) {
@@ -279,23 +239,20 @@ export default function Hero() {
                     const parts = line.split("| Cores:");
                     content = (
                       <>
-                        <span className="text-neutral-500">
-                          {"   Memory: "}
-                        </span>
-                        <span className="text-yellow-300">
+                        <span className="text-neutral-500 ml-3">Memory: </span>
+                        <span className="text-neutral-200">
                           {parts[0].substring(11)}
                         </span>
-                        <span className="text-neutral-500">{"| Cores:"}</span>
-                        <span className="text-yellow-300">{parts[1]}</span>
+                        <span className="text-neutral-600 mx-2">│</span>
+                        <span className="text-neutral-500">Cores:</span>
+                        <span className="text-neutral-200 ml-1">{parts[1]}</span>
                       </>
                     );
                   } else {
                     content = (
                       <>
-                        <span className="text-neutral-500">
-                          {"   Memory: "}
-                        </span>
-                        <span className="text-yellow-300">
+                        <span className="text-neutral-500 ml-3">Memory: </span>
+                        <span className="text-neutral-200">
                           {line.substring(11)}
                         </span>
                       </>
@@ -304,28 +261,22 @@ export default function Hero() {
                 } else if (line.startsWith("   Load Time:")) {
                   content = (
                     <>
-                      <span className="text-neutral-500">
-                        {"   Load Time: "}
-                      </span>
-                      <span className="text-yellow-300">
-                        {line.substring(14)}
-                      </span>
+                      <span className="text-neutral-500 ml-3">Load Time: </span>
+                      <span className="text-neutral-200">{line.substring(14)}</span>
                     </>
                   );
                 } else if (line.startsWith("HTTP/2")) {
                   content = (
                     <>
-                      <span className="text-purple-400">{"HTTP/2 "}</span>
-                      <span className="text-[#4fda8e]">
-                        {line.substring(7)}
-                      </span>
+                      <span className="text-neutral-400">HTTP/2 </span>
+                      <span className="text-[#4fda8e]">{line.substring(7)}</span>
                     </>
                   );
                 } else if (line.startsWith("✓")) {
                   content = (
                     <>
                       <span className="text-[#4fda8e] mr-2">✓</span>
-                      <span className="text-white">{line.substring(2)}</span>
+                      <span className="text-neutral-100">{line.substring(2)}</span>
                     </>
                   );
                 } else {
@@ -333,13 +284,10 @@ export default function Hero() {
                 }
 
                 return (
-                  <div
-                    key={index}
-                    className="leading-relaxed whitespace-pre-wrap"
-                  >
+                  <div key={index} className="leading-loose whitespace-pre-wrap">
                     {content}
                     {isLast && (
-                      <span className="animate-pulse text-white ml-2">▊</span>
+                      <span className="animate-pulse text-[#4fda8e] ml-1.5">▊</span>
                     )}
                   </div>
                 );
@@ -347,11 +295,16 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Floating Status Indicator */}
-          <div className="absolute -bottom-4 -right-4 border border-neutral-700 bg-neutral-900 text-neutral-200 px-4 py-2 rounded-lg flex items-center gap-2">
-            <div className="w-2 h-2 bg-[#4fda8e] rounded-full animate-pulse"></div>
-            <span className="text-sm font-semibold">System Online</span>
-          </div>
+          {/* Floating Status Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2 }}
+            className="absolute -bottom-5 -right-5 border border-neutral-800 bg-neutral-900 text-neutral-100 px-5 py-2.5 rounded-xl flex items-center gap-2.5"
+          >
+            <div className="w-2 h-2 bg-[#4fda8e] rounded-full animate-pulse" />
+            <span className="text-sm font-medium">All systems go</span>
+          </motion.div>
         </div>
       </div>
     </section>

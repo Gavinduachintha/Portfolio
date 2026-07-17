@@ -22,7 +22,7 @@ const projects = [
     summary:
       "Modern URL shortener with analytics tracking, custom branding, and beautiful responsive design built with React and Supabase.",
     url: "https://github.com/Gavinduachintha/Shorty",
-    tags: ["React", "Supabase", "Tailwind CSS", "Vite"],
+    tags: ["Next JS", "Supabase"],
     year: 2025,
     image: "/images/Shorty.jpg",
   },

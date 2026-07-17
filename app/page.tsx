@@ -3,6 +3,7 @@
 import Header from "./components/header";
 import Hero from "./components/hero";
 import AboutMe from "./components/aboutme";
+import Skills from "./components/skills";
 import ProjectGrid from "./components/projectgrid";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
@@ -17,6 +18,9 @@ export default function Home() {
         </section>
         <section id="about">
           <AboutMe />
+        </section>
+        <section id="skills">
+          <Skills />
         </section>
         <section id="projects">
           <ProjectGrid />
