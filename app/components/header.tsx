@@ -51,7 +51,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       const offset = 80; // Account for fixed header
@@ -66,25 +66,28 @@ export default function Header() {
     setOpen(false);
   };
 
-  const isActive = (path) => {
-    return activeSection === path;
-  };
+  const isActive = (path: string) => activeSection === path;
 
   return (
     <header
-      className="site-header  pt-1.5 top-2 z-50 transition-all duration-300 px-4"
+      className="site-header fixed top-2 left-0 right-0 z-50 transition-colors duration-300 px-4"
       role="banner"
     >
       <div className="mx-auto max-w-[72rem]">
         <div
-          className={`h-16 flex  text-white items-center justify-between px-4 rounded-full transition-all duration-300 `}
+          className={`h-16 flex items-center justify-between px-4 rounded-2xl border transition-colors duration-300 ${
+            scrolled
+              ? "bg-neutral-950 border-neutral-800"
+              : "bg-neutral-950/0 border-transparent"
+          }`}
         >
           {/* Logo */}
           <button
             onClick={() => scrollToSection("home")}
-            className="cursor-pointer"
+            className="cursor-pointer font-mono text-lg text-neutral-100"
+            aria-label="Go to home"
           >
-            {/* <Logo text={siteConfig.name} /> */}G
+            <span className="text-[#8B5CF6]">&gt;</span>G
           </button>
 
           {/* Desktop Nav */}
@@ -98,11 +101,11 @@ export default function Header() {
                 <li key={item.path}>
                   <button
                     onClick={() => scrollToSection(item.path)}
-                    className={`relative text-sm font-medium transition-all duration-300 ${
+                    className={`relative text-sm font-medium transition-colors duration-200 ${
                       isActive(item.path)
-                        ? "text-[#4fda8e] after:w-full"
-                        : "text-neutral-300 hover:text-neutral-100 after:w-0 hover:after:w-full"
-                    } after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-[#4fda8e] after:transition-all after:duration-300`}
+                        ? "text-[#8B5CF6] after:w-full"
+                        : "text-neutral-400 hover:text-neutral-100 after:w-0 hover:after:w-full"
+                    } after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-[#8B5CF6] after:transition-all after:duration-200`}
                   >
                     {item.label}
                   </button>
@@ -115,7 +118,7 @@ export default function Header() {
           <div className="flex items-center gap-1">
             {siteConfig?.social?.github && (
               <a
-                className="inline-flex items-center justify-center w-9 h-9  text-white hover:text-gray-400 hover:scale-105 hover:shadow-md  transition-all duration-300 "
+                className="inline-flex items-center justify-center w-9 h-9 text-neutral-400 hover:text-[#8B5CF6] transition-colors duration-200"
                 href={siteConfig.social.github}
                 target="_blank"
                 rel="noreferrer noopener"
@@ -127,19 +130,19 @@ export default function Header() {
             )}
             {siteConfig?.social?.linkedin && (
               <a
-                className="inline-flex items-center justify-center w-9 h-9  text-white hover:text-gray-400 hover:scale-105 hover:shadow-md  transition-all duration-300 "
+                className="inline-flex items-center justify-center w-9 h-9 text-neutral-400 hover:text-[#8B5CF6] transition-colors duration-200"
                 href={siteConfig.social.linkedin}
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label="LinkedIn"
                 title="LinkedIn"
               >
-                {/* <Linkedin size={18} className="hover:text-blue-400" /> */}
+                {/* <Linkedin size={18} /> */}
               </a>
             )}
             {siteConfig?.social?.hackster && (
               <a
-                className="inline-flex items-center justify-center w-9 h-9 text-white hover:scale-105 hover:shadow-md transition-all duration-300"
+                className="inline-flex items-center justify-center w-9 h-9 text-neutral-400 hover:text-[#8B5CF6] transition-colors duration-200"
                 href={siteConfig.social.hackster}
                 target="_blank"
                 rel="noreferrer noopener"
@@ -149,12 +152,12 @@ export default function Header() {
                 <img
                   src={hacksterLogo}
                   alt="Hackster"
-                  className="h-5 w-5 object-contain"
+                  className="h-5 w-5 object-contain grayscale opacity-70 hover:opacity-100 transition-opacity duration-200"
                 />
               </a>
             )}
             <button
-              className="inline-flex md:hidden items-center justify-center w-9 h-9  text-white hover:scale-105 hover:shadow-md  transition-all duration-300"
+              className="inline-flex md:hidden items-center justify-center w-9 h-9 text-neutral-300 hover:text-[#8B5CF6] transition-colors duration-200"
               aria-expanded={open}
               aria-controls="mobile-nav"
               onClick={() => setOpen((v) => !v)}
@@ -175,15 +178,15 @@ export default function Header() {
             : "opacity-0 -translate-y-2 pointer-events-none"
         }`}
       >
-        <ul className="flex flex-col gap-2 rounded-2xl border border-neutral-800 p-4 bg-neutral-900/90 backdrop-blur-xl">
+        <ul className="flex flex-col gap-1 rounded-2xl border border-neutral-800 p-3 bg-neutral-950">
           {siteConfig.navigation.map((item) => (
             <li key={item.path}>
               <button
                 onClick={() => scrollToSection(item.path)}
-                className={`block w-full text-left py-2 px-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`block w-full text-left py-2 px-3 rounded-lg text-sm font-medium transition-colors duration-200 ${
                   isActive(item.path)
-                    ? "bg-[#4fda8e]/10 text-[#4fda8e]"
-                    : "text-neutral-300 hover:bg-neutral-800 hover:text-neutral-100"
+                    ? "bg-[#8B5CF6]/10 text-[#8B5CF6]"
+                    : "text-neutral-400 hover:bg-neutral-900 hover:text-neutral-100"
                 }`}
               >
                 {item.label}
