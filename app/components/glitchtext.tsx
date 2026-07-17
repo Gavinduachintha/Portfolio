@@ -1,5 +1,14 @@
-import React from "react";
+import type { ReactNode, ElementType, CSSProperties } from "react";
 import "./glitchtext.css";
+
+interface GlitchTextProps {
+  children: ReactNode;
+  speed?: number;
+  enableShadows?: boolean;
+  enableOnHover?: boolean;
+  className?: string;
+  as?: ElementType;
+}
 
 const GlitchText = ({
   children,
@@ -8,13 +17,13 @@ const GlitchText = ({
   enableOnHover = false,
   className = "",
   as: Component = "span",
-}) => {
+}: GlitchTextProps) => {
   const inlineStyles = {
     "--after-duration": `${speed * 3}s`,
     "--before-duration": `${speed * 2}s`,
     "--after-shadow": enableShadows ? "-3px 0 #111111" : "none",
     "--before-shadow": enableShadows ? "3px 0 #4fda8e" : "none",
-  };
+  } as CSSProperties;
 
   const hoverClass = enableOnHover ? "glitch-hover" : "glitch-active";
 
