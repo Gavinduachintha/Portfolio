@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///D:/Codings/WEB%20Devs/React/portfolio/src/app/header/Header.jsx"],"sourcesContent":["import React from 'react'\r\n\r\nconst Header = () => {\r\n  return (\r\n    <div>Header</div>\r\n  )\r\n}\r\n\r\nexport default Header"],"names":[],"mappings":";;;;;AAAA;;;AAEA,MAAM,SAAS;IACb,qBACE,8OAAC;kBAAI;;;;;;AAET;uCAEe"}},
-    {"offset": {"line": 40, "column": 0}, "map": {"version":3,"sources":["file:///D:/Codings/WEB%20Devs/React/portfolio/src/app/page.js"],"sourcesContent":["import React from 'react';\nimport Header from './header/Header';\nexport default function Home() {\n  return (\n    <>\n      <Header />\n    <div className=\"bg-red-900\"></div>\n    </>\n  );\n}\n"],"names":[],"mappings":";;;;;AAAA;AACA;;;;AACe,SAAS;IACtB,qBACE;;0BACE,8OAAC,0IAAM;;;;;0BACT,8OAAC;gBAAI,WAAU;;;;;;;;AAGnB"}}]
-}
