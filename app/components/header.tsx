@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { LuGithub } from "react-icons/lu";
+import { FiLinkedin } from "react-icons/fi";
+
 import { siteConfig } from "../config/site.config";
 const hacksterLogo = "/H.png"; // Place H.png in /public to use this logo
 
@@ -70,7 +73,7 @@ export default function Header() {
 
   return (
     <header
-      className="site-header fixed top-2 left-0 right-0 z-50 transition-colors duration-300 px-4"
+      className="site-header  fixed top-2 left-0 right-0 z-50 transition-colors duration-300 px-4"
       role="banner"
     >
       <div className="mx-auto max-w-[72rem]">
@@ -87,7 +90,7 @@ export default function Header() {
             className="cursor-pointer font-mono text-lg text-neutral-100"
             aria-label="Go to home"
           >
-            <span className="text-[#8B5CF6]">&gt;</span>G
+            <span className="text-[#5EEAD4]">&gt;</span>G
           </button>
 
           {/* Desktop Nav */}
@@ -103,9 +106,9 @@ export default function Header() {
                     onClick={() => scrollToSection(item.path)}
                     className={`relative text-sm font-medium transition-colors duration-200 ${
                       isActive(item.path)
-                        ? "text-[#8B5CF6] after:w-full"
+                        ? "text-[#5EEAD4] after:w-full"
                         : "text-neutral-400 hover:text-neutral-100 after:w-0 hover:after:w-full"
-                    } after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-[#8B5CF6] after:transition-all after:duration-200`}
+                    } after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-[#5EEAD4] after:transition-all after:duration-200`}
                   >
                     {item.label}
                   </button>
@@ -118,7 +121,7 @@ export default function Header() {
           <div className="flex items-center gap-1">
             {siteConfig?.social?.github && (
               <a
-                className="inline-flex items-center justify-center w-9 h-9 text-neutral-400 hover:text-[#8B5CF6] transition-colors duration-200"
+                className="inline-flex items-center justify-center w-9 h-9 text-neutral-400 hover:text-[#5EEAD4] transition-colors duration-200"
                 href={siteConfig.social.github}
                 target="_blank"
                 rel="noreferrer noopener"
@@ -126,11 +129,13 @@ export default function Header() {
                 title="GitHub"
               >
                 {/* <Github size={18} /> */}
+                <LuGithub size={18} />
+
               </a>
             )}
             {siteConfig?.social?.linkedin && (
               <a
-                className="inline-flex items-center justify-center w-9 h-9 text-neutral-400 hover:text-[#8B5CF6] transition-colors duration-200"
+                className="inline-flex items-center justify-center w-9 h-9 text-neutral-400 hover:text-[#5EEAD4] transition-colors duration-200"
                 href={siteConfig.social.linkedin}
                 target="_blank"
                 rel="noreferrer noopener"
@@ -138,11 +143,13 @@ export default function Header() {
                 title="LinkedIn"
               >
                 {/* <Linkedin size={18} /> */}
+                <FiLinkedin size={18}/>
+
               </a>
             )}
             {siteConfig?.social?.hackster && (
               <a
-                className="inline-flex items-center justify-center w-9 h-9 text-neutral-400 hover:text-[#8B5CF6] transition-colors duration-200"
+                className="inline-flex items-center justify-center w-9 h-9 text-neutral-400 hover:text-[#5EEAD4] transition-colors duration-200"
                 href={siteConfig.social.hackster}
                 target="_blank"
                 rel="noreferrer noopener"
@@ -157,7 +164,7 @@ export default function Header() {
               </a>
             )}
             <button
-              className="inline-flex md:hidden items-center justify-center w-9 h-9 text-neutral-300 hover:text-[#8B5CF6] transition-colors duration-200"
+              className="inline-flex md:hidden items-center justify-center w-9 h-9 text-neutral-300 hover:text-[#5EEAD4] transition-colors duration-200"
               aria-expanded={open}
               aria-controls="mobile-nav"
               onClick={() => setOpen((v) => !v)}
@@ -185,7 +192,7 @@ export default function Header() {
                 onClick={() => scrollToSection(item.path)}
                 className={`block w-full text-left py-2 px-3 rounded-lg text-sm font-medium transition-colors duration-200 ${
                   isActive(item.path)
-                    ? "bg-[#8B5CF6]/10 text-[#8B5CF6]"
+                    ? "bg-[#5EEAD4]/10 text-[#8B5CF6]"
                     : "text-neutral-400 hover:bg-neutral-900 hover:text-neutral-100"
                 }`}
               >

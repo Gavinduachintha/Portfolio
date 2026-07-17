@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
+import { RiGitRepositoryLine } from "react-icons/ri";
 
 interface CardProps {
   title: string;
@@ -51,7 +52,7 @@ export default function Card({
               onClick={(e) => e.stopPropagation()}
             >
               View
-              <ArrowUpRight
+              <RiGitRepositoryLine
                 size={12}
                 className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               />
