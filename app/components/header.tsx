@@ -8,13 +8,22 @@ import { FiLinkedin } from "react-icons/fi";
 import { siteConfig } from "../config/site.config";
 const hacksterLogo = "/H.png"; // Place H.png in /public to use this logo
 
-// TODO: Replace with real API call
-const GITHUB_FOLLOWERS: number | null = 128;
-
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [followers, setFollowers] = useState(0);
+
+  useEffect(() => {
+    const getFollowers = async () => {
+      const res = await fetch("/api/github");
+      const data = await res.json();
+
+      setFollowers(data.followers);
+    };
+
+    getFollowers();
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 2);
@@ -23,16 +32,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // useEffect(() => {
-  //   if (open) document.addEventListener("click", onDocClick);
-  //   return () => document.removeEventListener("click", onDocClick);
-  //   function onDocClick(e) {
-  //     const header = document.querySelector("header.site-header");
-  //     if (header && !header.contains(e.target)) setOpen(false);
-  //   }
-  // }, [open]);
-
-  // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
       const sections = [
@@ -129,25 +128,17 @@ export default function Header() {
 
           {/* Right Side Actions */}
           <div className="flex items-center gap-1">
-            {siteConfig?.social?.github && (
-              <a
-                className="inline-flex items-center gap-1.5 px-2 h-9 text-neutral-400 hover:text-[#5EEAD4] transition-colors duration-200 group"
-                href={siteConfig.social.github}
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label={`GitHub${GITHUB_FOLLOWERS !== null ? ` · ${GITHUB_FOLLOWERS} followers` : ""}`}
-                title={`GitHub${GITHUB_FOLLOWERS !== null ? ` · ${GITHUB_FOLLOWERS} followers` : ""}`}
-              >
-                <LuGithub size={18} />
-                {GITHUB_FOLLOWERS !== null && (
-                  <span className="text-xs font-mono tabular-nums leading-none text-neutral-500 group-hover:text-[#5EEAD4]/70 transition-colors duration-200">
-                    {GITHUB_FOLLOWERS >= 1000
-                      ? `${(GITHUB_FOLLOWERS / 1000).toFixed(1)}k`
-                      : GITHUB_FOLLOWERS}
-                  </span>
-                )}
-              </a>
-            )}
+            <a
+              aria-label={`GitHub followers: ${followers}`}
+              className="inline-flex items-center gap-1.5 px-2 h-9 text-neutral-400 hover:text-[#5EEAD4] transition-colors duration-200 group"
+              href={siteConfig.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LuGithub size={18} />
+              <span className="text-sm">{followers}</span>
+            </a>
+
             {siteConfig?.social?.linkedin && (
               <a
                 className="inline-flex items-center justify-center w-9 h-9 text-neutral-400 hover:text-[#5EEAD4] transition-colors duration-200"
