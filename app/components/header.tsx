@@ -32,7 +32,14 @@ export default function Header() {
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "skills", "projects", "contact"];
+      const sections = [
+        "home",
+        "about",
+        "skills",
+        "projects",
+        "articles",
+        "contact",
+      ];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {

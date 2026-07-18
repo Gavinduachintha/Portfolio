@@ -10,29 +10,75 @@ interface Layer {
 
 const layers: Layer[] = [
   {
-    label: "Client",
-    note: "what runs in the browser",
-    items: ["React", "Next.js", "TypeScript"],
+    label: "Frontend",
+    note: "interactive user experiences",
+    items: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+    ],
   },
   {
     label: "Backend",
-    note: "APIs & application logic",
-    items: ["Node.js", "Express.js", "Python", "Django", "Flask", "Java"],
+    note: "APIs, authentication & business logic",
+    items: [
+      "Go",
+      "Node.js",
+      "Express.js",
+      "FastAPI",
+      "REST APIs",
+      "JWT",
+    ],
   },
   {
     label: "Data",
-    note: "storage & caching",
-    items: ["PostgreSQL", "MongoDB", "MySQL", "Redis"],
+    note: "databases & caching",
+    items: [
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "Supabase",
+    ],
   },
   {
-    label: "Infra / cloud",
-    note: "deploy & operate",
-    items: ["Docker", "Azure", "AWS", "DigitalOcean", "Git", "Linux"],
+    label: "Cloud & DevOps",
+    note: "deployment & infrastructure",
+    items: [
+      "Docker",
+      "Git",
+      "Linux",
+      "GitHub Actions",
+      "AWS",
+      "Azure",
+      "DigitalOcean",
+      "Vercel",
+    ],
   },
   {
-    label: "Embedded",
+    label: "AI / ML",
+    note: "intelligent applications",
+    items: [
+      "Python",
+      "OpenCV",
+      "YOLO",
+      "Edge Impulse",
+      "TensorFlow",
+    ],
+  },
+  {
+    label: "Embedded Systems",
     note: "where software meets hardware",
-    items: ["C / C++", "Arduino", "Raspberry Pi", "ROS"],
+    items: [
+      "C",
+      "C++",
+      "Arduino",
+      "ESP32",
+      "Raspberry Pi",
+      "ROS",
+      "MQTT",
+      "I2C",
+    ],
   },
 ];
 
