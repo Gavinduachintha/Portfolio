@@ -42,8 +42,8 @@ export default function Contact() {
   const contactInfo = [
     {
       label: "Email",
-      value: "gavindu@example.com",
-      href: "mailto:gavindu@example.com",
+      value: "gavindu.al@gmail.com",
+      href: "mailto:gavindu.al@gmail.com",
     },
     {
       label: "Location",
@@ -53,7 +53,7 @@ export default function Contact() {
     {
       label: "GitHub",
       value: "github.com/GavinduAchintha",
-      href: "https://github.com/GavinduAchintha",
+      href: "https://github.com/Gavinduachintha",
     },
     {
       label: "LinkedIn",
@@ -79,9 +79,9 @@ export default function Contact() {
       href: "https://linkedin.com/in/gavinduachintha",
     },
     { icon: FaXTwitter, label: "Twitter", href: "https://x.com/P911Stum" },
-    { icon: FaMedium, label: "Medium", href: "medium.com" },
-    { icon: SiHackster, label: "Hackster", href: "hackster.io" },
-    { icon: FaDev, label: "DEV", href: "dev.to" },
+    { icon: FaMedium, label: "Medium", href: "https://medium.com/@gavindu.al" },
+    { icon: SiHackster, label: "Hackster", href: "https://www.hackster.io/gavindu911" },
+    { icon: FaDev, label: "DEV", href: "https://dev.to/gavinduachintha" },
   ];
 
   const inputClasses =

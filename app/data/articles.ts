@@ -12,15 +12,15 @@ export interface Article {
 
 const articles: Article[] = [
   {
-    slug: "building-scalable-microservices",
-    title: "Building Scalable Microservices with Node.js",
+    slug: "Beyond PIR: Exploring the DFRobot C4002 mmWave Human Presence Sensor",
+    title: "Beyond PIR: Exploring the DFRobot C4002 mmWave Human Presence Sensor",
     summary:
-      "A comprehensive guide on architecting and implementing microservices at scale, covering service discovery, inter-service communication, and deployment strategies.",
-    url: "https://medium.com/@yourprofile/building-scalable-microservices",
-    tags: ["Node.js", "Microservices", "Architecture"],
-    publishedDate: "2025-01",
+      "A comprehensive explanation about DFRobot mmWave Sensor",
+    url: "https://medium.com/@gavindu.al/beyond-pir-exploring-the-dfrobot-c4002-mmwave-human-presence-sensor-14cf14d3bb6a?sharedUserId=gavindu.al",
+    tags: ["C,C++", "IOT", "Robotics"],
+    publishedDate: "2026-06",
     platform: "Medium",
-    readTime: "12 min",
+    readTime: "10 min",
   },
   {
     slug: "react-performance-optimization",

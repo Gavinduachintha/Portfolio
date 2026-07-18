@@ -8,6 +8,9 @@ import { FiLinkedin } from "react-icons/fi";
 import { siteConfig } from "../config/site.config";
 const hacksterLogo = "/H.png"; // Place H.png in /public to use this logo
 
+// TODO: Replace with real API call
+const GITHUB_FOLLOWERS: number | null = 128;
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -128,15 +131,21 @@ export default function Header() {
           <div className="flex items-center gap-1">
             {siteConfig?.social?.github && (
               <a
-                className="inline-flex items-center justify-center w-9 h-9 text-neutral-400 hover:text-[#5EEAD4] transition-colors duration-200"
+                className="inline-flex items-center gap-1.5 px-2 h-9 text-neutral-400 hover:text-[#5EEAD4] transition-colors duration-200 group"
                 href={siteConfig.social.github}
                 target="_blank"
                 rel="noreferrer noopener"
-                aria-label="GitHub"
-                title="GitHub"
+                aria-label={`GitHub${GITHUB_FOLLOWERS !== null ? ` · ${GITHUB_FOLLOWERS} followers` : ""}`}
+                title={`GitHub${GITHUB_FOLLOWERS !== null ? ` · ${GITHUB_FOLLOWERS} followers` : ""}`}
               >
-                {/* <Github size={18} /> */}
                 <LuGithub size={18} />
+                {GITHUB_FOLLOWERS !== null && (
+                  <span className="text-xs font-mono tabular-nums leading-none text-neutral-500 group-hover:text-[#5EEAD4]/70 transition-colors duration-200">
+                    {GITHUB_FOLLOWERS >= 1000
+                      ? `${(GITHUB_FOLLOWERS / 1000).toFixed(1)}k`
+                      : GITHUB_FOLLOWERS}
+                  </span>
+                )}
               </a>
             )}
             {siteConfig?.social?.linkedin && (
