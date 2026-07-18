@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Activity } from "lucide-react";
 import { LuGithub } from "react-icons/lu";
 import { FiLinkedin } from "react-icons/fi";
 
 import { siteConfig } from "../config/site.config";
-const hacksterLogo = "/H.png"; // Place H.png in /public to use this logo
+const hacksterLogo = "/H.png";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -14,24 +14,29 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState("home");
   const [followers, setFollowers] = useState(0);
 
+  // Fetch GitHub followers
   useEffect(() => {
     const getFollowers = async () => {
-      const res = await fetch("/api/github");
-      const data = await res.json();
-
-      setFollowers(data.followers);
+      try {
+        const res = await fetch("/api/github");
+        const data = await res.json();
+        setFollowers(data.followers || 0);
+      } catch (err) {
+        console.error("Failed to fetch GitHub followers");
+      }
     };
-
     getFollowers();
   }, []);
 
+  // Scroll effect for header
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 2);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Active section detection
   useEffect(() => {
     const handleScroll = () => {
       const sections = [
@@ -66,7 +71,7 @@ export default function Header() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 80; // Account for fixed header
+      const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -81,124 +86,118 @@ export default function Header() {
   const isActive = (path: string) => activeSection === path;
 
   return (
-    <header
-      className="site-header  fixed top-2 left-0 right-0 z-50 transition-colors duration-300 px-4"
-      role="banner"
-    >
+    <header className="fixed top-2 left-0 right-0 z-50 px-4 transition-all duration-300">
       <div className="mx-auto max-w-[72rem]">
         <div
-          className={`h-16 flex items-center justify-between px-4 rounded-2xl border transition-colors duration-300 ${
+          className={`h-16 flex items-center justify-between px-5 rounded-2xl border transition-all duration-300 ${
             scrolled
-              ? "bg-neutral-950 border-neutral-800"
-              : "bg-neutral-950/0 border-transparent"
+              ? "bg-neutral-950/95 backdrop-blur-md border-neutral-700 shadow-xl"
+              : "bg-neutral-950/70 border-transparent"
           }`}
         >
-          {/* Logo */}
+          {/* Backend-style Logo */}
           <button
             onClick={() => scrollToSection("home")}
-            className="cursor-pointer font-mono text-lg text-neutral-100"
-            aria-label="Go to home"
+            className="flex items-center gap-1.5 font-mono text-xl text-neutral-100 group"
           >
-            <span className="text-[#5EEAD4]">&gt;</span>G
+            <span className="text-[#5EEAD4]">
+              &gt;<span className="animate-pulse ">_</span>
+            </span>
+            <span>GAVINDU</span>
           </button>
 
-          {/* Desktop Nav */}
-          <nav
-            id="primary-nav"
-            aria-label="Primary"
-            className="hidden md:block"
-          >
-            <ul className="flex items-center gap-6">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:block">
+            <ul className="flex items-center gap-8">
               {siteConfig.navigation.map((item) => (
                 <li key={item.path}>
                   <button
                     onClick={() => scrollToSection(item.path)}
                     className={`relative text-sm font-medium transition-colors duration-200 ${
                       isActive(item.path)
-                        ? "text-[#5EEAD4] after:w-full"
-                        : "text-neutral-400 hover:text-neutral-100 after:w-0 hover:after:w-full"
-                    } after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-[#5EEAD4] after:transition-all after:duration-200`}
+                        ? "text-[#5EEAD4]"
+                        : "text-neutral-400 hover:text-neutral-200"
+                    }`}
                   >
                     {item.label}
+                    {isActive(item.path) && (
+                      <span className="absolute -bottom-1 left-0 h-px w-full bg-[#5EEAD4]" />
+                    )}
                   </button>
                 </li>
               ))}
             </ul>
           </nav>
 
-          {/* Right Side Actions */}
-          <div className="flex items-center gap-1">
+          {/* Right Side */}
+          <div className="flex items-center gap-4">
+            {/* System Status */}
+
+            {/* GitHub */}
             <a
-              aria-label={`GitHub followers: ${followers}`}
-              className="inline-flex items-center gap-1.5 px-2 h-9 text-neutral-400 hover:text-[#5EEAD4] transition-colors duration-200 group"
               href={siteConfig.social.github}
               target="_blank"
               rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 h-9 text-neutral-400 hover:text-[#5EEAD4] transition-colors rounded-lg hover:bg-neutral-900"
             >
               <LuGithub size={18} />
-              <span className="text-sm">{followers}</span>
+              <span className="text-sm font-medium">{followers}</span>
             </a>
 
+            {/* LinkedIn */}
             {siteConfig?.social?.linkedin && (
               <a
-                className="inline-flex items-center justify-center w-9 h-9 text-neutral-400 hover:text-[#5EEAD4] transition-colors duration-200"
                 href={siteConfig.social.linkedin}
                 target="_blank"
-                rel="noreferrer noopener"
-                aria-label="LinkedIn"
-                title="LinkedIn"
+                className="p-2 text-neutral-400 hover:text-[#5EEAD4] transition-colors"
               >
-                {/* <Linkedin size={18} /> */}
-                <FiLinkedin size={18} />
+                <FiLinkedin size={19} />
               </a>
             )}
+
+            {/* Hackster */}
             {siteConfig?.social?.hackster && (
               <a
-                className="inline-flex items-center justify-center w-9 h-9 text-neutral-400 hover:text-[#5EEAD4] transition-colors duration-200"
                 href={siteConfig.social.hackster}
                 target="_blank"
-                rel="noreferrer noopener"
-                aria-label="Hackster"
-                title="Hackster"
+                className="p-2 text-neutral-400 hover:text-[#5EEAD4] transition-colors"
               >
                 <img
                   src={hacksterLogo}
                   alt="Hackster"
-                  className="h-5 w-5 object-contain grayscale opacity-70 hover:opacity-100 transition-opacity duration-200"
+                  className="h-5 w-5 object-contain grayscale hover:grayscale-0 transition-all"
                 />
               </a>
             )}
+
+            {/* Mobile Menu */}
             <button
-              className="inline-flex md:hidden items-center justify-center w-9 h-9 text-neutral-300 hover:text-[#5EEAD4] transition-colors duration-200"
-              aria-expanded={open}
-              aria-controls="mobile-nav"
-              onClick={() => setOpen((v) => !v)}
+              className="md:hidden p-2 text-neutral-300 hover:text-[#5EEAD4]"
+              onClick={() => setOpen(!open)}
             >
-              {open ? <X size={18} /> : <Menu size={18} />}
-              <span className="sr-only">Toggle navigation</span>
+              {open ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile Navigation */}
       <div
-        id="mobile-nav"
-        className={`md:hidden px-4 pb-3 transition-all duration-300 ${
+        className={`md:hidden px-4 pb-4 transition-all duration-300 ${
           open
             ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-2 pointer-events-none"
+            : "opacity-0 -translate-y-3 pointer-events-none"
         }`}
       >
-        <ul className="flex flex-col gap-1 rounded-2xl border border-neutral-800 p-3 bg-neutral-950">
+        <ul className="bg-neutral-950 border border-neutral-800 rounded-2xl p-3 flex flex-col gap-1">
           {siteConfig.navigation.map((item) => (
             <li key={item.path}>
               <button
                 onClick={() => scrollToSection(item.path)}
-                className={`block w-full text-left py-2 px-3 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                className={`block w-full text-left py-3 px-4 rounded-xl text-sm font-medium transition-all ${
                   isActive(item.path)
-                    ? "bg-[#5EEAD4]/10 text-[#8B5CF6]"
-                    : "text-neutral-400 hover:bg-neutral-900 hover:text-neutral-100"
+                    ? "bg-[#5EEAD4]/10 text-[#5EEAD4]"
+                    : "text-neutral-400 hover:bg-neutral-900 hover:text-neutral-200"
                 }`}
               >
                 {item.label}

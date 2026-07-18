@@ -1,57 +1,41 @@
 "use client";
 import React from "react";
+import { LuGithub, LuMail } from "react-icons/lu";
+import { FaXTwitter } from "react-icons/fa6";
 import { siteConfig } from "../config/site.config";
-import { VscTwitter } from "react-icons/vsc";
-import { LuGithub } from "react-icons/lu";
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer role="contentinfo" className="bg-neutral-950mt-16 border-t bg-bl border-neutral-800">
-      <div className="mx-auto max-w-[72rem] px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+    <footer
+      role="contentinfo"
+      className="mt-16 border-t border-neutral-800 bg-neutral-950"
+    >
+      <div className="mx-auto max-w-[72rem] px-4 py-6 flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="text-center sm:text-left">
-          <p className="text-sm  text-neutral-300">
+          <p className="text-sm text-neutral-300">
             Designed &amp; developed by {siteConfig.author.name}.
           </p>
-          <p className="text-xs font-mono text-neutral-500 mt-1">
-            <span className="text-neutral-400">Design with NextJs</span> · {" "}
-            {/* <span className="text-neutral-400">Tailwind CSS</span> · {" "} */}
+          <p className="text-xs font-mono text-neutral-500 mt-1 flex items-center gap-2 justify-center sm:justify-start">
+            <span className="text-neutral-400">Designed with Next.js</span>
+            <span aria-hidden="true">·</span>
             <span className="text-neutral-400">Hosted on Vercel</span>
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
-          {siteConfig.social.github && (
-            <a
-              href={siteConfig.social.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub profile"
-              className="text-neutral-400 hover:text-[#8B5CF6] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-950 focus:ring-[#8B5CF6] rounded"
-            >
-              {/* <LuGithub size={18} /> */}
-              <span className="sr-only">GitHub</span>
-            </a>
-          )}
+        <div className="text-xs font-mono text-neutral-500 text-center sm:text-right">
+          <p>
+            © {year} {siteConfig.name}
+          </p>
 
-          {siteConfig.social.twitter && (
-            <a
-              href={siteConfig.social.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter profile"
-              className="text-neutral-400 hover:text-[#8B5CF6] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-950 focus:ring-[#8B5CF6] rounded"
-            >
-              {/* <VscTwitter size={18} /> */}
-              <span className="sr-only">Twitter</span>
-            </a>
-          )}
+          <p className="mt-1 flex items-center justify-center sm:justify-end gap-2">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-neutral-400">
+              status: All systems operational
+            </span>
+          </p>
         </div>
-
-        <p className="text-xs font-mono text-neutral-500 text-center sm:text-right">
-          © {year} {siteConfig.name}
-        </p>
       </div>
     </footer>
   );
