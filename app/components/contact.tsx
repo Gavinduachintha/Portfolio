@@ -206,20 +206,68 @@ export default function Contact() {
             </div>
 
             <button
-              type="submit"
-              disabled={status === "sending"}
-              className="px-6 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed w-fit"
-              style={{ backgroundColor: ACCENT, color: "#052e1f" }}
-            >
-              {status === "sending" ? (
-                "Sending…"
-              ) : (
-                <>
-                  <Send className="w-3.5 h-3.5" />
-                  Send message
-                </>
-              )}
-            </button>
+  type="submit"
+  disabled={status === "sending"}
+  aria-busy={status === "sending"}
+  className="
+    group
+    relative
+    flex
+    w-fit
+    items-center
+    justify-center
+    gap-2
+    rounded-lg
+    border
+    border-transparent
+    px-6
+    py-2.5
+    font-mono
+    text-sm
+    font-medium
+    transition-all
+    duration-300
+    hover:-translate-y-0.5
+    hover:shadow-lg
+    hover:shadow-[#4fda8e]/20
+    focus-visible:outline-none
+    focus-visible:ring-2
+    focus-visible:ring-[#4fda8e]/50
+    disabled:cursor-not-allowed
+    disabled:opacity-50
+  "
+  style={{
+    backgroundColor: ACCENT,
+    color: "#052e1f",
+  }}
+>
+  {status === "sending" ? (
+    <>
+      <span className="animate-pulse">$</span>
+
+      <span>
+        ./sending_request.sh
+        <span className="animate-pulse">_</span>
+      </span>
+    </>
+  ) : (
+    <>
+      <Send
+        className="
+          h-3.5
+          w-3.5
+          transition-transform
+          duration-200
+          group-hover:translate-x-1
+        "
+      />
+
+      <span>
+        $ ./send.sh
+      </span>
+    </>
+  )}
+</button>
 
             {status === "success" && (
               <p className="flex items-center gap-2 text-xs text-[#4fda8e]">

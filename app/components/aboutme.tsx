@@ -1,31 +1,32 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Gamepad } from "lucide-react";
+import { Gamepad, Server, Database, Cpu, Terminal } from "lucide-react";
 
 export default function AboutMe() {
-  const interests = [
+  const logs = [
     {
-      icon: "⚙️",
-      title: "Backend Development",
-      desc: "Building scalable APIs and server-side applications with modern technologies",
+      icon: Server,
+      title: "Backend Engineering",
+      desc: "Designing scalable APIs, distributed systems, and server-side architectures.",
     },
     {
-      icon: "🌐",
-      title: "Web Applications",
-      desc: "Creating full-stack web solutions that solve real-world problems",
+      icon: Database,
+      title: "Data & Infrastructure",
+      desc: "Working with databases, cloud services, and reliable data pipelines.",
     },
     {
-      icon: "🤖",
-      title: "Robotics",
-      desc: "Merging electronics and software to build intelligent robotic systems",
+      icon: Cpu,
+      title: "AI + Embedded Systems",
+      desc: "Combining software engineering with electronics and intelligent systems.",
     },
   ];
 
   return (
     <section className="py-16 px-4 relative overflow-hidden">
-      <div className="mx-auto max-w-[72rem] relative">
-        {/* Section Header */}
+      <div className="mx-auto max-w-[72rem]">
+
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -34,81 +35,238 @@ export default function AboutMe() {
           className="mb-12"
         >
           <p className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">
-            About
+            ~/about
           </p>
+
           <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-100">
             About Me
           </h2>
         </motion.div>
 
-        {/* Main Content */}
+
+        {/* Terminal Window */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="rounded-2xl p-8 md:p-12 mb-12"
+          transition={{ duration: 0.7 }}
+          className="
+            rounded-2xl 
+            border border-neutral-800
+            bg-[#0c0c0c]
+            shadow-2xl
+            overflow-hidden
+          "
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Side - About Text */}
-            <div className="space-y-4 text-lg text-neutral-300 leading-relaxed">
-              <p>
-                Hi! I'm{" "}
-                <strong className="text-[#4fda8e]">Gavindu Achintha</strong>, an
-                undergraduate student passionate about technology and
-                innovation, currently studying{" "}
-                <strong className="text-neutral-100">
-                  Computer Science, Electronics, and Mathematics
-                </strong>
-                .
-              </p>
-              <p>
-                I focus on building{" "}
-                <strong className="text-[#4fda8e]">
-                  scalable web applications
-                </strong>{" "}
-                with a strong interest in{" "}
-                <strong className="text-neutral-100">
-                  backend development, AI/ML, and Robotics
-                </strong>
-                .
-              </p>
-              <p>
-                Beyond coding, I enjoy{" "}
-                <strong className="text-neutral-100">basketball</strong>,{" "}
-                <strong className="text-neutral-100">
-                  gaming <Gamepad className="inline w-5 h-5" />
-                </strong>
-                , and hands-on electronics projects.
-              </p>
+
+          {/* Terminal Header */}
+          <div className="
+            flex items-center justify-between
+            px-5 py-3
+            border-b border-neutral-800
+            bg-[#111111]
+          ">
+
+            <div className="flex gap-2">
+              <span className="w-3 h-3 rounded-full bg-red-500/80"/>
+              <span className="w-3 h-3 rounded-full bg-yellow-500/80"/>
+              <span className="w-3 h-3 rounded-full bg-green-500/80"/>
             </div>
 
-            {/* Right Side - Profile Photo */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="flex justify-center lg:justify-end"
-            >
-              <div className="relative">
-                {/* Profile image container */}
-                <div className="relative w-64 h-64 md:w-80 md:h-80">
-                  {/* Border */}
-                  <div className="absolute inset-0 rounded-full bg-[#4fda8e] p-[2px]">
-                    <div className="w-full h-full rounded-full bg-[#0a0a0a] p-1.5">
+            <div className="flex items-center gap-2 text-xs text-neutral-500 font-mono">
+              <Terminal size={14}/>
+              gavindu@portfolio:~/about
+            </div>
+
+          </div>
+
+
+          <div className="p-8 md:p-12">
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+
+              {/* Logs */}
+              <div className="space-y-8 font-mono">
+
+                <div>
+                  <p className="text-[#4fda8e] text-sm">
+                    $ whoami
+                  </p>
+
+                  <p className="mt-2 text-neutral-300 leading-relaxed font-sans text-lg">
+                    Hi, I'm{" "}
+                    <strong className="text-[#4fda8e]">
+                      Gavindu Achintha
+                    </strong>
+                    , a backend-focused engineer building reliable systems,
+                    APIs, and intelligent applications.
+                  </p>
+                </div>
+
+
+                <div>
+                  <p className="text-[#4fda8e] text-sm">
+                    $ cat engineer.profile
+                  </p>
+
+                  <p className="mt-2 text-neutral-300 leading-relaxed font-sans text-lg">
+                    Undergraduate student exploring{" "}
+                    <strong className="text-neutral-100">
+                      backend development, AI/ML, robotics, and embedded systems
+                    </strong>.
+                  </p>
+                </div>
+
+
+                <div className="space-y-4 pt-4">
+
+                  {logs.map((item, index)=>{
+
+                    const Icon = item.icon;
+
+                    return (
+                      <motion.div
+                        key={item.title}
+                        initial={{opacity:0,x:-20}}
+                        whileInView={{opacity:1,x:0}}
+                        viewport={{once:true}}
+                        transition={{
+                          delay:index * 0.15
+                        }}
+                        className="
+                          flex gap-4
+                          p-4
+                          rounded-xl
+                          border border-neutral-800
+                          bg-[#111111]
+                          hover:border-[#4fda8e]/40
+                          transition
+                        "
+                      >
+
+                        <div className="
+                          mt-1
+                          text-[#4fda8e]
+                        ">
+                          <Icon size={22}/>
+                        </div>
+
+
+                        <div>
+                          <h3 className="text-neutral-100 font-semibold">
+                            {item.title}
+                          </h3>
+
+                          <p className="text-sm text-neutral-400 mt-1 font-sans">
+                            {item.desc}
+                          </p>
+                        </div>
+
+                      </motion.div>
+                    )
+
+                  })}
+
+                </div>
+
+
+                <p className="text-sm text-neutral-500">
+                  $ hobbies --include
+                  <span className="text-neutral-300">
+                    basketball, gaming <Gamepad className="inline w-4 h-4 mx-1"/>
+                    electronics
+                  </span>
+                </p>
+
+
+              </div>
+
+
+
+              {/* Profile Node */}
+              <motion.div
+                initial={{
+                  opacity:0,
+                  scale:0.9
+                }}
+                whileInView={{
+                  opacity:1,
+                  scale:1
+                }}
+                viewport={{
+                  once:true
+                }}
+                transition={{
+                  duration:0.8
+                }}
+                className="flex justify-center items-center"
+              >
+
+                <div className="
+                  relative
+                  w-64 h-64
+                  md:w-80 md:h-80
+                ">
+
+                  <div className="
+                    absolute inset-0
+                    rounded-full
+                    bg-[#4fda8e]
+                    p-[2px]
+                  ">
+
+                    <div className="
+                      w-full h-full
+                      rounded-full
+                      bg-[#0a0a0a]
+                      p-2
+                    ">
+
                       <img
                         src="/images/profilePhoto.jpg"
-                        alt="Gavindu Achintha - Profile Photo"
-                        className="w-full h-full object-cover rounded-full"
+                        alt="Gavindu Achintha"
+                        className="
+                          w-full
+                          h-full
+                          object-cover
+                          rounded-full
+                        "
                       />
+
                     </div>
+
                   </div>
+
+
+                  {/* Status */}
+                  <div className="
+                    absolute
+                    bottom-6
+                    right-6
+                    px-3 py-1
+                    rounded-full
+                    bg-[#0a0a0a]
+                    border border-[#4fda8e]/50
+                    text-xs
+                    font-mono
+                    text-[#4fda8e]
+                  ">
+                    ● online
+                  </div>
+
+
                 </div>
-              </div>
-            </motion.div>
+
+              </motion.div>
+
+
+            </div>
+
           </div>
+
         </motion.div>
+
       </div>
     </section>
   );
