@@ -1,4 +1,4 @@
-interface Layer {
+export interface Layer {
   label: string;
   note: string;
   items: string[];
@@ -8,34 +8,17 @@ const layers: Layer[] = [
   {
     label: "Frontend",
     note: "interactive user experiences",
-    items: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-    ],
+    items: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
     label: "Backend",
     note: "APIs, authentication & business logic",
-    items: [
-      "Go",
-      "Node.js",
-      "Express.js",
-      "FastAPI",
-      "REST APIs",
-      "JWT",
-    ],
+    items: ["Go", "Node.js", "Express.js", "FastAPI", "REST APIs", "JWT"],
   },
   {
     label: "Data",
     note: "databases & caching",
-    items: [
-      "PostgreSQL",
-      "MongoDB",
-      "Redis",
-      "Supabase",
-    ],
+    items: ["PostgreSQL", "MongoDB", "Redis", "Supabase"],
   },
   {
     label: "Cloud & DevOps",
@@ -54,13 +37,7 @@ const layers: Layer[] = [
   {
     label: "AI / ML",
     note: "intelligent applications",
-    items: [
-      "Python",
-      "OpenCV",
-      "YOLO",
-      "Edge Impulse",
-      "TensorFlow",
-    ],
+    items: ["Python", "OpenCV", "YOLO", "Edge Impulse", "TensorFlow"],
   },
   {
     label: "Embedded Systems",
@@ -77,3 +54,5 @@ const layers: Layer[] = [
     ],
   },
 ];
+
+export default layers;

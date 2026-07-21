@@ -1,5 +1,6 @@
 import type { ReactNode, ElementType, CSSProperties } from "react";
 import "./glitchtext.css";
+import { ACCENT } from "../lib/theme";
 
 interface GlitchTextProps {
   children: ReactNode;
@@ -22,7 +23,7 @@ const GlitchText = ({
     "--after-duration": `${speed * 3}s`,
     "--before-duration": `${speed * 2}s`,
     "--after-shadow": enableShadows ? "-3px 0 #111111" : "none",
-    "--before-shadow": enableShadows ? "3px 0 #4fda8e" : "none",
+    "--before-shadow": enableShadows ? `3px 0 ${ACCENT}` : "none",
   } as CSSProperties;
 
   const hoverClass = enableOnHover ? "glitch-hover" : "glitch-active";

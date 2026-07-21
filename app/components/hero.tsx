@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Terminal, Code2, GitBranch, Cpu, Rocket } from "lucide-react";
 import GlitchText from "./glitchtext";
+import { ACCENT, ACCENT_DIM, ACCENT_DARK_TEXT } from "../lib/theme";
 
 const roles = [
   "Allrounder",
@@ -45,12 +46,19 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
+    // window.performance.memory is a non-standard, Chrome-only API.
+    // We declare a minimal interface so we avoid casting to `any`.
+    interface ChromeMemory {
+      usedJSHeapSize: number;
+    }
+    interface ChromePerformance extends Performance {
+      memory?: ChromeMemory;
+    }
+
     let memAmount = "42.3";
-    if (window.performance && (window.performance as any).memory) {
-      memAmount = (
-        (window.performance as any).memory.usedJSHeapSize /
-        (1024 * 1024)
-      ).toFixed(1);
+    const perf = window.performance as ChromePerformance | undefined;
+    if (perf?.memory?.usedJSHeapSize) {
+      memAmount = (perf.memory.usedJSHeapSize / (1024 * 1024)).toFixed(1);
     }
 
     let loadTime = 120;
@@ -140,7 +148,8 @@ export default function Hero() {
                 window.scrollTo({ top: offsetPosition, behavior: "smooth" });
               }
             }}
-            className="px-8 py-3 bg-[#4fda8e] hover:bg-[#3bb36d] text-black rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2 w-fit"
+            className="px-8 py-3 rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2 w-fit"
+            style={{ backgroundColor: ACCENT, color: ACCENT_DARK_TEXT }}
           >
             <Terminal className="w-5 h-5" />
             Explore me

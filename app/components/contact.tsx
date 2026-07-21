@@ -1,91 +1,67 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState, useRef, useEffect } from "react";
 import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { LuGithub } from "react-icons/lu";
 import { FiLinkedin } from "react-icons/fi";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaMedium } from "react-icons/fa6";
+import { FaXTwitter, FaMedium } from "react-icons/fa6";
 import { SiHackster } from "react-icons/si";
 import { FaDev } from "react-icons/fa";
+import { siteConfig } from "../config/site.config";
+import { submitContactForm, type ContactFormState } from "../lib/actions";
+import { ACCENT, ACCENT_DARK_TEXT } from "../lib/theme";
 
-const ACCENT = "#4fda8e";
+const initialState: ContactFormState = { status: "idle", message: "" };
+
+const socialLinks = [
+  { icon: LuGithub, label: "GitHub", href: siteConfig.social.github },
+  { icon: FiLinkedin, label: "LinkedIn", href: siteConfig.social.linkedin },
+  { icon: FaXTwitter, label: "Twitter", href: siteConfig.social.twitter },
+  { icon: FaMedium, label: "Medium", href: "https://medium.com/@gavindu.al" },
+  {
+    icon: SiHackster,
+    label: "Hackster",
+    href: "https://www.hackster.io/gavindu911",
+  },
+  { icon: FaDev, label: "DEV", href: "https://dev.to/gavinduachintha" },
+];
+
+const contactInfo = [
+  {
+    label: "Email",
+    value: "gavindu.al@gmail.com",
+    href: "mailto:gavindu.al@gmail.com",
+  },
+  { label: "Location", value: "Colombo, Sri Lanka", href: null },
+  {
+    label: "GitHub",
+    value: "github.com/GavinduAchintha",
+    href: siteConfig.social.github,
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/gavinduachintha",
+    href: siteConfig.social.linkedin,
+  },
+  { label: "Resume", value: "Download CV", href: "/resume.pdf" },
+];
+
+const inputClasses =
+  "w-full px-0 py-2 bg-transparent border-0 border-b border-neutral-800 text-neutral-100 placeholder-neutral-600 text-sm focus:outline-none focus:border-[#4fda8e] transition-colors duration-200 disabled:opacity-50 rounded-none";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [status, setStatus] = useState<
-    "idle" | "sending" | "success" | "error"
-  >("idle");
+  const [state, formAction, isPending] = useActionState(
+    submitContactForm,
+    initialState,
+  );
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("sending");
-
-    // Simulate form submission - replace with actual API call
-    setTimeout(() => {
-      setStatus("success");
-      setFormData({ name: "", email: "", message: "" });
-      setTimeout(() => setStatus("idle"), 4000);
-    }, 1200);
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const contactInfo = [
-    {
-      label: "Email",
-      value: "gavindu.al@gmail.com",
-      href: "mailto:gavindu.al@gmail.com",
-    },
-    {
-      label: "Location",
-      value: "Colombo, Sri Lanka",
-      href: null,
-    },
-    {
-      label: "GitHub",
-      value: "github.com/GavinduAchintha",
-      href: "https://github.com/Gavinduachintha",
-    },
-    {
-      label: "LinkedIn",
-      value: "linkedin.com/in/gavinduachintha",
-      href: "https://linkedin.com/in/gavinduachintha",
-    },
-    {
-      label: "Resume",
-      value: "Download CV",
-      href: "/resume.pdf",
-    },
-  ];
-
-  const socialLinks = [
-    {
-      icon: LuGithub,
-      label: "GitHub",
-      href: "https://github.com/Gavinduachintha",
-    },
-    {
-      icon: FiLinkedin,
-      label: "LinkedIn",
-      href: "https://linkedin.com/in/gavinduachintha",
-    },
-    { icon: FaXTwitter, label: "Twitter", href: "https://x.com/P911Stum" },
-    { icon: FaMedium, label: "Medium", href: "https://medium.com/@gavindu.al" },
-    { icon: SiHackster, label: "Hackster", href: "https://www.hackster.io/gavindu911" },
-    { icon: FaDev, label: "DEV", href: "https://dev.to/gavinduachintha" },
-  ];
-
-  const inputClasses =
-    "w-full px-0 py-2 bg-transparent border-0 border-b border-neutral-800 text-neutral-100 placeholder-neutral-600 text-sm focus:outline-none focus:border-[#4fda8e] transition-colors duration-200 disabled:opacity-50 rounded-none";
+  // Reset the form fields on success
+  useEffect(() => {
+    if (state.status === "success") {
+      formRef.current?.reset();
+    }
+  }, [state.status]);
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-neutral-950">
@@ -99,7 +75,7 @@ export default function Contact() {
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Left — info */}
+          {/* Left — contact info + social links */}
           <div className="flex flex-col justify-between">
             <dl className="space-y-6">
               {contactInfo.map((info) => (
@@ -143,8 +119,8 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right — form */}
-          <form onSubmit={handleSubmit} className="space-y-7">
+          {/* Right — contact form */}
+          <form ref={formRef} action={formAction} className="space-y-7">
             <div>
               <label
                 htmlFor="name"
@@ -156,10 +132,8 @@ export default function Contact() {
                 type="text"
                 id="name"
                 name="name"
-                value={formData.name}
-                onChange={handleChange}
                 required
-                disabled={status === "sending"}
+                disabled={isPending}
                 className={inputClasses}
                 placeholder="Your name"
               />
@@ -176,10 +150,8 @@ export default function Contact() {
                 type="email"
                 id="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
                 required
-                disabled={status === "sending"}
+                disabled={isPending}
                 className={inputClasses}
                 placeholder="you@example.com"
               />
@@ -195,90 +167,73 @@ export default function Contact() {
               <textarea
                 id="message"
                 name="message"
-                value={formData.message}
-                onChange={handleChange}
                 required
                 rows={3}
-                disabled={status === "sending"}
+                disabled={isPending}
                 className={`${inputClasses} resize-none`}
                 placeholder="Tell me about your project or inquiry..."
               />
             </div>
 
             <button
-  type="submit"
-  disabled={status === "sending"}
-  aria-busy={status === "sending"}
-  className="
-    group
-    relative
-    flex
-    w-fit
-    items-center
-    justify-center
-    gap-2
-    rounded-lg
-    border
-    border-transparent
-    px-6
-    py-2.5
-    font-mono
-    text-sm
-    font-medium
-    transition-all
-    duration-300
-    hover:-translate-y-0.5
-    hover:shadow-lg
-    hover:shadow-[#4fda8e]/20
-    focus-visible:outline-none
-    focus-visible:ring-2
-    focus-visible:ring-[#4fda8e]/50
-    disabled:cursor-not-allowed
-    disabled:opacity-50
-  "
-  style={{
-    backgroundColor: ACCENT,
-    color: "#052e1f",
-  }}
->
-  {status === "sending" ? (
-    <>
-      <span className="animate-pulse">$</span>
+              type="submit"
+              disabled={isPending}
+              aria-busy={isPending}
+              className="
+                group
+                relative
+                flex
+                w-fit
+                items-center
+                justify-center
+                gap-2
+                rounded-lg
+                border
+                border-transparent
+                px-6
+                py-2.5
+                font-mono
+                text-sm
+                font-medium
+                transition-all
+                duration-300
+                hover:-translate-y-0.5
+                hover:shadow-lg
+                hover:shadow-[#4fda8e]/20
+                focus-visible:outline-none
+                focus-visible:ring-2
+                focus-visible:ring-[#4fda8e]/50
+                disabled:cursor-not-allowed
+                disabled:opacity-50
+              "
+              style={{ backgroundColor: ACCENT, color: ACCENT_DARK_TEXT }}
+            >
+              {isPending ? (
+                <>
+                  <span className="animate-pulse">$</span>
+                  <span>
+                    ./sending_request.sh
+                    <span className="animate-pulse">_</span>
+                  </span>
+                </>
+              ) : (
+                <>
+                  <Send className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+                  <span>$ ./send.sh</span>
+                </>
+              )}
+            </button>
 
-      <span>
-        ./sending_request.sh
-        <span className="animate-pulse">_</span>
-      </span>
-    </>
-  ) : (
-    <>
-      <Send
-        className="
-          h-3.5
-          w-3.5
-          transition-transform
-          duration-200
-          group-hover:translate-x-1
-        "
-      />
-
-      <span>
-        $ ./send.sh
-      </span>
-    </>
-  )}
-</button>
-
-            {status === "success" && (
+            {state.status === "success" && (
               <p className="flex items-center gap-2 text-xs text-[#4fda8e]">
                 <CheckCircle2 className="w-3.5 h-3.5" />
-                Message sent — I'll get back to you soon.
+                {state.message}
               </p>
             )}
-            {status === "error" && (
+            {state.status === "error" && (
               <p className="flex items-center gap-2 text-xs text-red-400">
                 <AlertCircle className="w-3.5 h-3.5" />
-                Something went wrong. Try again.
+                {state.message}
               </p>
             )}
           </form>
