@@ -34,9 +34,24 @@ const techIcons = [
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
 ];
 
+// Fixed (non-random) layout so there's no server/client hydration mismatch
+const particles = [
+  { left: "8%", top: "20%", size: 3, duration: 9, delay: 0 },
+  { left: "22%", top: "68%", size: 2, duration: 11, delay: 1.2 },
+  { left: "35%", top: "15%", size: 2, duration: 8, delay: 0.6 },
+  { left: "48%", top: "80%", size: 3, duration: 12, delay: 2 },
+  { left: "60%", top: "35%", size: 2, duration: 10, delay: 0.3 },
+  { left: "72%", top: "60%", size: 3, duration: 9.5, delay: 1.6 },
+  { left: "85%", top: "22%", size: 2, duration: 11.5, delay: 0.9 },
+  { left: "92%", top: "75%", size: 2, duration: 8.5, delay: 2.4 },
+  { left: "15%", top: "45%", size: 2, duration: 10.5, delay: 1.8 },
+  { left: "78%", top: "88%", size: 3, duration: 9, delay: 0.5 },
+];
+
 export default function Hero() {
   const [typedText, setTypedText] = useState("");
   const [currentRole, setCurrentRole] = useState(0);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const roleInterval = setInterval(() => {
@@ -97,8 +112,63 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  // Gentle mouse-parallax for the background grid
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({
+        x: (e.clientX / window.innerWidth - 0.5) * 16,
+        y: (e.clientY / window.innerHeight - 0.5) * 16,
+      });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
-    <section className="hero-section min-h-screen flex items-center relative overflow-hidden px-4 sm:px-6 lg:px-8 py-20 lg:py-0">
+    <section className="hero-section group min-h-screen flex items-center relative overflow-hidden px-4 sm:px-6 lg:px-8 py-20 lg:py-0">
+      {/* Subtle animated grid background, now with gentle parallax */}
+      <div className="absolute inset-0 z-0 opacity-[0.03]">
+        <div
+          className="absolute inset-0 transition-transform duration-300 ease-out"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(79, 218, 142, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(79, 218, 142, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: "50px 50px",
+            animation: "gridFloat 20s linear infinite",
+            transform: `translate3d(${mousePos.x}px, ${mousePos.y}px, 0)`,
+          }}
+        />
+      </div>
+
+      {/* Drifting accent particles */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {particles.map((p, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-[#4fda8e]"
+            style={{
+              left: p.left,
+              top: p.top,
+              width: p.size,
+              height: p.size,
+              opacity: 0.25,
+            }}
+            animate={{
+              y: [0, -18, 0],
+              opacity: [0.15, 0.4, 0.15],
+            }}
+            transition={{
+              duration: p.duration,
+              delay: p.delay,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+
       <div className="relative z-10 max-w-[72rem] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
         {/* Left Side - Identity & Tech Stack */}
         <div className="text-left space-y-6 sm:space-y-8">
@@ -188,7 +258,8 @@ export default function Hero() {
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.8 + index * 0.05 }}
-                  className="w-6 h-6 transition-opacity duration-200 cursor-pointer"
+                  whileHover={{ scale: 1.2, opacity: 1 }}
+                  className="w-6 h-6 opacity-70 hover:opacity-100 transition-opacity duration-200 cursor-pointer"
                 />
               ))}
             </div>
@@ -196,8 +267,15 @@ export default function Hero() {
         </div>
 
         {/* Right Side - Interactive Terminal, flat single-accent */}
-        <div className="relative">
-          <div className="bg-neutral-950 border border-neutral-800 rounded-xl overflow-hidden">
+        <motion.div
+          className="relative"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <div className="bg-neutral-950 border border-neutral-800 rounded-xl overflow-hidden shadow-2xl shadow-[#4fda8e]/5">
+            {/* Subtle glow effect around terminal */}
+            <div className="absolute -inset-[1px] bg-gradient-to-r from-[#4fda8e]/10 via-transparent to-[#4fda8e]/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
             {/* Terminal Header */}
             <div className="flex items-center justify-between px-5 py-3.5 bg-neutral-900 border-b border-neutral-800">
               <div className="flex items-center gap-2.5">
@@ -328,12 +406,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2 }}
-            className="absolute -bottom-5 -right-5 border border-neutral-800 bg-neutral-900 text-neutral-100 px-5 py-2.5 rounded-xl flex items-center gap-2.5"
+            className="absolute -bottom-5 -right-5 border border-neutral-800 bg-neutral-900 text-neutral-100 px-5 py-2.5 rounded-xl flex items-center gap-2.5 shadow-lg"
           >
             <div className="w-2 h-2 bg-[#4fda8e] rounded-full animate-pulse" />
             <span className="text-sm font-medium">All systems go</span>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

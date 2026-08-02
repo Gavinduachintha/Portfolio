@@ -125,3 +125,13 @@ section {
 .animate-shimmer {
   animation: shimmer 2s infinite;
 }
+
+/* Subtle grid animation for hero section */
+@keyframes gridFloat {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}

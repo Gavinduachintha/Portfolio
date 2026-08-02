@@ -1,6 +1,4 @@
 "use client";
-
-import { useActionState, useRef, useEffect } from "react";
 import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { LuGithub } from "react-icons/lu";
 import { FiLinkedin } from "react-icons/fi";
@@ -8,10 +6,10 @@ import { FaXTwitter, FaMedium } from "react-icons/fa6";
 import { SiHackster } from "react-icons/si";
 import { FaDev } from "react-icons/fa";
 import { siteConfig } from "../config/site.config";
-import { submitContactForm, type ContactFormState } from "../lib/actions";
+// import { submitContactForm, type ContactFormState } from "../lib/actions";
 import { ACCENT, ACCENT_DARK_TEXT } from "../lib/theme";
-
-const initialState: ContactFormState = { status: "idle", message: "" };
+import { useState } from "react";
+// const initialState: ContactFormState = { status: "idle", message: "" };
 
 const socialLinks = [
   { icon: LuGithub, label: "GitHub", href: siteConfig.social.github },
@@ -50,19 +48,60 @@ const inputClasses =
   "w-full px-0 py-2 bg-transparent border-0 border-b border-neutral-800 text-neutral-100 placeholder-neutral-600 text-sm focus:outline-none focus:border-[#4fda8e] transition-colors duration-200 disabled:opacity-50 rounded-none";
 
 export default function Contact() {
-  const [state, formAction, isPending] = useActionState(
-    submitContactForm,
-    initialState,
-  );
-  const formRef = useRef<HTMLFormElement>(null);
+  //   const [state, formAction, isPending] = useActionState(
+  //     submitContactForm,
+  //     initialState,
+  //   );
+  //   const formRef = useRef<HTMLFormElement>(null);
 
-  // Reset the form fields on success
-  useEffect(() => {
-    if (state.status === "success") {
-      formRef.current?.reset();
+  //   // Reset the form fields on success
+  //   useEffect(() => {
+  //     if (state.status === "success") {
+  //       formRef.current?.reset();
+  //     }
+  //   }, [state.status]);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isPending, setIsPending] = useState(false);
+  const [status, setStatus] = useState("");
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setIsPending(true);
+
+    try {
+      const response = await fetch("/api/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Request failed");
+      }
+
+      setStatus("Message sent — I'll get back to you soon.");
+
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      console.error(error);
+      setStatus("Failed to send message.");
+    } finally {
+      setIsPending(false);
     }
-  }, [state.status]);
-
+  };
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-neutral-950">
       <div className="max-w-[72rem] mx-auto">
@@ -120,7 +159,7 @@ export default function Contact() {
           </div>
 
           {/* Right — contact form */}
-          <form ref={formRef} action={formAction} className="space-y-7">
+          <form onSubmit={handleSubmit} className="space-y-7">
             <div>
               <label
                 htmlFor="name"
@@ -136,6 +175,8 @@ export default function Contact() {
                 disabled={isPending}
                 className={inputClasses}
                 placeholder="Your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
 
@@ -154,6 +195,8 @@ export default function Contact() {
                 disabled={isPending}
                 className={inputClasses}
                 placeholder="you@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
@@ -172,6 +215,8 @@ export default function Contact() {
                 disabled={isPending}
                 className={`${inputClasses} resize-none`}
                 placeholder="Tell me about your project or inquiry..."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               />
             </div>
 
@@ -224,16 +269,10 @@ export default function Contact() {
               )}
             </button>
 
-            {state.status === "success" && (
+            {status && (
               <p className="flex items-center gap-2 text-xs text-[#4fda8e]">
                 <CheckCircle2 className="w-3.5 h-3.5" />
-                {state.message}
-              </p>
-            )}
-            {state.status === "error" && (
-              <p className="flex items-center gap-2 text-xs text-red-400">
-                <AlertCircle className="w-3.5 h-3.5" />
-                {state.message}
+                {status}
               </p>
             )}
           </form>
