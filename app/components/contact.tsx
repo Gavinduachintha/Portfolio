@@ -6,10 +6,8 @@ import { FaXTwitter, FaMedium } from "react-icons/fa6";
 import { SiHackster } from "react-icons/si";
 import { FaDev } from "react-icons/fa";
 import { siteConfig } from "../config/site.config";
-// import { submitContactForm, type ContactFormState } from "../lib/actions";
 import { ACCENT, ACCENT_DARK_TEXT } from "../lib/theme";
 import { useState } from "react";
-// const initialState: ContactFormState = { status: "idle", message: "" };
 
 const socialLinks = [
   { icon: LuGithub, label: "GitHub", href: siteConfig.social.github },
@@ -48,28 +46,19 @@ const inputClasses =
   "w-full px-0 py-2 bg-transparent border-0 border-b border-neutral-800 text-neutral-100 placeholder-neutral-600 text-sm focus:outline-none focus:border-[#4fda8e] transition-colors duration-200 disabled:opacity-50 rounded-none";
 
 export default function Contact() {
-  //   const [state, formAction, isPending] = useActionState(
-  //     submitContactForm,
-  //     initialState,
-  //   );
-  //   const formRef = useRef<HTMLFormElement>(null);
-
-  //   // Reset the form fields on success
-  //   useEffect(() => {
-  //     if (state.status === "success") {
-  //       formRef.current?.reset();
-  //     }
-  //   }, [state.status]);
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isPending, setIsPending] = useState(false);
   const [status, setStatus] = useState("");
+  const [isError, setIsError] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setIsPending(true);
+    setStatus("");
+    setIsError(false);
 
     try {
       const response = await fetch("/api/email", {
@@ -87,21 +76,30 @@ export default function Contact() {
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.error || "Request failed");
+        const message =
+          typeof result?.error === "string"
+            ? result.error
+            : result?.error?.message ??
+              result?.message ??
+              "Request failed";
+        throw new Error(message);
       }
 
       setStatus("Message sent — I'll get back to you soon.");
+      setIsError(false);
 
       setName("");
       setEmail("");
       setMessage("");
     } catch (error) {
-      console.error(error);
-      setStatus("Failed to send message.");
+      console.error("Contact form submission failed:", error instanceof Error ? error.message : error);
+      setStatus("Failed to send message. Please try again.");
+      setIsError(true);
     } finally {
       setIsPending(false);
     }
   };
+
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-neutral-950">
       <div className="max-w-[72rem] mx-auto">
@@ -270,8 +268,18 @@ export default function Contact() {
             </button>
 
             {status && (
-              <p className="flex items-center gap-2 text-xs text-[#4fda8e]">
-                <CheckCircle2 className="w-3.5 h-3.5" />
+              <p
+                role="status"
+                aria-live="polite"
+                className={`flex items-center gap-2 text-xs ${
+                  isError ? "text-red-400" : "text-[#4fda8e]"
+                }`}
+              >
+                {isError ? (
+                  <AlertCircle className="w-3.5 h-3.5" />
+                ) : (
+                  <CheckCircle2 className="w-3.5 h-3.5" />
+                )}
                 {status}
               </p>
             )}
