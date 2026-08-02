@@ -13,7 +13,7 @@ export const siteConfig = {
   ],
   social: {
     github: "https://github.com/Gavinduachintha",
-    linkedin: "https://linkedin.com/in/gavinduachintha",
+    linkedin: "https://www.linkedin.com/in/gavindu-achintha/",
     twitter: "https://x.com/P911Stum",
     hackster: "",
   },
