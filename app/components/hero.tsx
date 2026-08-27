@@ -3,16 +3,18 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Terminal, Code2, GitBranch, Cpu, Rocket } from "lucide-react";
+import Image from "next/image";
 import GlitchText from "./glitchtext";
 import { ACCENT, ACCENT_DIM, ACCENT_DARK_TEXT } from "../lib/theme";
 
 const roles = [
+  "Undergrad",
   "Allrounder",
   "Backend Lover",
   "Robotics Enthusiast",
-  "Undergrad",
   "Swimmer and Basketball Player",
   "Cloud Explorer",
+  "Firmware Tinkerer",
 ];
 
 const stats = [
@@ -22,18 +24,17 @@ const stats = [
 ];
 
 const techIcons = [
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/digitalocean/digitalocean-original-wordmark.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
 ];
-
 // Fixed (non-random) layout so there's no server/client hydration mismatch
 const particles = [
   { left: "8%", top: "20%", size: 3, duration: 9, delay: 0 },
@@ -126,6 +127,7 @@ export default function Hero() {
 
   return (
     <section className="hero-section group min-h-screen flex items-center relative overflow-hidden px-4 sm:px-6 lg:px-8 py-20 lg:py-0">
+      
       {/* Subtle animated grid background, now with gentle parallax */}
       <div className="absolute inset-0 z-0 opacity-[0.03]">
         <div
@@ -172,7 +174,9 @@ export default function Hero() {
       <div className="relative z-10 max-w-[72rem] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
         {/* Left Side - Identity & Tech Stack */}
         <div className="text-left space-y-6 sm:space-y-8">
+          
           <div>
+            
             <div className="flex items-center gap-2 mb-4">
               <Code2 className="w-6 h-6 text-neutral-400" />
               <div className="overflow-hidden">
@@ -201,9 +205,12 @@ export default function Hero() {
                 Gavindu Achintha_
               </GlitchText>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-neutral-400 max-w-lg leading-relaxed">
-              Backend enthusiast learning to craft APIs, manage databases, and
-              deploy cloud solutions
+            <p className="text-sm sm:text-base md:text-lg text-neutral-400 max-w-lg leading-relaxed">
+              Applied Electronics undergraduate who likes building things that
+              actually do something. I work across embedded systems,
+              electronics, backend engineering, AI, and robotics — from circuits
+              and microcontrollers to intelligent software systems. If I can
+              build it, break it, and make it better, I'm interested.
             </p>
           </div>
 
@@ -218,14 +225,14 @@ export default function Hero() {
                 window.scrollTo({ top: offsetPosition, behavior: "smooth" });
               }
             }}
-            className="px-8 py-3 rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2 w-fit"
-            style={{ backgroundColor: ACCENT, color: ACCENT_DARK_TEXT }}
+            className="px-8 py-3 rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2 w-fit border-2 hover:bg-accent hover:text-black"
+            // style={{ backgroundColor: ACCENT, color: ACCENT_DARK_TEXT }}
           >
             <Terminal className="w-5 h-5" />
             Explore me
           </button>
 
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-4 border-t border-neutral-800">
+          {/* <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-4 border-t border-neutral-800">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -243,7 +250,7 @@ export default function Hero() {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </div> */}
 
           <div className="flex items-center gap-3 pt-2">
             <span className="text-xs text-neutral-500 font-mono">
@@ -266,14 +273,16 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Side - Interactive Terminal, flat single-accent */}
+        {/* Right Side - Robot + Interactive Terminal */}
+        
         <motion.div
           className="relative"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <div className="bg-neutral-950 border border-neutral-800 rounded-xl overflow-hidden shadow-2xl shadow-[#4fda8e]/5">
+          
+          <div className="relative z-10 bg-neutral-950 border border-neutral-800 rounded-xl overflow-hidden shadow-2xl shadow-[#4fda8e]/5">
             {/* Subtle glow effect around terminal */}
             <div className="absolute -inset-[1px] bg-gradient-to-r from-[#4fda8e]/10 via-transparent to-[#4fda8e]/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
             {/* Terminal Header */}
@@ -318,59 +327,6 @@ export default function Hero() {
                       </span>
                     </>
                   );
-                } else if (line.startsWith("   Active:")) {
-                  content = (
-                    <>
-                      <span className="text-neutral-500 ml-3">Active: </span>
-                      <span className="text-[#4fda8e]">
-                        {line.substring(11)}
-                      </span>
-                    </>
-                  );
-                } else if (line.startsWith("   Memory:")) {
-                  if (line.includes("| Cores:")) {
-                    const parts = line.split("| Cores:");
-                    content = (
-                      <>
-                        <span className="text-neutral-500 ml-3">Memory: </span>
-                        <span className="text-neutral-200">
-                          {parts[0].substring(11)}
-                        </span>
-                        <span className="text-neutral-600 mx-2">│</span>
-                        <span className="text-neutral-500">Cores:</span>
-                        <span className="text-neutral-200 ml-1">
-                          {parts[1]}
-                        </span>
-                      </>
-                    );
-                  } else {
-                    content = (
-                      <>
-                        <span className="text-neutral-500 ml-3">Memory: </span>
-                        <span className="text-neutral-200">
-                          {line.substring(11)}
-                        </span>
-                      </>
-                    );
-                  }
-                } else if (line.startsWith("   Load Time:")) {
-                  content = (
-                    <>
-                      <span className="text-neutral-500 ml-3">Load Time: </span>
-                      <span className="text-neutral-200">
-                        {line.substring(14)}
-                      </span>
-                    </>
-                  );
-                } else if (line.startsWith("HTTP/2")) {
-                  content = (
-                    <>
-                      <span className="text-neutral-400">HTTP/2 </span>
-                      <span className="text-[#4fda8e]">
-                        {line.substring(7)}
-                      </span>
-                    </>
-                  );
                 } else if (line.startsWith("✓")) {
                   content = (
                     <>
@@ -380,6 +336,15 @@ export default function Hero() {
                       </span>
                     </>
                   );
+                } else if (line.startsWith("   ")) {
+                  // Indented status lines
+                  content = (
+                    <span className="text-neutral-400 ml-3">
+                      {line.trimStart()}
+                    </span>
+                  );
+                } else if (line.includes("loss:") || line.includes("Epoch")) {
+                  content = <span className="text-neutral-300">{line}</span>;
                 } else {
                   content = <span className="text-neutral-400">{line}</span>;
                 }
@@ -406,7 +371,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2 }}
-            className="absolute -bottom-5 -right-5 border border-neutral-800 bg-neutral-900 text-neutral-100 px-5 py-2.5 rounded-xl flex items-center gap-2.5 shadow-lg"
+            className="absolute -bottom-5 -right-5 z-10 border border-neutral-800 bg-neutral-900 text-neutral-100 px-5 py-2.5 rounded-xl flex items-center gap-2.5 shadow-lg"
           >
             <div className="w-2 h-2 bg-[#4fda8e] rounded-full animate-pulse" />
             <span className="text-sm font-medium">All systems go</span>

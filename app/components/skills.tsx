@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import layers from "../data/skills";
+import Image from "next/image";
 
 export default function Skills() {
   return (
@@ -16,7 +17,20 @@ export default function Skills() {
             How I build things
           </h2>
         </div>
-
+        {/* Robot illustration — behind the terminal */}
+        {/* <div className="absolute -top-16 -right-8 w-52 sm:w-60 lg:w-72 pointer-events-none select-none z-0">
+          {/* Glow underneath */}
+          {/* <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-40 h-16 bg-[#4fda8e]/10 rounded-full blur-2xl" />
+          <Image
+            src="/images/robot1.png"
+            alt="Robot illustration"
+            width={400}
+            height={520}
+            className="w-full h-auto opacity-[0.12] mix-blend-screen"
+            style={{ filter: "hue-rotate(120deg) saturate(2) brightness(3)" }}
+            priority */}
+           {/* /> */}
+        {/* </div> */}
         {/* Layered stack */}
         <div className="max-w-2xl mx-auto">
           {layers.map((layer, i) => (

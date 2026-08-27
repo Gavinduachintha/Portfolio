@@ -5,6 +5,7 @@ import Hero from "./components/hero";
 import AboutMe from "./components/aboutme";
 import Skills from "./components/skills";
 import ProjectGrid from "./components/projectgrid";
+import HardwareShowcase from "./components/hardwareshowcase";
 import Articles from "./components/articles";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
@@ -25,6 +26,9 @@ export default function Home() {
         </section>
         <section id="projects">
           <ProjectGrid />
+        </section>
+        <section id="hardware">
+          <HardwareShowcase />
         </section>
         <section id="articles">
           <Articles />
