@@ -56,12 +56,12 @@ export default function HardwareShowcase() {
 
           <div className="pt-1">
             <a
-              href="https://github.com/Gavinduachintha"
+              href="https://www.hackster.io/gavindu911"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm font-mono text-[#4fda8e] hover:text-[#3bb36d] transition-colors"
             >
-              <span>Explore GitHub</span>
+              <span>Explore On Hackster</span>
               <ChevronsRight className="w-4 h-4" />
             </a>
           </div>

@@ -47,19 +47,19 @@ const hardwareProjects: HardwareProject[] = [
     status: "in-progress",
     tags: ["C++", "Python", "YOLO", "ML", "Edge AI", "Arduino UNO Q"],
     year: 2024,
-    url: "https://github.com/Gavinduachintha",
+    url: "https://www.hackster.io/gavindu911/wildlife-ai-f8e87b",
   },
   {
-    slug: "iot-env-monitor",
-    title: "IoT Environmental Monitor",
-    summary:
-      "Wireless sensor node that collects temperature, humidity, air quality, and light data, then publishes to an MQTT broker. A React dashboard visualises live readings and historical trends.",
-    platform: "ESP32",
-    status: "completed",
-    tags: ["C++", "ESP32", "MQTT", "React", "Grafana", "InfluxDB"],
-    year: 2025,
-    url: "https://github.com/Gavinduachintha",
-  },
+  slug: "iot-env-monitor",
+  title: "IoT Soil Moisture Monitor",
+  summary:
+    "A real-time soil moisture monitoring system built with XIAO ESP32 and a capacitive soil moisture sensor, featuring a Next.js dashboard for live data visualization.",
+  platform: "XIAO ESP32",
+  status: "completed",
+  tags: ["IoT", "ESP32", "Next.js"],
+  year: 2026,
+  url: "https://www.hackster.io/gavindu911/diy-soil-moisture-sensor-6546da",
+},
   
 ];
 

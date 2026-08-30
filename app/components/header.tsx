@@ -91,7 +91,7 @@ export default function Header() {
         <div
           className={`h-16 flex items-center justify-between px-5 rounded-2xl border transition-all duration-300 ${
             scrolled
-              ? "bg-neutral-950/95 backdrop-blur-md border-neutral-700 shadow-xl"
+              ? "bg-neutral-950/95 backdrop-blur-xlski border-neutral-700 shadow-xl"
               : "bg-neutral-950/70 border-transparent"
           }`}
         >

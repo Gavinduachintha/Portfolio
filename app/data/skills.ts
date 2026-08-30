@@ -11,6 +11,11 @@ const layers: Layer[] = [
     items: ["C", "C++", "Arduino", "ESP32", "STM32", "Raspberry Pi", "ROS"],
   },
   {
+    label: "Design & Prototyping",
+    note: "boards, enclosures & physical systems",
+    items: ["PCB Designing", "3D Designing", "KiCad", "Fusion 360"],
+  },
+  {
     label: "AI / ML",
     note: "intelligent applications",
     items: ["Python", "OpenCV", "YOLO", "Edge Impulse", "TensorFlow"],
