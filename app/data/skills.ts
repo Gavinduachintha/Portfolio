@@ -38,12 +38,7 @@ const layers: Layer[] = [
   {
     label: "Cloud & DevOps",
     note: "deployment & infrastructure",
-    items: [
-      "AWS",
-      "Azure",
-      "DigitalOcean",
-      "Vercel",
-    ],
+    items: ["AWS", "Azure", "DigitalOcean", "Vercel"],
   },
 ];
 
