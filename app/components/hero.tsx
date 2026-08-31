@@ -284,13 +284,13 @@ export default function Hero() {
           
           <div className="relative z-10 bg-neutral-950 border border-neutral-800 rounded-xl overflow-hidden shadow-2xl shadow-[#4fda8e]/5">
             {/* Subtle glow effect around terminal */}
-            <div className="absolute -inset-[1px] bg-gradient-to-r from-[#4fda8e]/10 via-transparent to-[#4fda8e]/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+            <div className="absolute -inset-[1px] bg-gradient-to-r from-[#4fda8e]/10 via-transparent to-[#4fda8e]/10 rounded-xl opacity-0  transition-opacity duration-500 -z-10" />
             {/* Terminal Header */}
             <div className="flex items-center justify-between px-5 py-3.5 bg-neutral-900 border-b border-neutral-800">
               <div className="flex items-center gap-2.5">
-                <div className="w-3 h-3 rounded-full bg-neutral-700" />
-                <div className="w-3 h-3 rounded-full bg-neutral-700" />
-                <div className="w-3 h-3 rounded-full bg-neutral-700" />
+                <div className="w-3 h-3 rounded-full bg-red-500" />
+                <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                <div className="w-3 h-3 rounded-full bg-green-500" />
               </div>
               <span className="text-xs font-mono text-neutral-400">
                 gavindu@portfolio:~/dev
