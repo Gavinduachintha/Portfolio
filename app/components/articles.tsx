@@ -45,11 +45,11 @@ export default function Articles() {
             </p>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-100 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 mb-4">
             Article Series
           </h2>
 
-          <p className="text-neutral-400 text-sm max-w-2xl">
+          <p className="text-neutral-600 text-sm max-w-2xl">
             Sharing insights, experiments, and lessons learned while building
             software, embedded systems, AI applications, and backend
             architectures.
@@ -89,10 +89,10 @@ export default function Articles() {
             className="text-center py-20"
           >
             <div className="text-6xl mb-4">✍️</div>
-            <h3 className="text-2xl font-bold text-neutral-100 mb-2">
+            <h3 className="text-2xl font-bold text-neutral-900 mb-2">
               Articles Coming Soon
             </h3>
-            <p className="text-neutral-400">
+            <p className="text-neutral-600">
               I'm working on some exciting technical content. Check back soon!
             </p>
           </motion.div>

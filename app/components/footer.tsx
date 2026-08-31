@@ -10,17 +10,17 @@ export default function Footer() {
   return (
     <footer
       role="contentinfo"
-      className="mt-16 border-t border-neutral-800 bg-neutral-950"
+      className="mt-16 border-t border-neutral-200 bg-white"
     >
       <div className="mx-auto max-w-[72rem] px-4 py-6 flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="text-center sm:text-left">
-          <p className="text-sm text-neutral-300">
+          <p className="text-sm text-neutral-700">
             Designed &amp; developed by {siteConfig.author.name}.
           </p>
           <p className="text-xs font-mono text-neutral-500 mt-1 flex items-center gap-2 justify-center sm:justify-start">
-            <span className="text-neutral-400">Designed with Next.js</span>
+            <span className="text-neutral-600">Designed with Next.js</span>
             <span aria-hidden="true">·</span>
-            <span className="text-neutral-400">Hosted on Vercel</span>
+            <span className="text-neutral-600">Hosted on Vercel</span>
           </p>
         </div>
 
@@ -31,7 +31,7 @@ export default function Footer() {
 
           <p className="mt-1 flex items-center justify-center sm:justify-end gap-2">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-neutral-400">
+            <span className="text-neutral-600">
               status: All systems operational
             </span>
           </p>

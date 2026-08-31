@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --background: #ffffff;
+  --foreground: #0a0a0a;
   --accent: #4fda8e;
   --accent-dim: #3bb36d;
-  --surface: #111111;
-  --border: #262626;
+  --surface: #f5f5f5;
+  --border: #e5e5e5;
 }
 
 @theme inline {
@@ -45,7 +45,7 @@ body {
   position: absolute;
   border-radius: 50%;
   filter: blur(100px);
-  opacity: 0.15;
+  opacity: 0.08;
   animation: slowFloat 25s ease-in-out infinite;
 }
 
@@ -54,7 +54,7 @@ body {
   height: 600px;
   background: radial-gradient(
     circle,
-    rgba(79, 218, 142, 0.15) 0%,
+    rgba(79, 218, 142, 0.08) 0%,
     transparent 70%
   );
   top: -20%;
@@ -67,7 +67,7 @@ body {
   height: 400px;
   background: radial-gradient(
     circle,
-    rgba(79, 218, 142, 0.08) 0%,
+    rgba(79, 218, 142, 0.04) 0%,
     transparent 70%
   );
   bottom: 10%;
@@ -80,7 +80,7 @@ body {
   height: 500px;
   background: radial-gradient(
     circle,
-    rgba(79, 218, 142, 0.05) 0%,
+    rgba(79, 218, 142, 0.03) 0%,
     transparent 70%
   );
   top: 50%;
@@ -92,15 +92,15 @@ body {
   0%,
   100% {
     transform: translate(0, 0);
-    opacity: 0.15;
+    opacity: 0.08;
   }
   33% {
     transform: translate(20px, -20px);
-    opacity: 0.1;
+    opacity: 0.05;
   }
   66% {
     transform: translate(-15px, 15px);
-    opacity: 0.12;
+    opacity: 0.06;
   }
 }
 

@@ -127,7 +127,6 @@ export default function Hero() {
 
   return (
     <section className="hero-section group min-h-screen flex items-center relative overflow-hidden px-4 sm:px-6 lg:px-8 py-20 lg:py-0">
-      
       {/* Subtle animated grid background, now with gentle parallax */}
       <div className="absolute inset-0 z-0 opacity-[0.03]">
         <div
@@ -174,11 +173,9 @@ export default function Hero() {
       <div className="relative z-10 max-w-[72rem] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
         {/* Left Side - Identity & Tech Stack */}
         <div className="text-left space-y-6 sm:space-y-8">
-          
           <div>
-            
             <div className="flex items-center gap-2 mb-4">
-              <Code2 className="w-6 h-6 text-neutral-400" />
+              <Code2 className="w-6 h-6 text-neutral-600" />
               <div className="overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.span
@@ -187,14 +184,14 @@ export default function Hero() {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -20, opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="text-sm font-mono text-neutral-400 block"
+                    className="text-sm font-mono text-neutral-600 block"
                   >
                     {roles[currentRole]}
                   </motion.span>
                 </AnimatePresence>
               </div>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-neutral-100 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-neutral-900 leading-tight">
               Hey I'm
               <br />
               <GlitchText
@@ -205,7 +202,7 @@ export default function Hero() {
                 Gavindu Achintha_
               </GlitchText>
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-neutral-400 max-w-lg leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-neutral-600 max-w-lg leading-relaxed">
               Applied Electronics undergraduate who likes building things that
               actually do something. I work across embedded systems,
               electronics, backend engineering, AI, and robotics — from circuits
@@ -225,8 +222,7 @@ export default function Hero() {
                 window.scrollTo({ top: offsetPosition, behavior: "smooth" });
               }
             }}
-            className="px-8 py-3 rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2 w-fit border-2 hover:bg-accent hover:text-black"
-            // style={{ backgroundColor: ACCENT, color: ACCENT_DARK_TEXT }}
+            className="px-8 py-3 bg-black text-white rounded-lg font-semibold transition-all duration-200 flex items-center gap-2 w-fit border-2 border-black hover:bg-white hover:text-black"
           >
             <Terminal className="w-5 h-5" />
             Explore me
@@ -266,7 +262,7 @@ export default function Hero() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.8 + index * 0.05 }}
                   whileHover={{ scale: 1.2, opacity: 1 }}
-                  className="w-6 h-6 opacity-70 hover:opacity-100 transition-opacity duration-200 cursor-pointer"
+                  className="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity duration-200 cursor-pointer"
                 />
               ))}
             </div>
@@ -274,25 +270,24 @@ export default function Hero() {
         </div>
 
         {/* Right Side - Robot + Interactive Terminal */}
-        
+
         <motion.div
           className="relative"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          
-          <div className="relative z-10 bg-neutral-950 border border-neutral-800 rounded-xl overflow-hidden shadow-2xl shadow-[#4fda8e]/5">
+          <div className="relative z-10 bg-white border border-neutral-200 rounded-xl overflow-hidden shadow-2xl shadow-neutral-200/50">
             {/* Subtle glow effect around terminal */}
             <div className="absolute -inset-[1px] bg-gradient-to-r from-[#4fda8e]/10 via-transparent to-[#4fda8e]/10 rounded-xl opacity-0  transition-opacity duration-500 -z-10" />
             {/* Terminal Header */}
-            <div className="flex items-center justify-between px-5 py-3.5 bg-neutral-900 border-b border-neutral-800">
+            <div className="flex items-center justify-between px-5 py-3.5 bg-neutral-100 border-b border-neutral-200">
               <div className="flex items-center gap-2.5">
                 <div className="w-3 h-3 rounded-full bg-red-500" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500" />
                 <div className="w-3 h-3 rounded-full bg-green-500" />
               </div>
-              <span className="text-xs font-mono text-neutral-400">
+              <span className="text-xs font-mono text-neutral-600">
                 gavindu@portfolio:~/dev
               </span>
               <div className="flex items-center gap-1.5">
@@ -313,7 +308,7 @@ export default function Hero() {
                   content = (
                     <>
                       <span className="text-[#4fda8e] mr-2">$</span>
-                      <span className="text-neutral-300">
+                      <span className="text-neutral-700">
                         {line.substring(2)}
                       </span>
                     </>
@@ -322,7 +317,7 @@ export default function Hero() {
                   content = (
                     <>
                       <span className="text-[#4fda8e] mr-2">●</span>
-                      <span className="text-neutral-100">
+                      <span className="text-neutral-900">
                         {line.substring(2)}
                       </span>
                     </>
@@ -331,7 +326,7 @@ export default function Hero() {
                   content = (
                     <>
                       <span className="text-[#4fda8e] mr-2">✓</span>
-                      <span className="text-neutral-100">
+                      <span className="text-neutral-900">
                         {line.substring(2)}
                       </span>
                     </>
@@ -339,14 +334,14 @@ export default function Hero() {
                 } else if (line.startsWith("   ")) {
                   // Indented status lines
                   content = (
-                    <span className="text-neutral-400 ml-3">
+                    <span className="text-neutral-600 ml-3">
                       {line.trimStart()}
                     </span>
                   );
                 } else if (line.includes("loss:") || line.includes("Epoch")) {
-                  content = <span className="text-neutral-300">{line}</span>;
+                  content = <span className="text-neutral-700">{line}</span>;
                 } else {
-                  content = <span className="text-neutral-400">{line}</span>;
+                  content = <span className="text-neutral-600">{line}</span>;
                 }
 
                 return (
@@ -371,7 +366,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2 }}
-            className="absolute -bottom-5 -right-5 z-10 border border-neutral-800 bg-neutral-900 text-neutral-100 px-5 py-2.5 rounded-xl flex items-center gap-2.5 shadow-lg"
+            className="absolute -bottom-5 -right-5 z-10 border border-neutral-200 bg-white text-neutral-900 px-5 py-2.5 rounded-xl flex items-center gap-2.5 shadow-lg"
           >
             <div className="w-2 h-2 bg-[#4fda8e] rounded-full animate-pulse" />
             <span className="text-sm font-medium">All systems go</span>

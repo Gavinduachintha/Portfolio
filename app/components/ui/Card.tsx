@@ -23,10 +23,10 @@ export default function Card({
   as: Wrapper = "div",
 }: CardProps) {
   return (
-    <Wrapper className="group relative bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors duration-200 hover:border-[#4fda8e]/40">
+    <Wrapper className="group relative bg-white border border-neutral-200 rounded-2xl overflow-hidden transition-colors duration-200 hover:border-[#4fda8e]/40">
       {/* Image */}
       {image && (
-        <div className="relative w-full h-44 overflow-hidden border-b border-neutral-800">
+        <div className="relative w-full h-44 overflow-hidden border-b border-neutral-200">
           <img
             src={image}
             alt={title}
@@ -77,18 +77,18 @@ export default function Card({
         </div>
 
         {/* Title */}
-        <h3 className="text-base font-semibold text-neutral-100 leading-snug">
+        <h3 className="text-base font-semibold text-neutral-900 leading-snug">
           {title}
         </h3>
 
         {/* Description */}
-        <p className="text-sm text-neutral-400 leading-relaxed line-clamp-3">
+        <p className="text-sm text-neutral-600 leading-relaxed line-clamp-3">
           {description}
         </p>
 
         {/* Tags — treated as a stack, not pills */}
         {tags.length > 0 && (
-          <div className="flex flex-wrap gap-x-3 gap-y-1 pt-2 border-t border-neutral-800/80">
+          <div className="flex flex-wrap gap-x-3 gap-y-1 pt-2 border-t border-neutral-200/80">
             {tags.map((tag) => (
               <span
                 key={tag}

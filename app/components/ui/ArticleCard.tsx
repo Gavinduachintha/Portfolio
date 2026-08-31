@@ -17,7 +17,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
   );
 
   return (
-    <article className="group relative bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#4fda8e]/40 hover:shadow-lg hover:shadow-[#4fda8e]/5">
+    <article className="group relative bg-white border border-neutral-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#4fda8e]/40 hover:shadow-lg hover:shadow-[#4fda8e]/5">
       {/* Top accent line */}
       <div className="h-1 bg-gradient-to-r from-transparent via-[#4fda8e]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -42,27 +42,27 @@ export default function ArticleCard({ article }: ArticleCardProps) {
 
         {/* Title with external link icon */}
         <div className="flex items-start gap-2">
-          <h3 className="flex-1 text-lg font-semibold text-neutral-100 leading-snug group-hover:text-[#4fda8e] transition-colors duration-200">
+          <h3 className="flex-1 text-lg font-semibold text-neutral-900 leading-snug group-hover:text-[#4fda8e] transition-colors duration-200">
             {article.title}
           </h3>
           <ExternalLink
             size={16}
-            className="text-neutral-600 group-hover:text-[#4fda8e] transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 mt-1 flex-shrink-0"
+            className="text-neutral-400 group-hover:text-[#4fda8e] transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 mt-1 flex-shrink-0"
           />
         </div>
 
         {/* Summary */}
-        <p className="text-sm text-neutral-400 leading-relaxed line-clamp-3">
+        <p className="text-sm text-neutral-600 leading-relaxed line-clamp-3">
           {article.summary}
         </p>
 
         {/* Tags */}
         {article.tags.length > 0 && (
-          <div className="flex flex-wrap gap-x-3 gap-y-1 pt-3 border-t border-neutral-800/80">
+          <div className="flex flex-wrap gap-x-3 gap-y-1 pt-3 border-t border-neutral-200/80">
             {article.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-[11px] font-mono text-neutral-500 group-hover:text-neutral-400 transition-colors"
+                className="text-[11px] font-mono text-neutral-500 group-hover:text-neutral-600 transition-colors"
               >
                 {tag}
               </span>

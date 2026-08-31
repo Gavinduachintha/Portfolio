@@ -37,7 +37,7 @@ export default function AboutMe() {
             ~/about
           </p>
 
-          <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-100">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900">
             About Me
           </h2>
         </motion.div>
@@ -50,8 +50,8 @@ export default function AboutMe() {
           transition={{ duration: 0.7 }}
           className="
             rounded-2xl 
-            border border-neutral-800
-            bg-[#0c0c0c]
+            border border-neutral-200
+            bg-white
             shadow-2xl
             overflow-hidden
           "
@@ -61,8 +61,8 @@ export default function AboutMe() {
             className="
             flex items-center justify-between
             px-5 py-3
-            border-b border-neutral-800
-            bg-[#111111]
+            border-b border-neutral-200
+            bg-neutral-100
           "
           >
             <div className="flex gap-2">
@@ -100,7 +100,7 @@ export default function AboutMe() {
 
                   <p className="mt-2 text-neutral-300 leading-relaxed font-sans text-lg">
                     Undergraduate student exploring{" "}
-                    <strong className="text-neutral-100">
+                    <strong className="text-neutral-900">
                       Embedded systems, AI/ML, Robotics, and Backend development
                     </strong>
                     .
@@ -124,8 +124,8 @@ export default function AboutMe() {
                           flex gap-4
                           p-4
                           rounded-xl
-                          border border-neutral-800
-                          bg-[#111111]
+                          border border-neutral-200
+                          bg-neutral-50
                           hover:border-[#4fda8e]/40
                           transition
                         "
@@ -140,11 +140,11 @@ export default function AboutMe() {
                         </div>
 
                         <div>
-                          <h3 className="text-neutral-100 font-semibold">
+                          <h3 className="text-neutral-900 font-semibold">
                             {item.title}
                           </h3>
 
-                          <p className="text-sm text-neutral-400 mt-1 font-sans">
+                          <p className="text-sm text-neutral-600 mt-1 font-sans">
                             {item.desc}
                           </p>
                         </div>
@@ -155,7 +155,7 @@ export default function AboutMe() {
 
                 <p className="text-sm text-neutral-500">
                   $ hobbies --include
-                  <span className="text-neutral-300">
+                  <span className="text-neutral-700">
                     <Gamepad className="inline w-4 h-4 mx-1" />
                     electronics basketball, gaming{" "}
                   </span>
@@ -199,7 +199,7 @@ export default function AboutMe() {
                       className="
                       w-full h-full
                       rounded-full
-                      bg-[#0a0a0a]
+                      bg-white
                       p-2
                     "
                     >
@@ -224,7 +224,7 @@ export default function AboutMe() {
                     right-6
                     px-3 py-1
                     rounded-full
-                    bg-[#0a0a0a]
+                    bg-white
                     border border-[#4fda8e]/50
                     text-xs
                     font-mono

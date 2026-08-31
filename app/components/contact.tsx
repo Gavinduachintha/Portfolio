@@ -43,7 +43,7 @@ const contactInfo = [
 ];
 
 const inputClasses =
-  "w-full px-0 py-2 bg-transparent border-0 border-b border-neutral-800 text-neutral-100 placeholder-neutral-600 text-sm focus:outline-none focus:border-[#4fda8e] transition-colors duration-200 disabled:opacity-50 rounded-none";
+  "w-full px-0 py-2 bg-transparent border-0 border-b border-neutral-300 text-neutral-900 placeholder-neutral-400 text-sm focus:outline-none focus:border-[#4fda8e] transition-colors duration-200 disabled:opacity-50 rounded-none";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -79,9 +79,7 @@ export default function Contact() {
         const message =
           typeof result?.error === "string"
             ? result.error
-            : result?.error?.message ??
-              result?.message ??
-              "Request failed";
+            : (result?.error?.message ?? result?.message ?? "Request failed");
         throw new Error(message);
       }
 
@@ -92,7 +90,10 @@ export default function Contact() {
       setEmail("");
       setMessage("");
     } catch (error) {
-      console.error("Contact form submission failed:", error instanceof Error ? error.message : error);
+      console.error(
+        "Contact form submission failed:",
+        error instanceof Error ? error.message : error,
+      );
       setStatus("Failed to send message. Please try again.");
       setIsError(true);
     } finally {
@@ -101,13 +102,13 @@ export default function Contact() {
   };
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-neutral-950">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-[72rem] mx-auto">
         {/* Section header */}
         <p className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">
           Contact
         </p>
-        <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-100 mb-14">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 mb-14">
           Get in touch
         </h2>
 
@@ -124,14 +125,14 @@ export default function Contact() {
                     {info.href ? (
                       <a
                         href={info.href}
-                        className="text-sm text-neutral-200 hover:text-[#4fda8e] transition-colors duration-200"
+                        className="text-sm text-neutral-800 hover:text-[#4fda8e] transition-colors duration-200"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         {info.value}
                       </a>
                     ) : (
-                      <span className="text-sm text-neutral-200">
+                      <span className="text-sm text-neutral-800">
                         {info.value}
                       </span>
                     )}
@@ -231,8 +232,10 @@ export default function Contact() {
                 justify-center
                 gap-2
                 rounded-lg
-                border
-                border-transparent
+                bg-black
+                text-white
+                border-2
+                border-black
                 px-6
                 py-2.5
                 font-mono
@@ -240,16 +243,16 @@ export default function Contact() {
                 font-medium
                 transition-all
                 duration-300
+                hover:bg-white
+                hover:text-black
                 hover:-translate-y-0.5
                 hover:shadow-lg
-                hover:shadow-[#4fda8e]/20
                 focus-visible:outline-none
                 focus-visible:ring-2
-                focus-visible:ring-[#4fda8e]/50
+                focus-visible:ring-black/50
                 disabled:cursor-not-allowed
                 disabled:opacity-50
               "
-              style={{ backgroundColor: ACCENT, color: ACCENT_DARK_TEXT }}
             >
               {isPending ? (
                 <>

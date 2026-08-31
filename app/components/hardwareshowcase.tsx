@@ -45,11 +45,11 @@ export default function HardwareShowcase() {
             Embedded Systems &amp; Electronics
           </p>
 
-          <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-100 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 mb-4">
             Hardware Projects
           </h2>
 
-          <p className="text-neutral-400 text-sm max-w-2xl">
+          <p className="text-neutral-600 text-sm max-w-2xl">
             Physical builds where software meets electronics — from
             microcontrollers and sensors to robotics and edge AI systems.
           </p>
@@ -101,11 +101,11 @@ export default function HardwareShowcase() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="rounded-xl border border-dashed border-neutral-800 py-20 text-center"
+            className="rounded-xl border border-dashed border-neutral-200 py-20 text-center"
           >
             <div className="mb-4 text-4xl">🔧</div>
 
-            <h3 className="mb-2 text-lg font-semibold text-neutral-100">
+            <h3 className="mb-2 text-lg font-semibold text-neutral-900">
               Hardware Projects Coming Soon
             </h3>
 

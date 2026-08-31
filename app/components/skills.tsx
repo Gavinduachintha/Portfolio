@@ -13,14 +13,14 @@ export default function Skills() {
           <p className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">
             Technical expertise
           </p>
-          <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-100">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900">
             How I build things
           </h2>
         </div>
         {/* Robot illustration — behind the terminal */}
         {/* <div className="absolute -top-16 -right-8 w-52 sm:w-60 lg:w-72 pointer-events-none select-none z-0">
           {/* Glow underneath */}
-          {/* <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-40 h-16 bg-[#4fda8e]/10 rounded-full blur-2xl" />
+        {/* <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-40 h-16 bg-[#4fda8e]/10 rounded-full blur-2xl" />
           <Image
             src="/images/robot1.png"
             alt="Robot illustration"
@@ -29,7 +29,7 @@ export default function Skills() {
             className="w-full h-auto opacity-[0.12] mix-blend-screen"
             style={{ filter: "hue-rotate(120deg) saturate(2) brightness(3)" }}
             priority */}
-           {/* /> */}
+        {/* /> */}
         {/* </div> */}
         {/* Layered stack */}
         <div className="max-w-2xl mx-auto">
@@ -44,7 +44,7 @@ export default function Skills() {
                   delay: i * 0.08,
                   ease: "easeOut",
                 }}
-                className="border border-neutral-800 rounded-lg bg-neutral-950 hover:border-neutral-700 transition-colors duration-200"
+                className="border border-neutral-200 rounded-lg bg-white hover:border-neutral-300 transition-colors duration-200"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center gap-x-6 gap-y-3 px-5 py-4">
                   {/* Label column */}
@@ -63,9 +63,9 @@ export default function Skills() {
                   </div>
 
                   {/* Items */}
-                  <div className="flex flex-wrap gap-x-4 gap-y-1.5 sm:border-l sm:border-neutral-800 sm:pl-6">
+                  <div className="flex flex-wrap gap-x-4 gap-y-1.5 sm:border-l sm:border-neutral-200 sm:pl-6">
                     {layer.items.map((item) => (
-                      <span key={item} className="text-sm text-neutral-300">
+                      <span key={item} className="text-sm text-neutral-700">
                         {item}
                       </span>
                     ))}
@@ -76,7 +76,7 @@ export default function Skills() {
               {/* Connector line to next layer */}
               {i < layers.length - 1 && (
                 <div
-                  className="w-px h-4 bg-neutral-800 mx-auto"
+                  className="w-px h-4 bg-neutral-200 mx-auto"
                   style={{ marginLeft: "2.4rem" }}
                 />
               )}

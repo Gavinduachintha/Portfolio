@@ -76,10 +76,10 @@ export default function ProjectGrid() {
           <p className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">
             Projects
           </p>
-          <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-100 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 mb-4">
             Featured Projects
           </h2>
-          <p className="text-neutral-400 text-sm max-w-2xl">
+          <p className="text-neutral-600 text-sm max-w-2xl">
             Explore my latest work and side projects. Each project represents a
             unique challenge and learning experience.
           </p>
@@ -139,10 +139,10 @@ export default function ProjectGrid() {
               className="text-center py-20"
             >
               <div className="text-6xl mb-4">🔍</div>
-              <h3 className="text-2xl font-bold text-neutral-100 mb-2">
+              <h3 className="text-2xl font-bold text-neutral-900 mb-2">
                 No Projects Found
               </h3>
-              <p className="text-neutral-400 mb-4">
+              <p className="text-neutral-600 mb-4">
                 Try adjusting your search or filter criteria
               </p>
               <button
@@ -150,7 +150,7 @@ export default function ProjectGrid() {
                   setSearchQuery("");
                   setSelectedTag("All");
                 }}
-                className="px-6 py-2 bg-[#6C757D] hover:bg-[#495057] text-white font-medium rounded-lg transition-colors"
+                className="px-6 py-2 bg-black text-white font-medium rounded-lg transition-all duration-200 border-2 border-black hover:bg-white hover:text-black"
               >
                 Clear Filters
               </button>
@@ -166,10 +166,10 @@ export default function ProjectGrid() {
             className="text-center py-20"
           >
             <div className="text-6xl mb-4">🚧</div>
-            <h3 className="text-2xl font-bold text-neutral-100 mb-2">
+            <h3 className="text-2xl font-bold text-neutral-900 mb-2">
               Projects Coming Soon
             </h3>
-            <p className="text-neutral-400">
+            <p className="text-neutral-600">
               I'm working on some exciting projects. Check back soon!
             </p>
           </motion.div>

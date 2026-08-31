@@ -91,14 +91,14 @@ export default function Header() {
         <div
           className={`h-16 flex items-center justify-between px-5 rounded-2xl border transition-all duration-300 ${
             scrolled
-              ? "bg-neutral-950/95 backdrop-blur-xlski border-neutral-700 shadow-xl"
-              : "bg-neutral-950/70 border-transparent"
+              ? "bg-white/95 backdrop-blur-xl border-neutral-300 shadow-xl"
+              : "bg-white/70 border-transparent"
           }`}
         >
           {/* Backend-style Logo */}
           <button
             onClick={() => scrollToSection("home")}
-            className="flex items-center gap-1.5 font-mono text-xl text-neutral-100 group"
+            className="flex items-center gap-1.5 font-mono text-xl text-neutral-900 group"
           >
             <span className="text-[#5EEAD4]">
               &gt;<span className="animate-pulse ">_</span>
@@ -116,7 +116,7 @@ export default function Header() {
                     className={`relative text-sm font-medium transition-colors duration-200 ${
                       isActive(item.path)
                         ? "text-[#5EEAD4]"
-                        : "text-neutral-400 hover:text-neutral-200"
+                        : "text-neutral-600 hover:text-neutral-900"
                     }`}
                   >
                     {item.label}
@@ -138,7 +138,7 @@ export default function Header() {
               href={siteConfig.social.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 h-9 text-neutral-400 hover:text-[#5EEAD4] transition-colors rounded-lg hover:bg-neutral-900"
+              className="inline-flex items-center gap-1.5 px-3 h-9 text-neutral-600 hover:text-[#5EEAD4] transition-colors rounded-lg hover:bg-neutral-100"
             >
               <LuGithub size={18} />
               <span className="text-sm font-medium">{followers}</span>
@@ -149,7 +149,7 @@ export default function Header() {
               <a
                 href={siteConfig.social.linkedin}
                 target="_blank"
-                className="p-2 text-neutral-400 hover:text-[#5EEAD4] transition-colors"
+                className="p-2 text-neutral-600 hover:text-[#5EEAD4] transition-colors"
               >
                 <FiLinkedin size={19} />
               </a>
@@ -160,7 +160,7 @@ export default function Header() {
               <a
                 href={siteConfig.social.hackster}
                 target="_blank"
-                className="p-2 text-neutral-400 hover:text-[#5EEAD4] transition-colors"
+                className="p-2 text-neutral-600 hover:text-[#5EEAD4] transition-colors"
               >
                 <img
                   src={hacksterLogo}
@@ -172,7 +172,7 @@ export default function Header() {
 
             {/* Mobile Menu */}
             <button
-              className="md:hidden p-2 text-neutral-300 hover:text-[#5EEAD4]"
+              className="md:hidden p-2 text-neutral-700 hover:text-[#5EEAD4]"
               onClick={() => setOpen(!open)}
             >
               {open ? <X size={22} /> : <Menu size={22} />}
@@ -189,7 +189,7 @@ export default function Header() {
             : "opacity-0 -translate-y-3 pointer-events-none"
         }`}
       >
-        <ul className="bg-neutral-950 border border-neutral-800 rounded-2xl p-3 flex flex-col gap-1">
+        <ul className="bg-white border border-neutral-200 rounded-2xl p-3 flex flex-col gap-1">
           {siteConfig.navigation.map((item) => (
             <li key={item.path}>
               <button
@@ -197,7 +197,7 @@ export default function Header() {
                 className={`block w-full text-left py-3 px-4 rounded-xl text-sm font-medium transition-all ${
                   isActive(item.path)
                     ? "bg-[#5EEAD4]/10 text-[#5EEAD4]"
-                    : "text-neutral-400 hover:bg-neutral-900 hover:text-neutral-200"
+                    : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900"
                 }`}
               >
                 {item.label}
