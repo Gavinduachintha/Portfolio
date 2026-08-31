@@ -128,7 +128,9 @@ export default function Hero() {
   return (
     <section className="hero-section group min-h-screen flex items-center relative overflow-hidden px-4 sm:px-6 lg:px-8 py-20 lg:py-0">
       {/* Subtle animated grid background, now with gentle parallax */}
+      
       <div className="absolute inset-0 z-0 opacity-[0.03]">
+        
         <div
           className="absolute inset-0 transition-transform duration-300 ease-out"
           style={{
