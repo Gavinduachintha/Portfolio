@@ -110,7 +110,7 @@ export default function ProjectGrid() {
               {/* Mobile: simple stacked grid. md+: alternating overlapping layout */}
               <div className="grid grid-cols-1 gap-4 sm:gap-6 md:hidden">
                 {filteredProjects.map((project) => (
-                  <motion.div key={project.slug} layout variants={itemVariants}>
+                  <motion.div key={project.slug} layout >
                     <Card
                       title={project.title}
                       description={project.summary}
