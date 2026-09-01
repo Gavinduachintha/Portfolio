@@ -64,7 +64,7 @@ export default function ProjectGrid() {
   };
 
   return (
-    <section className="py-16 px-16">
+    <section className="py-16 px-4 sm:px-8 md:px-16">
       <div className="mx-auto max-w-[72rem] ">
         {/* Section Header */}
         <motion.div
@@ -107,16 +107,10 @@ export default function ProjectGrid() {
               exit="hidden"
               className="relative"
             >
-              {filteredProjects.map((project, index) => (
-                <motion.div
-                  key={project.slug}
-                  layout
-                  className={`flex ${
-                    index % 2 === 0 ? "justify-start" : "justify-end"
-                  } ${index > 0 ? "-mt-32 md:-mt-40" : ""}`}
-                  style={{ zIndex: filteredProjects.length - index }}
-                >
-                  <div className="w-full md:w-[48%]">
+              {/* Mobile: simple stacked grid. md+: alternating overlapping layout */}
+              <div className="grid grid-cols-1 gap-4 sm:gap-6 md:hidden">
+                {filteredProjects.map((project) => (
+                  <motion.div key={project.slug} layout variants={itemVariants}>
                     <Card
                       title={project.title}
                       description={project.summary}
@@ -126,9 +120,34 @@ export default function ProjectGrid() {
                       year={project.year}
                       as="div"
                     />
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="hidden md:block relative">
+                {filteredProjects.map((project, index) => (
+                  <motion.div
+                    key={project.slug}
+                    layout
+                    className={`flex ${
+                      index % 2 === 0 ? "justify-start" : "justify-end"
+                    } ${index > 0 ? "-mt-40" : ""}`}
+                    style={{ zIndex: filteredProjects.length - index }}
+                  >
+                    <div className="w-[48%]">
+                      <Card
+                        title={project.title}
+                        description={project.summary}
+                        image={project.image}
+                        href={project.url}
+                        tags={project.tags.map(tagName)}
+                        year={project.year}
+                        as="div"
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           ) : (
             <motion.div
