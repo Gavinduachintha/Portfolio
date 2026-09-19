@@ -8,6 +8,8 @@
  *   "prototype"   — proof-of-concept, not production-ready
  */
 
+import { Lora } from "next/font/google";
+
 export type HardwareStatus = "completed" | "in-progress" | "prototype";
 
 export interface HardwareProject {
@@ -32,11 +34,21 @@ const hardwareProjects: HardwareProject[] = [
     summary:
       "Edge-based real-time object detection on Raspberry Pi 5 with LoRa communication and GPS integration for remote, real-time updates.",
     platform: "Raspberry Pi 5",
-    status: "in-progress",
+    status: "completed",
     tags: ["Python", "Raspberry Pi 5", "YOLO", "OpenCV", "LoRa", "GPS"],
     year: 2026,
     // image: "/images/image.png",
-    url: "https://github.com/Gavinduachintha",
+    url: "https://github.com/Gavinduachintha/WildLife_AI",
+  },
+  {
+    slug:"LoRa Receiver",
+    title:"LoRa Receiver",
+    summary:"A compact LoRa receiver device powered by SX1278 LoRa moduel and the Raspberry Pi pico2 MCU",
+    platform:"Raspberry Pi Pico2",
+    status:"completed",
+    tags:["LoRa","Raspberry Pi Pico"],
+    year:2026,
+    url:"https://github.com/Gavinduachintha/Lora-Receiver"
   },
   {
     slug: "Mindfull Drive Pro",
@@ -46,8 +58,8 @@ const hardwareProjects: HardwareProject[] = [
     platform: "Arduino Uno Q",
     status: "in-progress",
     tags: ["C++", "Python", "YOLO", "ML", "Edge AI", "Arduino UNO Q"],
-    year: 2024,
-    url: "https://www.hackster.io/gavindu911/wildlife-ai-f8e87b",
+    year: 2026,
+    url: "https://github.com/Gavinduachintha/Mindful-Drive-Pro",
   },
   {
   slug: "iot-env-monitor",
