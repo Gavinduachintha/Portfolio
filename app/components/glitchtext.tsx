@@ -1,9 +1,9 @@
-import type { ReactNode, ElementType, CSSProperties } from "react";
+import type { ElementType, CSSProperties } from "react";
 import "./glitchtext.css";
 import { ACCENT } from "../lib/theme";
 
 interface GlitchTextProps {
-  children: ReactNode;
+  children: string;
   speed?: number;
   enableShadows?: boolean;
   enableOnHover?: boolean;
