@@ -28,14 +28,16 @@ const GlitchText = ({
 
   const hoverClass = enableOnHover ? "glitch-hover" : "glitch-active";
 
+  const Tag = Component as "span";
+
   return (
-    <Component
+    <Tag
       className={`glitch-container ${hoverClass} ${className}`}
       data-text={children}
       style={inlineStyles}
     >
       {children}
-    </Component>
+    </Tag>
   );
 };
 
