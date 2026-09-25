@@ -35,7 +35,7 @@ const hardwareProjects: HardwareProject[] = [
       "Edge-based real-time object detection on Raspberry Pi 5 with LoRa communication and GPS integration for remote, real-time updates.",
     platform: "Raspberry Pi 5",
     status: "completed",
-    tags: ["Python", "Raspberry Pi 5", "YOLO", "OpenCV", "LoRa", "GPS"],
+    tags: ["Raspberry Pi 5", "Python", "YOLO", "OpenCV", "LoRa", "GPS"],
     year: 2026,
     // image: "/images/image.png",
     url: "/projects/wildlife",
@@ -49,7 +49,7 @@ const hardwareProjects: HardwareProject[] = [
     status: "completed",
     tags: ["LoRa", "Raspberry Pi Pico"],
     year: 2026,
-    url: "https://github.com/Gavinduachintha/Lora-Receiver",
+    url: "/projects/lora-receiver",
   },
   {
     slug: "Mindfull Drive Pro",
@@ -60,7 +60,7 @@ const hardwareProjects: HardwareProject[] = [
     status: "in-progress",
     tags: ["C++", "Python", "YOLO", "ML", "Edge AI", "Arduino UNO Q"],
     year: 2026,
-    url: "https://github.com/Gavinduachintha/Mindful-Drive-Pro",
+    url: "/projects/mindful-drive-pro",
   },
   {
     slug: "iot-env-monitor",

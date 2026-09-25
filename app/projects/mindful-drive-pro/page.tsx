@@ -4,46 +4,38 @@ import Link from "next/link";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { RiGithubLine } from "react-icons/ri";
 
-export default function WildLifePage() {
-  const techStack = [
-    "Python",
-    "Raspberry Pi 5",
-    "YOLO",
-    "OpenCV",
-    "LoRa",
-    "GPS",
-  ];
+export default function MindfulDriveProPage() {
+  const techStack = ["C++", "Python", "YOLO", "Edge Impulse", "ML", "Arduino Uno Q"];
 
   const features = [
     {
-      title: "Edge Object Detection",
+      title: "Real-Time Drowsiness Detection",
       description:
-        "Real-time wildlife species detection running entirely on a Raspberry Pi 5 using a YOLO model — no cloud dependency.",
+        "Monitors driver eye state and head position using a camera feed, triggering alerts the moment drowsiness is detected.",
     },
     {
-      title: "LoRa Communication",
+      title: "Edge Impulse ML Pipeline",
       description:
-        "Long-range, low-power LoRa radio transmits sighting data from remote locations back to a central receiver.",
+        "Model trained and deployed via Edge Impulse — optimized for the Arduino Uno Q's onboard ML accelerator.",
     },
     {
-      title: "GPS Tagging",
+      title: "On-Device Inference",
       description:
-        "Every detection is geo-tagged with live GPS coordinates so sightings can be mapped and tracked over time.",
+        "All processing runs directly on the Arduino Uno Q with no cloud round-trip, keeping latency under 100ms.",
     },
     {
-      title: "Offline-First Design",
+      title: "Alert System",
       description:
-        "Built to operate in areas with no internet. Data is logged locally and synced when connectivity is available.",
+        "Buzzer and visual indicator fire immediately when a drowsiness event is confirmed, keeping the driver alert.",
     },
   ];
 
   const specs = [
-    { label: "Platform", value: "Raspberry Pi 5" },
-    { label: "Detection Model", value: "YOLOv8" },
-    { label: "Radio", value: "LoRa SX1278" },
-    { label: "Positioning", value: "GPS Module" },
-    { label: "Vision", value: "OpenCV" },
-    { label: "Status", value: "Completed" },
+    { label: "Platform", value: "Arduino Uno Q" },
+    { label: "ML Framework", value: "Edge Impulse" },
+    { label: "Detection Model", value: "YOLO (quantized)" },
+    { label: "Languages", value: "C++, Python" },
+    { label: "Status", value: "In Progress" },
     { label: "Year", value: "2026" },
   ];
 
@@ -60,7 +52,7 @@ export default function WildLifePage() {
             Back
           </Link>
           <a
-            href="https://github.com/Gavinduachintha/WildLife_AI"
+            href="https://github.com/Gavinduachintha/Mindful-Drive-Pro"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm font-mono text-neutral-400 hover:text-[#4fda8e] transition-colors"
@@ -71,39 +63,28 @@ export default function WildLifePage() {
         </div>
       </div>
 
-      {/* ── Cover image — constrained to content width ────────────────── */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-8 pt-10">
-        <div className="relative w-full h-[50vh] min-h-[280px] rounded-2xl overflow-hidden">
-          <img
-            src="/images/wildlife.png"
-            alt="WildLife AI cover"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          {/* Bottom fade into page background */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
-        </div>
-      </div>
-
       {/* ── Content ───────────────────────────────────────────────────── */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-8 pb-16 space-y-16">
-        {/* Hero text */}
-        <section className="space-y-6 pt-2">
+      <main className="max-w-4xl mx-auto px-4 sm:px-8 pt-14 pb-16 space-y-16">
+        {/* Hero */}
+        <section className="space-y-6">
           <p className="text-xs font-mono uppercase tracking-widest text-neutral-500">
-            2026 — Edge AI / Embedded Systems
+            2026 — Edge AI / Safety Systems
           </p>
 
           <div>
             <h1 className="text-4xl sm:text-5xl font-semibold leading-tight">
-              WildLife AI
+              Mindful Drive Pro
             </h1>
             <p className="text-xs font-mono text-neutral-500 mt-1 uppercase tracking-widest">
-              Raspberry Pi 5
+              Arduino Uno Q
             </p>
           </div>
 
-          <p className="text-neutral-400 text-lg  ">
-              An edge-powered, off-grid wildlife monitoring system combining Raspberry Pi 5, 
-              LoRa, and GPS for autonomous, real-time threat detection.
+          <p className="text-neutral-400 text-lg leading-relaxed max-w-2xl">
+            An edge-AI driver drowsiness detection system built with the Arduino
+            Uno Q and Edge Impulse — running a quantized YOLO model entirely
+            on-device for sub-100ms real-time monitoring without any cloud
+            dependency.
           </p>
 
           <div className="flex flex-wrap gap-1 pt-1">
@@ -175,12 +156,12 @@ export default function WildLifePage() {
               Status
             </p>
             <p className="text-sm text-neutral-300 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#4fda8e] inline-block" />
-              Completed
+              <span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />
+              In Progress
             </p>
           </div>
           <a
-            href="https://github.com/Gavinduachintha/WildLife_AI"
+            href="https://github.com/Gavinduachintha/Mindful-Drive-Pro"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#4fda8e]/10 border border-[#4fda8e]/30 text-[#4fda8e] text-sm font-mono rounded-xl hover:bg-[#4fda8e]/20 transition-colors"
