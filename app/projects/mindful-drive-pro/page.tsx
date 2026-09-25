@@ -1,11 +1,29 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { RiGithubLine } from "react-icons/ri";
 
+// Three.js needs the browser — skip SSR
+const StlViewer = dynamic(() => import("@/app/components/ui/StlViewer"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-[420px] bg-neutral-900 border border-neutral-800 rounded-2xl flex items-center justify-center">
+      <span className="text-xs font-mono text-neutral-600">Loading model…</span>
+    </div>
+  ),
+});
+
 export default function MindfulDriveProPage() {
-  const techStack = ["C++", "Python", "YOLO", "Edge Impulse", "ML", "Arduino Uno Q"];
+  const techStack = [
+    "C++",
+    "Python",
+    "YOLO",
+    "Edge Impulse",
+    "ML",
+    "Arduino Uno Q",
+  ];
 
   const features = [
     {
@@ -145,6 +163,31 @@ export default function MindfulDriveProPage() {
               </div>
             ))}
           </div>
+        </section>
+
+        <div className="border-t border-neutral-800" />
+
+        {/* 3D Model */}
+        <section className="space-y-6">
+          <div className="flex items-end justify-between">
+            <div className="space-y-1">
+              <h2 className="text-xs font-mono uppercase tracking-widest text-neutral-500">
+                3D Model
+              </h2>
+              <p className="text-sm text-neutral-400">
+                Enclosure designed for the Mindful Drive Pro hardware assembly.
+              </p>
+            </div>
+            <a
+              href="/stl/mindfuldrive.stl"
+              download
+              className="shrink-0 inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-[0.18em] text-neutral-500 hover:text-[#4fda8e] transition-colors"
+            >
+              Download STL
+              <ExternalLink className="w-3 h-3" />
+            </a>
+          </div>
+          <StlViewer url="/stl/mindfuldrive.stl" />
         </section>
 
         <div className="border-t border-neutral-800" />
