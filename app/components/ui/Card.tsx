@@ -30,7 +30,7 @@ export default function Card({
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-300"
+            className="w-full h-full object-cover transition-all duration-300"
           />
         </div>
       )}

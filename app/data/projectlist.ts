@@ -1,5 +1,36 @@
 // Keep project data separate from UI for easy maintenance.
 const projects = [
+ {
+    slug: "https://github.com/Gavinduachintha/Trailside",
+    title: "Trailside",
+    summary:
+      "A privacy-first, fully offline AI field note guide powered by open-weight language models.",
+    url: "https://github.com/Gavinduachintha/Trailside",
+    tags: [
+      "Streamlit",
+      "PostgreSQL",
+      "Gemma3",
+    
+    ],
+    year: 2025,
+    image: "/images/trailside.jpg",
+  },
+  {
+    slug: "https://github.com/Gavinduachintha/Trailside",
+    title: "Dockforge",
+    summary:
+      "Ai powered docker file generating companion",
+    url: "https://github.com/Gavinduachintha/Dockforge",
+    tags: [
+      "Next.js",
+      "Openrouter",
+      "Vercel",
+      "Docker",
+    
+    ],
+    year: 2025,
+    image: "/images/trailside.jpg",
+  },
   {
     slug: "looma-email-dashboard",
     title: "Looma - Personal AI Email Summarizer",
@@ -14,8 +45,9 @@ const projects = [
       "AI",
     ],
     year: 2025,
-    image: "/images/Looma.jpg",
+    image: "/images/dockforge.jpg",
   },
+  
   {
     slug: "shorty-url-shortener",
     title: "Shorty - URL Shortener",
