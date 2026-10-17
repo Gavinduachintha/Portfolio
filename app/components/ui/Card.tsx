@@ -10,7 +10,6 @@ interface CardProps {
   href?: string;
   tags?: string[];
   year?: string | number;
-  as?: React.ElementType;
 }
 
 export default function Card({
@@ -20,10 +19,9 @@ export default function Card({
   href,
   tags = [],
   year,
-  as: Wrapper = "div",
 }: CardProps) {
   return (
-    <Wrapper className="group relative bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors duration-200 hover:border-[#4fda8e]/40">
+    <div className="group relative bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors duration-200 hover:border-[#4fda8e]/40">
       {/* Image */}
       {image && (
         <div className="relative w-full h-44 overflow-hidden border-b border-neutral-800">
@@ -100,6 +98,6 @@ export default function Card({
           </div>
         )}
       </div>
-    </Wrapper>
+    </div>
   );
 }

@@ -118,7 +118,6 @@ export default function ProjectGrid() {
                       href={project.url}
                       tags={project.tags.map(tagName)}
                       year={project.year}
-                      as="div"
                     />
                   </motion.div>
                 ))}
@@ -142,7 +141,6 @@ export default function ProjectGrid() {
                         href={project.url}
                         tags={project.tags.map(tagName)}
                         year={project.year}
-                        as="div"
                       />
                     </div>
                   </motion.div>
