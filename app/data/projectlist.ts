@@ -29,7 +29,7 @@ const projects = [
     
     ],
     year: 2025,
-    image: "/images/trailside.jpg",
+    image: "/images/dockforge.jpg",
   },
   {
     slug: "looma-email-dashboard",
@@ -45,7 +45,7 @@ const projects = [
       "AI",
     ],
     year: 2025,
-    image: "/images/dockforge.jpg",
+    image: "/images/looma.jpg",
   },
   
   {
