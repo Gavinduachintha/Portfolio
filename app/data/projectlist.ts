@@ -45,7 +45,7 @@ const projects = [
       "AI",
     ],
     year: 2025,
-    image: "/images/looma.jpg",
+    image: "/images/Looma.jpg",
   },
   
   {
