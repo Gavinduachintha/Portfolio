@@ -62,7 +62,7 @@ export default function AboutMe() {
             flex items-center justify-between
             px-5 py-3
             border-b border-neutral-800
-            bg-[#111111]
+            bg-[#080808]
           "
           >
             <div className="flex gap-2">
@@ -125,7 +125,7 @@ export default function AboutMe() {
                           p-4
                           rounded-xl
                           border border-neutral-800
-                          bg-[#111111]
+                          bg-[#080808]
                           hover:border-[#4fda8e]/40
                           transition
                         "
@@ -199,7 +199,7 @@ export default function AboutMe() {
                       className="
                       w-full h-full
                       rounded-full
-                      bg-[#0a0a0a]
+                      bg-[#000000]
                       p-2
                     "
                     >
@@ -224,7 +224,7 @@ export default function AboutMe() {
                     right-6
                     px-3 py-1
                     rounded-full
-                    bg-[#0a0a0a]
+                    bg-[#000000]
                     border border-[#4fda8e]/50
                     text-xs
                     font-mono

@@ -100,7 +100,7 @@ export default function Header() {
             onClick={() => scrollToSection("home")}
             className="flex items-center gap-1.5 font-mono text-xl text-neutral-100 group"
           >
-            <span className="text-[#5EEAD4]">
+            <span className="text-[#4fda8e]">
               &gt;<span className="animate-pulse ">_</span>
             </span>
             <span>GAVINDU</span>
@@ -115,13 +115,13 @@ export default function Header() {
                     onClick={() => scrollToSection(item.path)}
                     className={`relative text-sm font-medium transition-colors duration-200 ${
                       isActive(item.path)
-                        ? "text-[#5EEAD4]"
+                        ? "text-[#4fda8e]"
                         : "text-neutral-400 hover:text-neutral-200"
                     }`}
                   >
                     {item.label}
                     {isActive(item.path) && (
-                      <span className="absolute -bottom-1 left-0 h-px w-full bg-[#5EEAD4]" />
+                      <span className="absolute -bottom-1 left-0 h-px w-full bg-[#4fda8e]" />
                     )}
                   </button>
                 </li>
@@ -138,7 +138,7 @@ export default function Header() {
               href={siteConfig.social.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 h-9 text-neutral-400 hover:text-[#5EEAD4] transition-colors rounded-lg hover:bg-neutral-900"
+              className="inline-flex items-center gap-1.5 px-3 h-9 text-neutral-400 hover:text-[#4fda8e] transition-colors rounded-lg hover:bg-neutral-900"
             >
               <LuGithub size={18} />
               <span className="text-sm font-medium">{followers}</span>
@@ -149,7 +149,7 @@ export default function Header() {
               <a
                 href={siteConfig.social.linkedin}
                 target="_blank"
-                className="p-2 text-neutral-400 hover:text-[#5EEAD4] transition-colors"
+                className="p-2 text-neutral-400 hover:text-[#4fda8e] transition-colors"
               >
                 <FiLinkedin size={19} />
               </a>
@@ -160,7 +160,7 @@ export default function Header() {
               <a
                 href={siteConfig.social.hackster}
                 target="_blank"
-                className="p-2 text-neutral-400 hover:text-[#5EEAD4] transition-colors"
+                className="p-2 text-neutral-400 hover:text-[#4fda8e] transition-colors"
               >
                 <img
                   src={hacksterLogo}
@@ -172,7 +172,7 @@ export default function Header() {
 
             {/* Mobile Menu */}
             <button
-              className="md:hidden p-2 text-neutral-300 hover:text-[#5EEAD4]"
+              className="md:hidden p-2 text-neutral-300 hover:text-[#4fda8e]"
               onClick={() => setOpen(!open)}
             >
               {open ? <X size={22} /> : <Menu size={22} />}
@@ -196,7 +196,7 @@ export default function Header() {
                 onClick={() => scrollToSection(item.path)}
                 className={`block w-full text-left py-3 px-4 rounded-xl text-sm font-medium transition-all ${
                   isActive(item.path)
-                    ? "bg-[#5EEAD4]/10 text-[#5EEAD4]"
+                    ? "bg-[#4fda8e]/10 text-[#4fda8e]"
                     : "text-neutral-400 hover:bg-neutral-900 hover:text-neutral-200"
                 }`}
               >

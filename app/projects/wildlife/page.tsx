@@ -48,9 +48,9 @@ export default function WildLifePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-neutral-100 font-sans">
+    <div className="min-h-screen bg-[#000000] text-neutral-100 font-sans">
       {/* ── Sticky nav ────────────────────────────────────────────────── */}
-      <div className="sticky top-0 z-50 border-b border-neutral-800 bg-[#0a0a0a]/80 backdrop-blur-md">
+      <div className="sticky top-0 z-50 border-b border-neutral-800 bg-[#000000]/80 backdrop-blur-md">
         <div className="max-w-4xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
           <Link
             href="/#hardware"
@@ -80,7 +80,7 @@ export default function WildLifePage() {
             className="absolute inset-0 w-full h-full object-cover"
           />
           {/* Bottom fade into page background */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#000000] to-transparent" />
         </div>
       </div>
 

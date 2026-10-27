@@ -27,16 +27,16 @@ function buildEmailHtml(name: string, email: string, message: string): string {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>New Contact Message</title>
 </head>
-<body style="margin:0;padding:0;background:#0a0a0a;font-family:'Courier New',Courier,monospace;">
+<body style="margin:0;padding:0;background:#000000;font-family:'Courier New',Courier,monospace;">
 
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#0a0a0a;padding:40px 16px;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#000000;padding:40px 16px;">
     <tr>
       <td align="center">
         <table width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;">
 
           <!-- Header bar -->
           <tr>
-            <td style="background:#111111;border:1px solid #262626;border-bottom:none;border-radius:12px 12px 0 0;padding:14px 20px;">
+            <td style="background:#080808;border:1px solid #262626;border-bottom:none;border-radius:12px 12px 0 0;padding:14px 20px;">
               <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
                   <td>

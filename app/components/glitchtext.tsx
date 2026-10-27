@@ -22,7 +22,7 @@ const GlitchText = ({
   const inlineStyles = {
     "--after-duration": `${speed * 3}s`,
     "--before-duration": `${speed * 2}s`,
-    "--after-shadow": enableShadows ? "-3px 0 #111111" : "none",
+    "--after-shadow": enableShadows ? "-3px 0 #080808" : "none",
     "--before-shadow": enableShadows ? `3px 0 ${ACCENT}` : "none",
   } as CSSProperties;
 

@@ -18,7 +18,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import GlitchText from "./glitchtext";
-import { ACCENT_DARK_TEXT } from "../lib/theme";
+import { CTA_TEXT } from "../lib/theme";
 
 // ─────────────────────────────────────────────────────────────
 // Content
@@ -126,7 +126,7 @@ function highlight(text: string): ReactNode[] {
     }
     if (/^(ok|online)$/.test(part)) {
       return (
-        <span key={i} className="text-[#4ade80] font-semibold">
+        <span key={i} className="text-[#4fda8e] font-semibold">
           {part}
         </span>
       );
@@ -158,7 +158,7 @@ function LogRow({ line, cursor }: { line: BootLine; cursor: boolean }) {
       className="whitespace-pre-wrap"
     >
       {line.kind === "ok" ? (
-        <span className="text-[#4ade80] font-bold mr-2">✓</span>
+        <span className="text-[#4fda8e] font-bold mr-2">✓</span>
       ) : (
         <span className="inline-block w-[4.75rem] text-neutral-500">
           [{line.tag}]
@@ -282,8 +282,8 @@ export default function Hero() {
             className="absolute inset-0"
             style={{
               backgroundImage: `
-                linear-gradient(rgba(79, 218, 142, 0.07) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(79, 218, 142, 0.07) 1px, transparent 1px)
+                linear-gradient(rgba(90, 247, 230, 0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(90, 247, 230, 0.07) 1px, transparent 1px)
               `,
               backgroundSize: "48px 48px",
               animation: "gridFloat 20s linear infinite",
@@ -402,19 +402,19 @@ export default function Hero() {
             <button
               type="button"
               onClick={() => scrollToSection("hardware")}
-              className="group inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 font-semibold transition-colors duration-200 hover:bg-accent-dim"
-              style={{ color: ACCENT_DARK_TEXT }}
+              className="group inline-flex items-center gap-2 rounded-lg border border-[#ffa600] bg-[#ffa600] px-4 py-2 text-sm font-semibold transition-colors duration-200 hover:border-[#cc8400] hover:bg-[#cc8400]"
+              style={{ color: CTA_TEXT }}
             >
-              <CircuitBoard className="w-5 h-5" />
+              <CircuitBoard className="w-4 h-4" />
               Hardware builds
-              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
             </button>
             <button
               type="button"
               onClick={() => scrollToSection("projects")}
-              className="inline-flex items-center gap-2 rounded-lg border-2 border-neutral-800 px-6 py-[10px] font-semibold text-neutral-200 transition-colors duration-200 hover:border-accent hover:text-accent"
+              className="inline-flex items-center gap-2 rounded-lg border border-neutral-800 px-4 py-2 text-sm font-semibold text-neutral-200 transition-colors duration-200 hover:border-accent hover:text-accent"
             >
-              <Terminal className="w-5 h-5" />
+              <Terminal className="w-4 h-4" />
               Software projects
             </button>
           </motion.div>
@@ -454,7 +454,7 @@ export default function Hero() {
             <div className="p-6 font-mono text-[13px] leading-7 min-h-[320px] text-left">
               {/* Command */}
               <div className="whitespace-pre-wrap">
-                <span className="text-[#4ade80] font-bold">$</span>
+                <span className="text-[#4fda8e] font-bold">$</span>
                 <span className="ml-2">{highlight(typedCmd)}</span>
                 {!cmdDone && <TerminalCursor />}
               </div>

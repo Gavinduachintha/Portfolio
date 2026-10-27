@@ -6,7 +6,7 @@ import { FaXTwitter, FaMedium } from "react-icons/fa6";
 import { SiHackster } from "react-icons/si";
 import { FaDev } from "react-icons/fa";
 import { siteConfig } from "../config/site.config";
-import { ACCENT, ACCENT_DARK_TEXT } from "../lib/theme";
+import { CTA_TEXT } from "../lib/theme";
 import { useState } from "react";
 
 const socialLinks = [
@@ -242,14 +242,16 @@ export default function Contact() {
                 duration-300
                 hover:-translate-y-0.5
                 hover:shadow-lg
-                hover:shadow-[#4fda8e]/20
+                bg-[#ffa600]
+                hover:bg-[#cc8400]
+                hover:shadow-[#ffa600]/20
                 focus-visible:outline-none
                 focus-visible:ring-2
-                focus-visible:ring-[#4fda8e]/50
+                focus-visible:ring-[#ffa600]/50
                 disabled:cursor-not-allowed
                 disabled:opacity-50
               "
-              style={{ backgroundColor: ACCENT, color: ACCENT_DARK_TEXT }}
+              style={{ color: CTA_TEXT }}
             >
               {isPending ? (
                 <>

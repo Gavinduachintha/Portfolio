@@ -39,9 +39,9 @@ export default function LoraReceiverPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-neutral-100 font-sans">
+    <div className="min-h-screen bg-[#000000] text-neutral-100 font-sans">
       {/* ── Sticky nav ────────────────────────────────────────────────── */}
-      <div className="sticky top-0 z-50 border-b border-neutral-800 bg-[#0a0a0a]/80 backdrop-blur-md">
+      <div className="sticky top-0 z-50 border-b border-neutral-800 bg-[#000000]/80 backdrop-blur-md">
         <div className="max-w-4xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
           <Link
             href="/#hardware"
