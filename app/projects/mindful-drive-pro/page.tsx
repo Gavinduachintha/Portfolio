@@ -199,7 +199,7 @@ export default function MindfulDriveProPage() {
               Status
             </p>
             <p className="text-sm text-neutral-300 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />
+              <span className="w-2 h-2 rounded-full bg-warning inline-block" />
               In Progress
             </p>
           </div>

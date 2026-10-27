@@ -19,8 +19,8 @@ const statusConfig: Record<
   },
   "in-progress": {
     label: "In Progress",
-    dot: "bg-yellow-400",
-    text: "text-yellow-400",
+    dot: "bg-warning",
+    text: "text-warning",
   },
   prototype: {
     label: "Prototype",

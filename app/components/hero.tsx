@@ -402,7 +402,7 @@ export default function Hero() {
             <button
               type="button"
               onClick={() => scrollToSection("hardware")}
-              className="group inline-flex items-center gap-2 rounded-lg border border-[#ffa600] bg-[#ffa600] px-4 py-2 text-sm font-semibold transition-colors duration-200 hover:border-[#cc8400] hover:bg-[#cc8400]"
+              className="group inline-flex items-center gap-2 rounded-lg border border-warning bg-warning px-4 py-2 text-sm font-semibold transition-colors duration-200 hover:border-[#cc8400] hover:bg-[#cc8400]"
               style={{ color: CTA_TEXT }}
             >
               <CircuitBoard className="w-4 h-4" />
@@ -432,7 +432,7 @@ export default function Hero() {
             <div className="flex items-center justify-between px-5 py-3.5 bg-neutral-900 border-b border-neutral-800">
               <div className="flex items-center gap-2.5">
                 <div className="w-3 h-3 rounded-full bg-red-500" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                <div className="w-3 h-3 rounded-full bg-warning" />
                 <div className="w-3 h-3 rounded-full bg-green-500" />
               </div>
               <span className="text-xs font-mono text-neutral-400">
@@ -441,7 +441,7 @@ export default function Hero() {
               <div className="flex items-center gap-1.5">
                 <div
                   className={`w-1.5 h-1.5 rounded-full ${
-                    booted ? "bg-accent" : "bg-yellow-400"
+                    booted ? "bg-accent" : "bg-warning"
                   }`}
                 />
                 <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">
@@ -513,7 +513,7 @@ export default function Hero() {
           >
             <div
               className={`w-2 h-2 rounded-full animate-pulse ${
-                booted ? "bg-accent" : "bg-yellow-400"
+                booted ? "bg-accent" : "bg-warning"
               }`}
             />
             <span className="text-sm font-medium">

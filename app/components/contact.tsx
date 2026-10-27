@@ -242,12 +242,12 @@ export default function Contact() {
                 duration-300
                 hover:-translate-y-0.5
                 hover:shadow-lg
-                bg-[#ffa600]
+                bg-warning
                 hover:bg-[#cc8400]
-                hover:shadow-[#ffa600]/20
+                hover:shadow-warning/20
                 focus-visible:outline-none
                 focus-visible:ring-2
-                focus-visible:ring-[#ffa600]/50
+                focus-visible:ring-warning/50
                 disabled:cursor-not-allowed
                 disabled:opacity-50
               "

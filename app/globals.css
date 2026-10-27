@@ -7,6 +7,7 @@
   --accent-dim: #3bb36d;
   --surface: #111111;
   --border: #262626;
+  --warning: #ffa600;
 }
 
 @theme inline {
@@ -16,6 +17,7 @@
   --color-accent-dim: var(--accent-dim);
   --color-surface: var(--surface);
   --color-border: var(--border);
+  --color-warning: var(--warning);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

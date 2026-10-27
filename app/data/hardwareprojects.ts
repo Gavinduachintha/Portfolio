@@ -29,6 +29,17 @@ export interface HardwareProject {
 
 const hardwareProjects: HardwareProject[] = [
   {
+    slug: "pocket-os",
+    title: "Pocket OS",
+    summary:
+      "A pocket-sized ESP32 device with its own menu-driven OS: Wi-Fi scanner, channel analyzer, BLE tools and a Bluetooth keyboard remote, all on three buttons.",
+    platform: "ESP32",
+    status: "in-progress",
+    tags: ["ESP32", "C++", "Wi-Fi", "BLE", "Custom OS"],
+    year: 2026,
+    url: "/projects/pocket-os",
+  },
+  {
     slug: "WildLife AI",
     title: "WildLife AI",
     summary:

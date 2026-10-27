@@ -30,7 +30,7 @@ export default function Footer() {
           </p>
 
           <p className="mt-1 flex items-center justify-center sm:justify-end gap-2">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
             <span className="text-neutral-400">
               status: All systems operational
             </span>

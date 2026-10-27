@@ -149,9 +149,12 @@ export default function Header() {
               <a
                 href={siteConfig.social.linkedin}
                 target="_blank"
-                className="p-2 text-neutral-400 hover:text-[#4fda8e] transition-colors"
+                className="group p-2 text-neutral-400 hover:text-[#ffa600] transition-colors"
               >
-                <FiLinkedin size={19} />
+                <FiLinkedin
+                  size={19}
+                  className="transition-[filter] duration-200 group-hover:drop-shadow-[0_0_8px_var(--warning)]"
+                />
               </a>
             )}
 

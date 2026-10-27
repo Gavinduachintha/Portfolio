@@ -67,7 +67,7 @@ export default function AboutMe() {
           >
             <div className="flex gap-2">
               <span className="w-3 h-3 rounded-full bg-red-500/80" />
-              <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
+              <span className="w-3 h-3 rounded-full bg-warning/80" />
               <span className="w-3 h-3 rounded-full bg-green-500/80" />
             </div>
 
@@ -191,7 +191,7 @@ export default function AboutMe() {
                     className="
                     absolute inset-0
                     rounded-full
-                    bg-[#4fda8e]
+                    bg-[#ffa600]
                     p-[2px]
                   "
                   >
