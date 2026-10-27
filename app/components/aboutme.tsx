@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Gamepad, Server, Database, Cpu, Terminal } from "lucide-react";
+import SiteShell from "./shell/SiteShell";
 
 export default function AboutMe() {
   const logs = [
@@ -236,6 +237,8 @@ export default function AboutMe() {
                 </div>
               </motion.div>
             </div>
+
+            <SiteShell />
           </div>
         </motion.div>
       </div>
