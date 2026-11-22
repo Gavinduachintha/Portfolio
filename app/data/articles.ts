@@ -1,5 +1,3 @@
-// Article data — add your real published articles here.
-// Entries marked PLACEHOLDER must be replaced or removed before going to production.
 export interface Article {
   slug: string;
   title: string;
@@ -12,42 +10,41 @@ export interface Article {
 }
 
 const articles: Article[] = [
-  // ── Real articles ────────────────────────────────────────────────────────────
   {
     slug: "beyond-pir-dfrobot-c4002-mmwave-sensor",
     title:
       "Beyond PIR: Exploring the DFRobot C4002 mmWave Human Presence Sensor",
-    summary: "A comprehensive explanation about DFRobot mmWave Sensor",
+    summary:
+      "An exploration of mmWave radar-based human presence detection, examining the DFRobot C4002 sensor, its working principles, capabilities, and applications beyond conventional PIR sensors.",
     url: "https://medium.com/@gavindu.al/beyond-pir-exploring-the-dfrobot-c4002-mmwave-human-presence-sensor-14cf14d3bb6a?sharedUserId=gavindu.al",
-    tags: ["C", "C++", "IoT", "Robotics"],
+    tags: ["Embedded Systems", "IoT", "Sensors", "Electronics"],
     publishedDate: "2026-06",
     platform: "Medium",
     readTime: "10 min",
   },
-
-  // ── PLACEHOLDER entries — replace with your real articles ────────────────────
-  // {
-  //   slug: "react-performance-optimization",
-  //   title: "React Performance Optimization: Beyond the Basics",
-  //   summary:
-  //     "Deep dive into advanced React optimization techniques including code splitting, lazy loading, memoization strategies, and profiling tools for production applications.",
-  //   url: "https://dev.to/yourprofile/react-performance-optimization",
-  //   tags: ["React", "Performance", "JavaScript"],
-  //   publishedDate: "2024-12",
-  //   platform: "Dev.to",
-  //   readTime: "10 min",
-  // },
-  // {
-  //   slug: "kubernetes-production-guide",
-  //   title: "Kubernetes in Production: Lessons Learned",
-  //   summary:
-  //     "Real-world insights from deploying and managing Kubernetes clusters in production, covering monitoring, auto-scaling, security best practices, and common pitfalls.",
-  //   url: "https://hashnode.dev/@yourprofile/kubernetes-production-guide",
-  //   tags: ["Kubernetes", "DevOps", "Cloud"],
-  //   publishedDate: "2024-11",
-  //   platform: "Hashnode",
-  //   readTime: "15 min",
-  // },
+  {
+    slug: "inside-the-esp32-boot-process",
+    title: "Inside the ESP32 Boot Process: From Power-On Reset to app_main",
+    summary:
+      "A technical walkthrough of the ESP32 boot sequence, tracing the journey from power-on reset through the ROM bootloader, second-stage bootloader, application initialization, and finally to app_main.",
+    url: "https://medium.com/@gavindu.al/inside-the-esp32-boot-process-from-power-on-reset-to-app-main-512198258f48?sharedUserId=gavindu.al",
+    tags: ["ESP32", "Embedded Systems", "RTOS", "Low-Level Programming"],
+    publishedDate: "2026-11",
+    platform: "Medium",
+    readTime: "10 min",
+  },
+  {
+    slug: "raspberry-pi-pico-ws2812-pio-state-machines",
+    title:
+      "Why the Raspberry Pi Pico Can Drive WS2812 LEDs Without Jitter: Understanding PIO State Machines",
+    summary:
+      "An exploration of the RP2040/RP2350 Programmable I/O architecture and how PIO state machines generate precise WS2812 timing independently of the CPU.",
+    url: "https://medium.com/@gavindu.al/why-the-raspberry-pi-pico-can-drive-ws2812-leds-without-jitter-understanding-pio-state-machines-d3115403c9e9?sharedUserId=gavindu.al",
+    tags: ["Raspberry Pi", "RP2040", "RP2350", "PIO", "Embedded Systems"],
+    publishedDate: "2026-11",
+    platform: "Medium",
+    readTime: "10 min",
+  },
 ];
 
 export default articles;

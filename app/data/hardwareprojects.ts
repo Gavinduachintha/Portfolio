@@ -28,17 +28,17 @@ export interface HardwareProject {
 }
 
 const hardwareProjects: HardwareProject[] = [
-  {
-    slug: "pocket-os",
-    title: "Pocket OS",
-    summary:
-      "A pocket-sized ESP32 device with its own menu-driven OS: Wi-Fi scanner, channel analyzer, BLE tools and a Bluetooth keyboard remote, all on three buttons.",
-    platform: "ESP32",
-    status: "in-progress",
-    tags: ["ESP32", "C++", "Wi-Fi", "BLE", "Custom OS"],
-    year: 2026,
-    url: "/projects/pocket-os",
-  },
+  // {
+  //   slug: "pocket-os",
+  //   title: "Pocket OS",
+  //   summary:
+  //     "A pocket-sized ESP32 device with its own menu-driven OS: Wi-Fi scanner, channel analyzer, BLE tools and a Bluetooth keyboard remote, all on three buttons.",
+  //   platform: "ESP32",
+  //   status: "in-progress",
+  //   tags: ["ESP32", "C++", "Wi-Fi", "BLE", "Custom OS"],
+  //   year: 2026,
+  //   url: "/projects/pocket-os",
+  // },
   {
     slug: "WildLife AI",
     title: "WildLife AI",
@@ -73,17 +73,17 @@ const hardwareProjects: HardwareProject[] = [
     year: 2026,
     url: "/projects/mindful-drive-pro",
   },
-  {
-    slug: "iot-env-monitor",
-    title: "IoT Soil Moisture Monitor",
-    summary:
-      "A real-time soil moisture monitoring system built with XIAO ESP32 and a capacitive soil moisture sensor, featuring a Next.js dashboard for live data visualization.",
-    platform: "XIAO ESP32",
-    status: "completed",
-    tags: ["IoT", "ESP32", "Next.js"],
-    year: 2026,
-    url: "https://www.hackster.io/gavindu911/diy-soil-moisture-sensor-6546da",
-  },
+  // {
+  //   slug: "iot-env-monitor",
+  //   title: "IoT Soil Moisture Monitor",
+  //   summary:
+  //     "A real-time soil moisture monitoring system built with XIAO ESP32 and a capacitive soil moisture sensor, featuring a Next.js dashboard for live data visualization.",
+  //   platform: "XIAO ESP32",
+  //   status: "completed",
+  //   tags: ["IoT", "ESP32", "Next.js"],
+  //   year: 2026,
+  //   url: "https://www.hackster.io/gavindu911/diy-soil-moisture-sensor-6546da",
+  // },
 ];
 
 export default hardwareProjects;
