@@ -2,7 +2,7 @@
 
 import { motion, type Variants } from "framer-motion";
 import { useState } from "react";
-import { Code, Cpu, Terminal, Layers } from "lucide-react";
+import { Code, Cpu, Terminal, Layers, ChevronDown, ChevronUp } from "lucide-react";
 import projects from "../data/projectlist";
 import hardwareProjects from "../data/hardwareprojects";
 import linuxApps from "../data/linuxapps";
@@ -47,6 +47,31 @@ const itemVariants: Variants = {
 
 export default function AllProjects() {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>("all");
+  const [showAllWeb, setShowAllWeb] = useState(false);
+  const [showAllHardware, setShowAllHardware] = useState(false);
+  const [showAllLinux, setShowAllLinux] = useState(false);
+
+  const ExpandButton = ({
+    expanded,
+    onClick,
+  }: {
+    expanded: boolean;
+    onClick: () => void;
+  }) => (
+    <button
+      type="button"
+      onClick={onClick}
+      className="mx-auto mt-6 flex items-center gap-2 border-b border-neutral-700 pb-1 font-mono text-[10px] uppercase tracking-[0.14em] text-neutral-400 transition-colors hover:border-[#4fda8e] hover:text-[#4fda8e]"
+      aria-expanded={expanded}
+    >
+      <span>{expanded ? "Show less" : "Show more"}</span>
+      {expanded ? (
+        <ChevronUp className="h-3.5 w-3.5" />
+      ) : (
+        <ChevronDown className="h-3.5 w-3.5" />
+      )}
+    </button>
+  );
 
   const categories: CategoryTab[] = [
     {
@@ -69,7 +94,7 @@ export default function AllProjects() {
     },
     {
       id: "linux",
-      label: "Linux CLI",
+      label: "Linux Apps",
       icon: Terminal,
       count: linuxApps.length,
     },
@@ -106,7 +131,7 @@ export default function AllProjects() {
           className="mb-8 grid gap-3 md:grid-cols-[1fr_auto] md:items-end"
         >
           <div>
-            <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.24em] text-[#4fda8e]">
+            <p className="mb-1 font-mono text-[11px] uppercase tracking-[0.15em] text-[#4fda8e]">
               03 / Projects
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-neutral-100">
@@ -127,7 +152,7 @@ export default function AllProjects() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-12"
         >
-          <div className="flex gap-1 overflow-x-auto border-b border-neutral-800">
+          <div className="flex gap-1  border-b border-neutral-800">
             {categories.map((category) => {
               const Icon = category.icon;
               const isActive = activeCategory === category.id;
@@ -198,7 +223,7 @@ export default function AllProjects() {
                 variants={containerVariants}
                 className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
               >
-                {filtered.web.map((project) => (
+                {(showAllWeb ? filtered.web : filtered.web.slice(0, 3)).map((project) => (
                   <motion.div key={project.slug} variants={itemVariants}>
                     <Card
                       title={project.title}
@@ -213,6 +238,12 @@ export default function AllProjects() {
                   </motion.div>
                 ))}
               </motion.div>
+              {filtered.web.length > 3 && (
+                <ExpandButton
+                  expanded={showAllWeb}
+                  onClick={() => setShowAllWeb((current) => !current)}
+                />
+              )}
             </div>
           )}
 
@@ -237,12 +268,21 @@ export default function AllProjects() {
                 variants={containerVariants}
                 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-6"
               >
-                {filtered.hardware.map((project) => (
+                {(showAllHardware
+                  ? filtered.hardware
+                  : filtered.hardware.slice(0, 3)
+                ).map((project) => (
                   <motion.div key={project.slug} variants={itemVariants}>
                     <HardwareCard project={project} />
                   </motion.div>
                 ))}
               </motion.div>
+              {filtered.hardware.length > 3 && (
+                <ExpandButton
+                  expanded={showAllHardware}
+                  onClick={() => setShowAllHardware((current) => !current)}
+                />
+              )}
             </div>
           )}
 
@@ -267,12 +307,21 @@ export default function AllProjects() {
                 variants={containerVariants}
                 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-6"
               >
-                {filtered.linux.map((app) => (
+                {(showAllLinux
+                  ? filtered.linux
+                  : filtered.linux.slice(0, 3)
+                ).map((app) => (
                   <motion.div key={app.slug} variants={itemVariants}>
                     <LinuxAppCard app={app} />
                   </motion.div>
                 ))}
               </motion.div>
+              {filtered.linux.length > 3 && (
+                <ExpandButton
+                  expanded={showAllLinux}
+                  onClick={() => setShowAllLinux((current) => !current)}
+                />
+              )}
             </div>
           )}
         </motion.div>
