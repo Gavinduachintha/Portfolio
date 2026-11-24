@@ -95,7 +95,7 @@ export default function AllProjects() {
     filtered.web.length + filtered.hardware.length + filtered.linux.length;
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-[#000000] to-neutral-950">
+    <section className="px-4 py-16">
       <div className="mx-auto max-w-[72rem]">
         {/* Section Header */}
         <motion.div
@@ -103,17 +103,19 @@ export default function AllProjects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-8"
+          className="mb-8 grid gap-3 md:grid-cols-[1fr_auto] md:items-end"
         >
-          <p className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">
-            Portfolio
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-neutral-100 mb-3">
-            All Projects
-          </h2>
-          <p className="text-neutral-400 text-sm max-w-2xl">
-            A collection of web applications, embedded systems, and command-line
-            tools built with modern technologies.
+          <div>
+            <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.24em] text-[#4fda8e]">
+              03 / Projects
+            </p>
+            <h2 className="text-3xl font-semibold tracking-tight text-neutral-100">
+              Selected builds
+            </h2>
+          </div>
+          <p className="max-w-md text-sm leading-relaxed text-neutral-400 md:text-right">
+            Web applications, embedded systems, and command-line tools built to
+            solve real problems.
           </p>
         </motion.div>
 
@@ -123,9 +125,9 @@ export default function AllProjects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-10"
+          className="mb-12"
         >
-          <div className="flex flex-wrap gap-3">
+          <div className="flex gap-1 overflow-x-auto border-b border-neutral-800">
             {categories.map((category) => {
               const Icon = category.icon;
               const isActive = activeCategory === category.id;
@@ -134,45 +136,25 @@ export default function AllProjects() {
                 <button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
-                  className={`
-                    group relative flex items-center gap-2.5 px-5 py-3 rounded-xl
-                    border transition-all duration-300 font-medium text-sm
-                    ${
-                      isActive
-                        ? "bg-[#4fda8e]/10 border-[#4fda8e]/50 text-[#4fda8e] shadow-lg shadow-[#4fda8e]/10"
-                        : "bg-neutral-900/50 border-neutral-800 text-neutral-400 hover:border-neutral-700 hover:bg-neutral-900 hover:text-neutral-300"
-                    }
-                  `}
+                  className={`group relative flex shrink-0 items-center gap-2 px-4 py-3 font-mono text-[11px] uppercase tracking-[0.12em] transition-colors ${
+                    isActive
+                      ? "text-neutral-100"
+                      : "text-neutral-500 hover:text-neutral-300"
+                  }`}
                 >
-                  {/* Icon */}
                   <Icon
-                    className={`w-4 h-4 transition-transform duration-300 ${
-                      isActive ? "scale-110" : "group-hover:scale-105"
+                    className={`h-3.5 w-3.5 ${
+                      isActive ? "text-[#4fda8e]" : ""
                     }`}
                   />
-
-                  {/* Label */}
                   <span>{category.label}</span>
-
-                  {/* Count Badge */}
-                  <span
-                    className={`
-                    px-2 py-0.5 rounded-full text-xs font-mono transition-colors
-                    ${
-                      isActive
-                        ? "bg-[#4fda8e]/20 text-[#4fda8e]"
-                        : "bg-neutral-800 text-neutral-500 group-hover:bg-neutral-700"
-                    }
-                  `}
-                  >
+                  <span className="text-[10px] text-neutral-600">
                     {category.count}
                   </span>
-
-                  {/* Active Indicator Line */}
                   {isActive && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-[#4fda8e] rounded-full"
+                      className="absolute -bottom-px left-0 right-0 h-px bg-[#4fda8e]"
                       transition={{
                         type: "spring",
                         stiffness: 500,
@@ -185,15 +167,6 @@ export default function AllProjects() {
             })}
           </div>
 
-          {/* Project Count */}
-          <motion.p
-            key={activeCategory}
-            initial={{ opacity: 0, y: -5 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-4 text-xs font-mono text-neutral-600"
-          >
-            Showing {totalCount} project{totalCount !== 1 ? "s" : ""}
-          </motion.p>
         </motion.div>
 
         {/* Projects Grid */}
@@ -223,7 +196,7 @@ export default function AllProjects() {
               )}
               <motion.div
                 variants={containerVariants}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-6"
+                className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
               >
                 {filtered.web.map((project) => (
                   <motion.div key={project.slug} variants={itemVariants}>

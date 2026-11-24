@@ -31,7 +31,7 @@ export default function LinuxAppCard({ app }: LinuxAppCardProps) {
   const status = statusConfig[app.status];
 
   const cardBody = (
-    <div className="flex flex-col flex-1 p-5 gap-3">
+    <div className="flex flex-col flex-1 p-4 gap-3">
       {/* Meta row: title + platform chip */}
       <div className="flex items-center justify-between gap-3 pb-2 border-b border-neutral-800">
         <span className="text-xs font-mono uppercase tracking-[0.18em] text-neutral-500 truncate">
