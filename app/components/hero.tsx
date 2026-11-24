@@ -401,21 +401,21 @@ export default function Hero() {
           >
             <button
               type="button"
-              onClick={() => scrollToSection("hardware")}
+              onClick={() => scrollToSection("about")}
               className="group inline-flex items-center gap-2 rounded-lg border border-warning bg-warning px-4 py-2 text-sm font-semibold transition-colors duration-200 hover:border-[#cc8400] hover:bg-[#cc8400]"
               style={{ color: CTA_TEXT }}
             >
               <CircuitBoard className="w-4 h-4" />
-              Hardware builds
+              About Me
               <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
             </button>
             <button
               type="button"
-              onClick={() => scrollToSection("projects")}
+              onClick={() => scrollToSection("contact")}
               className="inline-flex items-center gap-2 rounded-lg border border-neutral-800 px-4 py-2 text-sm font-semibold text-neutral-200 transition-colors duration-200 hover:border-accent hover:text-accent"
             >
               <Terminal className="w-4 h-4" />
-              Software projects
+              Contact Me
             </button>
           </motion.div>
         </div>

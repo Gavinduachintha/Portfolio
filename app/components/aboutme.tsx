@@ -88,9 +88,14 @@ export default function AboutMe() {
                   <p className="mt-2 text-neutral-300 leading-relaxed font-sans text-lg">
                     Hi, I'm{" "}
                     <strong className="text-[#4fda8e]">Gavindu Achintha</strong>
-                    , an undergraduate student passionate about embedded systems
-                    and building solutions with Edge AI, robotics, and machine
-                    learning.
+                    , an undergraduate student passionate about{" "}
+                    <strong className="text-[#fb923c]">Embedded Systems</strong>
+                    , <strong className="text-[#38bdf8]">Edge AI</strong>,{" "}
+                    <strong className="text-[#c084fc]">Robotics</strong>, and{" "}
+                    <strong className="text-[#a3e635]">
+                      Linux Applications
+                    </strong>
+                    .
                   </p>
                 </div>
 
@@ -101,8 +106,11 @@ export default function AboutMe() {
 
                   <p className="mt-2 text-neutral-300 leading-relaxed font-sans text-lg">
                     Undergraduate student exploring{" "}
-                    <strong className="text-neutral-100">
-                      Embedded systems, AI/ML, Robotics, and Backend development
+                    <strong className="text-[#fb923c]">Embedded Systems</strong>
+                    , <strong className="text-[#38bdf8]">AI/ML</strong>,{" "}
+                    <strong className="text-[#c084fc]">Robotics</strong>, and{" "}
+                    <strong className="text-[#a3e635]">
+                      Backend Development
                     </strong>
                     .
                   </p>
@@ -155,10 +163,14 @@ export default function AboutMe() {
                 </div>
 
                 <p className="text-sm text-neutral-500">
-                  $ hobbies --include
+                  <span className="text-[#4fda8e]">$</span>{" "}
+                  <span className="text-[#a78bfa]">hobbies</span>{" "}
+                  <span className="text-neutral-400">--include</span>
                   <span className="text-neutral-300">
-                    <Gamepad className="inline w-4 h-4 mx-1" />
-                    electronics basketball, gaming{" "}
+                    <Gamepad className="inline w-4 h-4 mx-1 text-[#fb923c]" />
+                    <span className="text-[#fb923c]">electronics</span>,
+                    <span className="text-[#38bdf8]"> basketball</span>,
+                    <span className="text-[#c084fc]"> gaming</span>
                   </span>
                 </p>
               </div>

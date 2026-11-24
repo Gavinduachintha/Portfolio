@@ -4,8 +4,7 @@ import Header from "./components/header";
 import Hero from "./components/hero";
 import AboutMe from "./components/aboutme";
 import Skills from "./components/skills";
-import ProjectGrid from "./components/projectgrid";
-import HardwareShowcase from "./components/hardwareshowcase";
+import AllProjects from "./components/allprojects";
 import Articles from "./components/articles";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
@@ -25,10 +24,7 @@ export default function Home() {
           <Skills />
         </section>
         <section id="projects">
-          <ProjectGrid />
-        </section>
-        <section id="hardware">
-          <HardwareShowcase />
+          <AllProjects />
         </section>
         <section id="articles">
           <Articles />

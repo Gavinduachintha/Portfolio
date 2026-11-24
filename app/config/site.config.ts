@@ -8,7 +8,6 @@ export const siteConfig = {
     { label: "About", path: "about" },
     { label: "Skills", path: "skills" },
     { label: "Projects", path: "projects" },
-    { label: "Hardware", path: "hardware" },
     { label: "Articles", path: "articles" },
     { label: "Contact", path: "contact" },
   ],
