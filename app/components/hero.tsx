@@ -263,7 +263,7 @@ export default function Hero() {
   const fps = Math.min(30, 1000 / telemetry.latency).toFixed(1);
 
   return (
-    <section className="hero-section min-h-screen flex items-center relative overflow-hidden px-4 sm:px-6 lg:px-8 py-24 lg:py-0">
+    <section className="hero-section relative flex min-h-screen w-full max-w-full items-center overflow-x-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-0">
       {/* Grid background — outer layer handles parallax, inner handles drift */}
       <div
         className="absolute inset-0 z-0 pointer-events-none"
@@ -341,13 +341,13 @@ export default function Hero() {
               </div>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-100 leading-tight">
+            <h1 className="max-w-full text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-100 leading-tight">
               Hey I&apos;m
               <br />
               <GlitchText
                 speed={0.8}
                 enableShadows={true}
-                className="text-accent whitespace-nowrap"
+                className="text-accent whitespace-normal sm:whitespace-nowrap"
               >
                 Gavindu Achintha_
               </GlitchText>

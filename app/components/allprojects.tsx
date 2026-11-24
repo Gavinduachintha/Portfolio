@@ -152,7 +152,7 @@ export default function AllProjects() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-12"
         >
-          <div className="flex gap-1  border-b border-neutral-800">
+          <div className="flex w-full min-w-0 max-w-full gap-1 overflow-x-auto overscroll-contain border-b border-neutral-800 [-webkit-overflow-scrolling:touch]">
             {categories.map((category) => {
               const Icon = category.icon;
               const isActive = activeCategory === category.id;

@@ -86,10 +86,10 @@ export default function Header() {
   const isActive = (path: string) => activeSection === path;
 
   return (
-    <header className="fixed top-2 left-0 right-0 z-50 px-4 transition-all duration-300">
-      <div className="mx-auto max-w-[72rem]">
+    <header className="fixed inset-x-0 top-2 z-50 box-border w-[100dvw] max-w-[100dvw] px-2 sm:px-4 transition-all duration-300">
+      <div className="mx-auto w-full max-w-[72rem]">
         <div
-          className={`h-16 flex items-center justify-between px-5 rounded-2xl border transition-all duration-300 ${
+          className={`h-16 min-w-0 flex items-center justify-between px-3 sm:px-5 rounded-2xl border transition-all duration-300 ${
             scrolled
               ? "bg-neutral-950/95 backdrop-blur-xlski border-neutral-700 shadow-xl"
               : "bg-neutral-950/70 border-transparent"
@@ -98,7 +98,7 @@ export default function Header() {
           {/* Backend-style Logo */}
           <button
             onClick={() => scrollToSection("home")}
-            className="flex items-center gap-1.5 font-mono text-xl text-neutral-100 group"
+            className="flex min-w-0 items-center gap-1.5 font-mono text-lg sm:text-xl text-neutral-100 group"
           >
             <span className="text-[#4fda8e]">
               &gt;<span className="animate-pulse ">_</span>
@@ -130,7 +130,7 @@ export default function Header() {
           </nav>
 
           {/* Right Side */}
-          <div className="flex items-center gap-4">
+          <div className="flex shrink-0 items-center gap-1 sm:gap-4">
             {/* System Status */}
 
             {/* GitHub */}
@@ -138,10 +138,10 @@ export default function Header() {
               href={siteConfig.social.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 h-9 text-neutral-400 hover:text-[#4fda8e] transition-colors rounded-lg hover:bg-neutral-900"
+              className="inline-flex items-center gap-1 px-2 sm:px-3 h-9 text-neutral-400 hover:text-[#4fda8e] transition-colors rounded-lg hover:bg-neutral-900"
             >
               <LuGithub size={18} />
-              <span className="text-sm font-medium">{followers}</span>
+              <span className="hidden text-sm font-medium sm:inline">{followers}</span>
             </a>
 
             {/* LinkedIn */}
@@ -149,7 +149,7 @@ export default function Header() {
               <a
                 href={siteConfig.social.linkedin}
                 target="_blank"
-                className="group p-2 text-neutral-400 hover:text-[#ffa600] transition-colors"
+                className="group hidden sm:inline-flex p-2 text-neutral-400 hover:text-[#ffa600] transition-colors"
               >
                 <FiLinkedin
                   size={19}
@@ -163,7 +163,7 @@ export default function Header() {
               <a
                 href={siteConfig.social.hackster}
                 target="_blank"
-                className="p-2 text-neutral-400 hover:text-[#4fda8e] transition-colors"
+                className="hidden p-2 text-neutral-400 hover:text-[#4fda8e] transition-colors sm:inline-flex"
               >
                 <img
                   src={hacksterLogo}
