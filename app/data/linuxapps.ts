@@ -35,7 +35,7 @@ const linuxApps: LinuxApp[] = [
     status: "completed",
     tags: ["Bash", "Linux", "PWM", "Thermal Management"],
     year: 2026,
-    url: "https://github.com/yourusername/Flow",
+    url: "https://github.com/Gavinduachintha/Flow",
   },
   {
     slug: "Pifetch",
