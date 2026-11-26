@@ -152,7 +152,7 @@ export default function AllProjects() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-12"
         >
-          <div className="flex w-full min-w-0 max-w-full gap-1 overflow-x-auto overscroll-contain border-b border-neutral-800 [-webkit-overflow-scrolling:touch]">
+          <div className="flex w-full min-w-0 max-w-full flex-wrap gap-1 border-b border-neutral-800">
             {categories.map((category) => {
               const Icon = category.icon;
               const isActive = activeCategory === category.id;
@@ -161,7 +161,7 @@ export default function AllProjects() {
                 <button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
-                  className={`group relative flex shrink-0 items-center gap-2 px-4 py-3 font-mono text-[11px] uppercase tracking-[0.12em] transition-colors ${
+                  className={`group relative flex items-center gap-2 px-3 py-3 font-mono text-[11px] uppercase tracking-[0.12em] transition-colors sm:px-4 ${
                     isActive
                       ? "text-neutral-100"
                       : "text-neutral-500 hover:text-neutral-300"
