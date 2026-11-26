@@ -36,8 +36,9 @@ const roles = [
 const domains = [
   { icon: CircuitBoard, label: "Embedded Systems" },
   { icon: BrainCircuit, label: "Edge AI" },
-  { icon: Bot, label: "Robotics" },
   { icon: ScanEye, label: "Computer Vision" },
+  { icon: Bot, label: "Robotics" },
+  // { icon: Terminal, label: "DevOps" },
   { icon: Server, label: "Backend" },
 ];
 
@@ -50,12 +51,37 @@ type BootLine =
   | { kind: "ok"; text: string; delay: number };
 
 const bootLog: BootLine[] = [
-  { kind: "log", tag: "boot", text: "Raspberry Pi 5  arm64  4x Cortex-A76 @ 2.4GHz", delay: 0 },
-  { kind: "log", tag: "cam", text: "/dev/video0  1280x720 @ 30fps", delay: 260 },
-  { kind: "log", tag: "model", text: "yolov8n.onnx loaded  size=12.2MB  warmup=412ms", delay: 520 },
-  { kind: "log", tag: "lora", text: "SX1278  433MHz  sf=7  bw=125kHz  rssi=-91dBm", delay: 240 },
+  {
+    kind: "log",
+    tag: "boot",
+    text: "Raspberry Pi 5  arm64  4x Cortex-A76 @ 2.4GHz",
+    delay: 0,
+  },
+  {
+    kind: "log",
+    tag: "cam",
+    text: "/dev/video0  1280x720 @ 30fps",
+    delay: 260,
+  },
+  {
+    kind: "log",
+    tag: "model",
+    text: "yolov8n.onnx loaded  size=12.2MB  warmup=412ms",
+    delay: 520,
+  },
+  {
+    kind: "log",
+    tag: "lora",
+    text: "SX1278  433MHz  sf=7  bw=125kHz  rssi=-91dBm",
+    delay: 240,
+  },
   { kind: "log", tag: "gps", text: "fix=3D  sats=11  hdop=0.9", delay: 200 },
-  { kind: "log", tag: "api", text: "POST https://gavindu.dev/api/telemetry  201 Created", delay: 340 },
+  {
+    kind: "log",
+    tag: "api",
+    text: "POST https://gavindu.dev/api/telemetry  201 Created",
+    delay: 340,
+  },
   { kind: "ok", text: "edge node online — streaming inference", delay: 300 },
 ];
 
@@ -95,7 +121,10 @@ function highlight(text: string): ReactNode[] {
 
     if (/^https?:\/\//.test(part)) {
       return (
-        <span key={i} className="text-[#38bdf8] underline decoration-[#38bdf8]/40">
+        <span
+          key={i}
+          className="text-[#38bdf8] underline decoration-[#38bdf8]/40"
+        >
           {part}
         </span>
       );
@@ -263,7 +292,7 @@ export default function Hero() {
   const fps = Math.min(30, 1000 / telemetry.latency).toFixed(1);
 
   return (
-    <section className="hero-section relative flex min-h-screen w-full max-w-full items-center overflow-x-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-0">
+    <section className="hero-section relative flex min-h-screen w-full max-w-full items-center overflow-hidden px-4 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-28 lg:px-8 lg:py-0">
       {/* Grid background — outer layer handles parallax, inner handles drift */}
       <div
         className="absolute inset-0 z-0 pointer-events-none"
