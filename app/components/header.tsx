@@ -186,7 +186,7 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       <div
-        className={`md:hidden px-4 pb-4 transition-all duration-300 ${
+        className={`absolute left-2 right-2 top-[72px] md:hidden px-0 pb-4 transition-all duration-300 ${
           open
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-3 pointer-events-none"
