@@ -83,36 +83,21 @@ export default function AboutMe() {
               {/* Logs */}
               <div className="space-y-8 font-mono">
                 <div>
-                  <p className="text-[#4fda8e] text-sm">$ whoami</p>
+                  <p className="text-[#4fda8e] text-sm">$ whoami && cat engineer.profile</p>
 
-                  <p className="mt-2 text-neutral-300 leading-relaxed font-sans text-lg">
-                    Hi, I'm{" "}
-                    <strong className="text-[#4fda8e]">Gavindu Achintha</strong>
-                    , an undergraduate student passionate about{" "}
-                    <strong className="text-[#fb923c]">Embedded Systems</strong>
-                    , <strong className="text-[#38bdf8]">Edge AI</strong>,{" "}
-                    <strong className="text-[#c084fc]">Robotics</strong>, and{" "}
-                    <strong className="text-[#a3e635]">
-                      Linux Applications
-                    </strong>
-                    .
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-[#4fda8e] text-sm">
-                    $ cat engineer.profile
-                  </p>
-
-                  <p className="mt-2 text-neutral-300 leading-relaxed font-sans text-lg">
-                    Undergraduate student exploring{" "}
-                    <strong className="text-[#fb923c]">Embedded Systems</strong>
-                    , <strong className="text-[#38bdf8]">AI/ML</strong>,{" "}
-                    <strong className="text-[#c084fc]">Robotics</strong>, and{" "}
-                    <strong className="text-[#a3e635]">
-                      Backend Development
-                    </strong>
-                    .
+                  <p className="mt-3 text-neutral-300 leading-8 font-sans text-lg">
+                    Hi, I&apos;m{" "}
+                    <strong className="font-semibold text-[#4fda8e]">Gavindu Achintha</strong>
+                    , an Applied Electronics undergraduate working across{" "}
+                    <strong className="font-medium text-[#fb923c]">Embedded Systems</strong>
+                    ,{" "}
+                    <strong className="font-medium text-[#38bdf8]">Edge AI</strong>
+                    ,{" "}
+                    <strong className="font-medium text-[#c084fc]">Robotics</strong>
+                    ,{" "}
+                    <strong className="font-medium text-[#a3e635]">Linux Applications</strong>
+                    , and{" "}
+                    <strong className="font-medium text-[#4fda8e]">Backend Development</strong>.
                   </p>
                 </div>
 
