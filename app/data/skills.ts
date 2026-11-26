@@ -13,7 +13,7 @@ const layers: Layer[] = [
   {
     label: "Design & Prototyping",
     note: "boards, enclosures & physical systems",
-    items: ["PCB Designing", "3D Designing", "KiCad", "Fusion 360"],
+    items: ["PCB Designing", "3D Designing", "KiCad", "Fusion 360", "SolidCraft"],
   },
   {
     label: "AI / ML",
